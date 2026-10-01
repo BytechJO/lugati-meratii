@@ -1,15 +1,6 @@
-import {
-  ArrowRight,
-  ArrowLeft,
-  Volume2,
-  Pencil,
-  MapPin,
-  Palette,
-  Gamepad2,
-} from "lucide-react";
+import { ArrowRight, ArrowLeft } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { ActivityFooter } from "./ActivityFooter";
-import tigerImg from "../assets/game_tiger.svg";
 import { useParams, useNavigate } from "react-router-dom";
 import api from "../API/axios";
 import { useEffect, useState, useRef } from "react";
@@ -21,20 +12,37 @@ import wordCatch from "../assets/wordCatch.png";
 import sortWord from "../assets/wordMatch.png";
 import wordMatch from "../assets/sorting.png";
 import balloon from "../assets/balloon2.png";
-import abc from "../assets/abc.svg";
 import background from "../assets/background-learnLetter.svg";
-import { lettersComp } from "../data/lettersComp";
+import emptyTigerImg from "../assets/tiger_dashborad.svg";
 import book from "../assets/book.svg";
 import game_icon from "../assets/game_icon.svg";
 import { letterCards } from "../data/letterCards";
 import game_button from "../assets/game_botton.svg";
 import { AppHeader } from "./AppHeader";
+import { SplashScreen } from "./SplashScreen";
 interface GamesSectionProps {
   // onLetterClick: (letter: string, letterName: string) => void;
   onLogout: () => void;
 }
 
 const GAMES_PER_PAGE = 2;
+
+const pillBase: React.CSSProperties = {
+  height: 58,
+  padding: "0 28px",
+  borderRadius: 9999,
+  border: "none",
+  cursor: "pointer",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  gap: 10,
+  fontFamily: "tajawal",
+  fontWeight: 700,
+  fontSize: 18,
+  whiteSpace: "nowrap",
+  boxShadow: "0 6px 14px rgba(0,0,0,0.18)",
+};
 
 export function GamesSection({ onLogout }: GamesSectionProps) {
   const { letter } = useParams();
@@ -55,6 +63,9 @@ export function GamesSection({ onLogout }: GamesSectionProps) {
   const [page, setPage] = useState(0);
   const currentLetterCard =
     letterCards.find((l) => l.letter === letter) || letterCards[0];
+
+  // ✅ الأستاذ: بس بتتغير الرسالة وبيختفي زر "التالي" بشاشة "ما في ألعاب"
+  const isTeacher = user?.type === "teacher";
 
   const games = [
     {
@@ -110,19 +121,32 @@ export function GamesSection({ onLogout }: GamesSectionProps) {
 
   useEffect(() => {
     if (!letterId) return;
+
+    let cancelled = false;
+
     const fetchGames = async () => {
       try {
+        setLoadingGames(true);
+
         const res = await api.get(`/lessons/game-lesson/${letterId}/letter-id`);
-        const gameTypes = res.data.data.map((g: any) => g.game_type);
-        setAvailableGames(gameTypes);
+        const list = Array.isArray(res.data?.data) ? res.data.data : [];
+        const gameTypes = list.map((g: any) => g.game_type);
+
+        if (!cancelled) setAvailableGames(gameTypes);
       } catch (error) {
         console.error("Error fetching games:", error);
+        // ✅ فشل الطلب (مثلاً 404 لما ما في ألعاب) = نفس حالة "ما في ألعاب"
+        if (!cancelled) setAvailableGames([]);
       } finally {
-        setLoadingGames(false);
+        if (!cancelled) setLoadingGames(false);
       }
     };
 
     fetchGames();
+
+    return () => {
+      cancelled = true;
+    };
   }, [letterId]);
 
   useEffect(() => {
@@ -185,6 +209,132 @@ export function GamesSection({ onLogout }: GamesSectionProps) {
     setShowCompleteModal(false);
   };
 
+  /* ---------- Render Guards ---------- */
+
+  // ✅ الحرف مو موجود أصلاً بعد ما انحملت الحروف
+  // (بدون هالشرط كان الـ loadingGames يضل true للأبد لأنو طلب الألعاب ما بينبعت)
+  const letterNotFound = letters.length > 0 && !letterId;
+
+  // ✅ لسا عم يحمّل (الحروف أو الألعاب)
+  if (!letterNotFound && (loadingGames || !letterId)) {
+    return <SplashScreen onComplete={() => {}} />;
+  }
+
+  // ✅ خلص التحميل وما في ولا لعبة معروفة لهاد الحرف (أو الحرف نفسه مو موجود)
+  const hasNoGames =
+    letterNotFound || !games.some((g) => availableGames.includes(g.id));
+
+  if (hasNoGames) {
+    return (
+      <div className="h-screen relative pb-24 overflow-hidden" dir="rtl">
+        <div
+          className="fixed inset-0"
+          style={{
+            backgroundImage: `url("${background}")`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        ></div>
+
+        <div className="relative top-0 w-full">
+          <AppHeader
+            showUserInfo={false}
+            onLogout={onLogout}
+            onBack={() => navigate(`/letter/${letter}`)}
+            title={`  ألعاب حرف ال${currentLetterFromRedux?.name ?? ""}`}
+            showLogout={false}
+            showBackButton={true}
+            showHome={false}
+            fontTtile={30}
+          />
+        </div>
+
+        <div className="relative z-10 flex items-center justify-center px-6 h-[60%]">
+          <motion.div
+            className="bg-white text-center w-full flex flex-col items-center"
+            style={{
+              maxWidth: 480,
+              borderRadius: 24,
+              padding: "32px 24px",
+              gap: 12,
+              boxShadow: "0 16px 32px rgba(40, 52, 95, 0.1)",
+            }}
+            initial={{ scale: 0.9, opacity: 0, y: 20 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            transition={{ type: "spring", stiffness: 200 }}
+          >
+            <img
+              src={emptyTigerImg}
+              alt=""
+              style={{ height: 120, width: "auto", objectFit: "contain" }}
+            />
+
+            <h2
+              style={{
+                margin: 0,
+                color: "#28345F",
+                fontFamily: "tajawal",
+                fontWeight: 700,
+                fontSize: 24,
+              }}
+            >
+              لا توجد ألعاب لهذا الحرف حالياً
+            </h2>
+
+            <p
+              style={{
+                margin: 0,
+                color: "#7B7B7B",
+                fontFamily: "tajawal",
+                fontWeight: 500,
+                fontSize: 16,
+              }}
+            >
+              {isTeacher
+                ? "لم يتم إضافة ألعاب لهذا الحرف بعد."
+                : "ما في ألعاب لهاد الحرف حالياً، فيك ترجع لصفحة الحرف."}
+            </p>
+
+            <div
+              className="flex gap-3 justify-center flex-wrap"
+              style={{ marginTop: 12 }}
+            >
+              <button
+                onClick={() => navigate(`/letter/${letter}`)}
+                style={{
+                  ...pillBase,
+                  color: "#652B82",
+                  background: "#F3EEFA",
+                  boxShadow: "none",
+                }}
+              >
+                رجوع
+              </button>
+
+              {/* الطالب بس: ما بيضل عالق، الألعاب آخر نشاط فبيكمل لصفحة الحروف */}
+              {!isTeacher && (
+                <button
+                  onClick={() => navigate("/letters")} // ← غيّره للمسار الفعلي
+                  style={{
+                    ...pillBase,
+                    color: "#ffffff",
+                    background:
+                      "linear-gradient(90deg, #D08FF7 0%, #652B82 100%)",
+                  }}
+                >
+                  التالي
+                </button>
+              )}
+            </div>
+          </motion.div>
+        </div>
+
+        <ActivityFooter currentLetter={currentLetter} letterName={letterName} />
+      </div>
+    );
+  }
+
   return (
     <div className="relative overflow-hidden" dir="rtl">
       {/* خلفية متدرجة */}
@@ -210,7 +360,7 @@ export function GamesSection({ onLogout }: GamesSectionProps) {
           fontTtile={30}
         />
       </div>
-      {/*زر الرجوع للخلف العائم في الاعلى  */}
+      {/* صورة الحرف العائمة في الأعلى */}
       <motion.div
         className="fixed"
         style={{
@@ -221,10 +371,7 @@ export function GamesSection({ onLogout }: GamesSectionProps) {
           rotate: "18deg",
           opacity: "0.3",
         }}
-        // animate={{ rotate: [0, 15, -15, 0], scale: [1, 1.1, 1] }}
-        // transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
       >
-        {/* ★ */}
         <img
           src={currentLetterCard.image}
           style={{ height: "380px", width: "auto" }}
@@ -299,7 +446,6 @@ export function GamesSection({ onLogout }: GamesSectionProps) {
                             )
                           }
                           className="rounded-[32px] text-right relative overflow-hidden disabled:opacity-50"
-                          // style={{ backgroundColor: "#F3ECF8" }}
                         >
                           {/* شارة ابدأ اللعب */}
                           <motion.div
@@ -311,7 +457,16 @@ export function GamesSection({ onLogout }: GamesSectionProps) {
                               justifyContent: "space-between",
                             }}
                           >
-                            <motion.p className="z-10 font-tajawal" style={{color:"#6D2181", fontSize:"30px" ,fontWeight:"bold"}}>{game.title}</motion.p>
+                            <motion.p
+                              className="z-10 font-tajawal"
+                              style={{
+                                color: "#6D2181",
+                                fontSize: "30px",
+                                fontWeight: "bold",
+                              }}
+                            >
+                              {game.title}
+                            </motion.p>
                             <motion.div
                               className="inline-flex items-center gap-2 rounded-full mb-3 z-10"
                               initial={{ opacity: 0, y: 20 }}
@@ -331,15 +486,7 @@ export function GamesSection({ onLogout }: GamesSectionProps) {
                             </motion.div>
                           </motion.div>
                           {/* معاينة اللعبة */}
-                          <div
-                            className="relative rounded-3xl overflow-hidden flex items-center justify-center"
-                            style={
-                              {
-                                // backgroundColor: game.iconBgColor,
-                                // height: "170px",
-                              }
-                            }
-                          >
+                          <div className="relative rounded-3xl overflow-hidden flex items-center justify-center">
                             <img
                               src={game.icon}
                               style={{

@@ -1,4 +1,4 @@
-import { ArrowRight, Play, X } from "lucide-react";
+import { Play, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { ActivityFooter } from "./ActivityFooter";
 import { useState, useRef, useEffect } from "react";
@@ -15,8 +15,7 @@ import { upsertUserProgress } from "../API/userProgress";
 import videoVector from "../assets/vector_video.svg";
 import { SplashScreen } from "./SplashScreen";
 import background from "../assets/background-learnLetter.svg";
-import { lettersComp } from "../data/lettersComp";
-import book from "../assets/book.svg";
+import tigerImg from "../assets/tiger_dashborad.svg";
 import { letterCards } from "../data/letterCards";
 
 import { AppHeader } from "./AppHeader";
@@ -25,6 +24,24 @@ interface VideosSectionProps {
   // onLetterClick: (letter: string, letterName: string) => void;
   onLogout: () => void;
 }
+
+const pillBase: React.CSSProperties = {
+  height: 58,
+  padding: "0 28px",
+  borderRadius: 9999,
+  border: "none",
+  cursor: "pointer",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  gap: 10,
+  fontFamily: "tajawal",
+  fontWeight: 700,
+  fontSize: 18,
+  whiteSpace: "nowrap",
+  boxShadow: "0 6px 14px rgba(0,0,0,0.18)",
+};
+
 // لينك الفيديو: إذا الباك اند بعت حقل جديد (مثلاً video_url) بياخده،
 // وإلا بيرجع لـ youtube_url القديم
 const getVideoSrc = (v: any): string => v?.video_url || v?.youtube_url || "";
@@ -155,10 +172,13 @@ export function VideosSection({ onLogout }: VideosSectionProps) {
     src: string;
     title?: string;
   } | null>(null);
+  // ✅ id الحرف اللي خلص طلب فيديوهاته (نجح أو فشل): بيفرّق بين "لسا ما انطلب" و"انطلب وفاضي"
+  const [fetchedLetterId, setFetchedLetterId] = useState<any>(null);
   const navigate = useNavigate();
   const { letter } = useParams();
   const progressSavedRef = useRef(false);
   const dispatch = useDispatch<AppDispatch>();
+  const user = useSelector((state: RootState) => state.auth.user);
   const { letters } = useSelector((state: RootState) => state.letters);
   const currentLetterFromRedux = letters.find((l) => l.symbol === letter);
   const letterId = currentLetterFromRedux?.id;
@@ -168,6 +188,10 @@ export function VideosSection({ onLogout }: VideosSectionProps) {
   const propLetter = letter;
   const currentLetterCard =
     letterCards.find((l) => l.letter === letter) || letterCards[0];
+
+  // ✅ وضع الأستاذ: بدون حفظ تقدم، وبدون زر "التالي" بشاشة "ما في فيديوهات"
+  // عدّل الشرط حسب اسم الحقل/القيمة الفعلية عندك في الـ user
+  const isTeacher = user?.roleId === 3;
 
   useEffect(() => {
     const handleResize = () => {
@@ -187,24 +211,41 @@ export function VideosSection({ onLogout }: VideosSectionProps) {
   }, []);
 
   useEffect(() => {
-    dispatch(fetchLetters());
-  }, [dispatch]);
+    if (!letters.length) {
+      dispatch(fetchLetters());
+    }
+  }, [dispatch, letters.length]);
 
   useEffect(() => {
     if (!letterId) return;
 
+    let cancelled = false;
+
+    setFetchedLetterId(null);
+    progressSavedRef.current = false;
+    setCurrentPage(0);
     dispatch(clearVideo());
 
-    dispatch(
-      fetchVideoLesson({
-        letterId,
-        lessonId: 4,
-      }),
-    );
+    // ✅ نعتبر الطلب خلص سواء نجح أو فشل (مثلاً 404 لما ما في فيديوهات)
+    Promise.resolve(
+      dispatch(
+        fetchVideoLesson({
+          letterId,
+          lessonId: 4,
+        }),
+      ),
+    ).finally(() => {
+      if (!cancelled) setFetchedLetterId(letterId);
+    });
+
+    return () => {
+      cancelled = true;
+    };
   }, [letterId, dispatch]);
 
   useEffect(() => {
     const saveProgress = async () => {
+      if (isTeacher) return; // الأستاذ ما بيتسجل له تقدم
       if (!video || video.length === 0) return;
       if (!letterId) return;
       if (progressSavedRef.current) return;
@@ -221,17 +262,130 @@ export function VideosSection({ onLogout }: VideosSectionProps) {
     };
 
     saveProgress();
-  }, [video, letterId, dispatch]);
+  }, [video, letterId, isTeacher]);
 
   const closeModal = () => setActiveVideo(null);
 
-  if (loading) {
+  // ✅ الحرف مو موجود أصلاً بعد ما انحملت الحروف
+  const letterNotFound = letters.length > 0 && !letterId;
+
+  // ✅ خلص تحميل الفيديوهات لهاد الحرف
+  const videosReady = !!letterId && fetchedLetterId === letterId && !loading;
+
+  // ✅ خلص التحميل وما في فيديوهات (أو الحرف نفسه مو موجود)
+  const hasNoVideos =
+    letterNotFound ||
+    (videosReady && (!Array.isArray(video) || video.length === 0));
+
+  // ✅ لسا عم يحمّل (الحروف أو الفيديوهات)
+  if (!hasNoVideos && !videosReady) {
     return <SplashScreen onComplete={() => {}} />;
   }
-  if (!video || video.length === 0) {
+
+  if (hasNoVideos) {
     return (
-      <div className="flex justify-center items-center min-h-screen">
-        <p className="text-gray-500">لا يوجد فيديو لهذا الدرس</p>
+      <div className="h-screen relative pb-24 overflow-hidden" dir="rtl">
+        <div
+          className="fixed inset-0"
+          style={{
+            backgroundImage: `url("${background}")`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        ></div>
+
+        <div className="relative top-0 w-full">
+          <AppHeader
+            showUserInfo={false}
+            onLogout={onLogout}
+            onBack={() => navigate(`/letter/${letter}`)}
+            title={`  فيديوهات حرف ال${currentLetterFromRedux?.name ?? ""}`}
+            showLogout={false}
+            showBackButton={true}
+            showHome={false}
+            fontTtile={30}
+          />
+        </div>
+
+        <div className="relative z-10 flex items-center justify-center px-6 h-[60%]">
+          <motion.div
+            className="bg-white text-center w-full flex flex-col items-center"
+            style={{
+              maxWidth: 480,
+              borderRadius: 24,
+              padding: "32px 24px",
+              gap: 12,
+              boxShadow: "0 16px 32px rgba(40, 52, 95, 0.1)",
+            }}
+            initial={{ scale: 0.9, opacity: 0, y: 20 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            transition={{ type: "spring", stiffness: 200 }}
+          >
+            <img
+              src={tigerImg}
+              alt=""
+              style={{ height: 120, width: "auto", objectFit: "contain" }}
+            />
+
+            <h2
+              style={{
+                color: "#28345F",
+                fontFamily: "tajawal",
+                fontWeight: 700,
+                fontSize: 24,
+              }}
+            >
+              لا توجد فيديوهات لهذا الحرف حالياً
+            </h2>
+
+            <p
+              style={{
+                color: "#7B7B7B",
+                fontFamily: "tajawal",
+                fontWeight: 500,
+                fontSize: 16,
+              }}
+            >
+              {isTeacher
+                ? "لم يتم إضافة فيديوهات لهذا الحرف بعد."
+                : "ما في فيديوهات لهاد الحرف حالياً، فيك ترجع لصفحة الحرف."}
+            </p>
+
+            <div
+              className="flex gap-3 justify-center flex-wrap"
+              style={{ marginTop: 12 }}
+            >
+              <button
+                onClick={() => navigate(`/letter/${letter}`)}
+                style={{
+                  ...pillBase,
+                  color: "#652B82",
+                  background: "#F3EEFA",
+                  boxShadow: "none",
+                }}
+              >
+                رجوع
+              </button>
+
+              {/* الطالب بس: ما بيضل عالق */}
+              {!isTeacher && (
+                <button
+                  onClick={() => navigate(`/letter/${letter}`)} // ← غيّره للنشاط/الصفحة التالية الفعلية
+                  style={{
+                    ...pillBase,
+                    color: "#ffffff",
+                    background:
+                      "linear-gradient(90deg, #D08FF7 0%, #652B82 100%)",
+                  }}
+                >
+                  التالي
+                </button>
+              )}
+            </div>
+          </motion.div>
+        </div>
+
         <ActivityFooter
           currentLetter={propLetter}
           letterName={currentLetterFromRedux?.name}
@@ -273,7 +427,7 @@ export function VideosSection({ onLogout }: VideosSectionProps) {
           fontTtile={30}
         />
       </div>
-         {/*زر الرجوع للخلف العائم في الاعلى  */}
+      {/* صورة الحرف العائمة في الأعلى */}
       <motion.div
         className="fixed"
         style={{
@@ -284,25 +438,17 @@ export function VideosSection({ onLogout }: VideosSectionProps) {
           rotate: "18deg",
           opacity: "0.3",
         }}
-        // animate={{ rotate: [0, 15, -15, 0], scale: [1, 1.1, 1] }}
-        // transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
       >
-        {/* ★ */}
         <img
           src={currentLetterCard.image}
           style={{ height: "380px", width: "auto" }}
         />
       </motion.div>
-      {/* دوائر زخرفية */}
-   
-      <div
-        className="relative z-10 flex flex-col gap-10"
-        
-      >
+
+      <div className="relative z-10 flex flex-col gap-10">
         {/* المحتوى الرئيسي */}
         <div className="flex items-center justify-center ">
           <div className="flex flex-col gap-6" style={{ width: "80%" }}>
-
             <div>
               <motion.div
                 className="text-center mb-6 flex items-start"
@@ -367,7 +513,10 @@ export function VideosSection({ onLogout }: VideosSectionProps) {
                             <div className="flex items-center justify-center h-56">
                               <div
                                 className="flex h-20 w-20 items-center justify-center rounded-full shadow-lg"
-                                style={{ background: "linear-gradient(90deg, #FFE29A 0%, #F7A824 100%)" }}
+                                style={{
+                                  background:
+                                    "linear-gradient(90deg, #FFE29A 0%, #F7A824 100%)",
+                                }}
                               >
                                 <Play
                                   size={36}

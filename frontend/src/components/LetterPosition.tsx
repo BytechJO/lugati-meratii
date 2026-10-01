@@ -44,6 +44,16 @@ const pillBase: React.CSSProperties = {
   whiteSpace: "nowrap",
   boxShadow: "0 6px 14px rgba(0,0,0,0.18)",
 };
+
+// ✅ parse آمن: إذا نص السؤال مو JSON صحيح ما بيكسر الصفحة
+const safeParseQuestion = (text: any): { word?: string } => {
+  try {
+    return JSON.parse(text) ?? {};
+  } catch {
+    return {};
+  }
+};
+
 export function LetterPosition({ onLogout }: LetterPositionProps) {
   const [score, setScore] = useState(0);
   const [totalScore, setTotalScore] = useState(0);
@@ -81,7 +91,7 @@ export function LetterPosition({ onLogout }: LetterPositionProps) {
   // ✅ وضع الأستاذ: تنقل فقط بين الكلمات، بدون لعب أو إجابات أو حفظ تقدم
   // عدّل الشرط حسب اسم الحقل/القيمة الفعلية عندك في الـ user
   const isTeacher = user?.roleId === 3;
-  console.log("isTeacher", isTeacher);
+
   useEffect(() => {
     if (!letters.length) {
       dispatch(fetchLetters());
@@ -110,13 +120,17 @@ export function LetterPosition({ onLogout }: LetterPositionProps) {
       try {
         setLoading(true);
         const data = await getLetterPositionQuestions(letterId, 12);
-        setQuestions(data);
+        // ✅ إذا الرد مو مصفوفة (null / undefined) نعتبره ما في أسئلة
+        setQuestions(Array.isArray(data) ? data : []);
         setCurrentQuestion(0);
         setScore(0);
         setIsFinished(false); // ✅ أسئلة جديدة = نبدأ من جديد
         finishedRef.current = null;
       } catch (error) {
         console.error("Error fetching questions", error);
+        // ✅ فشل الطلب (مثلاً 404 لما ما في أسئلة) = نفس حالة "ما في أسئلة"
+        setQuestions([]);
+        setCurrentQuestion(0);
       } finally {
         setLoading(false);
       }
@@ -140,12 +154,133 @@ export function LetterPosition({ onLogout }: LetterPositionProps) {
     );
   }
 
-  if (!questions.length || !questions[currentQuestion]) {
+  // ✅ الحرف مو موجود أصلاً بعد ما انحملت الحروف
+  const letterNotFound = letters.length > 0 && !letterId;
+
+  // ✅ خلص التحميل وما في أسئلة لهاد الحرف (أو الحرف نفسه مو موجود)
+  const hasNoQuestions =
+    letterNotFound ||
+    (!loading && (!questions.length || !questions[currentQuestion]));
+
+  if (hasNoQuestions) {
+    return (
+      <div className="h-screen relative pb-24 overflow-hidden" dir="rtl">
+        <div
+          className="fixed inset-0"
+          style={{
+            backgroundImage: `url("${background}")`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        ></div>
+
+        <div className="relative top-0 w-full">
+          <AppHeader
+            showUserInfo={false}
+            onLogout={onLogout}
+            onBack={() => navigate(`/letter/${symbol}`)}
+            title={` حدد مكان حرف ال${currentLetterFromRedux?.name ?? ""}`}
+            showLogout={false}
+            showBackButton={true}
+            showHome={false}
+            fontTtile={30}
+          />
+        </div>
+
+        <div className="relative z-10 flex items-center justify-center px-6 h-[60%]">
+          <motion.div
+            className="bg-white text-center w-full flex flex-col items-center"
+            style={{
+              maxWidth: 480,
+              borderRadius: 24,
+              padding: "32px 24px",
+              gap: 12,
+              boxShadow: "0 16px 32px rgba(40, 52, 95, 0.1)",
+            }}
+            initial={{ scale: 0.9, opacity: 0, y: 20 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            transition={{ type: "spring", stiffness: 200 }}
+          >
+            <img
+              src={tigerImg}
+              alt=""
+              style={{ height: 120, width: "auto", objectFit: "contain" }}
+            />
+
+            <h2
+              style={{
+                color: "#28345F",
+                fontFamily: "tajawal",
+                fontWeight: 700,
+                fontSize: 24,
+              }}
+            >
+              لا توجد أسئلة لهذا الحرف حالياً
+            </h2>
+
+            <p
+              style={{
+                color: "#7B7B7B",
+                fontFamily: "tajawal",
+                fontWeight: 500,
+                fontSize: 16,
+              }}
+            >
+              {isTeacher
+                ? "لم يتم إضافة أسئلة لنشاط تحديد المكان لهذا الحرف بعد."
+                : "ما في أسئلة بهاد النشاط لهاد الحرف، فيك تكمل للنشاط التالي."}
+            </p>
+
+            <div
+              className="flex gap-3 justify-center flex-wrap"
+              style={{ marginTop: 12 }}
+            >
+              <button
+                onClick={() => navigate(`/letter/${propLetter}`)}
+                style={{
+                  ...pillBase,
+                  color: "#652B82",
+                  background: "#F3EEFA",
+                  boxShadow: "none",
+                }}
+              >
+                رجوع
+              </button>
+
+              {/* الطالب بس: ما بيضل عالق، بيكمل للنشاط التالي */}
+              {!isTeacher && (
+                <button
+                  onClick={() => navigate(`/letter/${propLetter}/tashkeel`)}
+                  style={{
+                    ...pillBase,
+                    color: "#ffffff",
+                    background:
+                      "linear-gradient(90deg, #D08FF7 0%, #652B82 100%)",
+                  }}
+                >
+                  التالي
+                </button>
+              )}
+            </div>
+          </motion.div>
+        </div>
+
+        <ActivityFooter
+          currentLetter={propLetter}
+          letterName={currentLetterFromRedux?.name}
+        />
+      </div>
+    );
+  }
+
+  // ✅ لسا عم يحمّل (الحروف أو الأسئلة)
+  if (loading || !questions.length || !questions[currentQuestion]) {
     return <SplashScreen onComplete={() => setShowSplash(false)} />;
   }
 
   const question = questions[currentQuestion];
-  const parsedQuestionText = JSON.parse(question.question_text);
+  const parsedQuestionText = safeParseQuestion(question.question_text);
 
   const handleAnswer = async (position: string) => {
     // ✅ الأستاذ ما بيقدر يجاوب + الطالب ما بيقدر يجاوب بعد ما يخلّص
@@ -250,10 +385,7 @@ export function LetterPosition({ onLogout }: LetterPositionProps) {
           rotate: "18deg",
           opacity: "0.3",
         }}
-        // animate={{ rotate: [0, 15, -15, 0], scale: [1, 1.1, 1] }}
-        // transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
       >
-        {/* ★ */}
         <img
           src={currentLetterCard.image}
           style={{ height: "380px", width: "auto" }}
@@ -440,14 +572,14 @@ export function LetterPosition({ onLogout }: LetterPositionProps) {
             {/* بطاقة السؤال */}
             <motion.div
               key={currentQuestion}
-              className="bg-white rounded-3xl p-4 text-center shadow-lg relative"
+              className="bg-white rounded-3xl p-4 text-center relative"
               initial={{ scale: 0.8, opacity: 0, y: 30 }}
               style={{
                 display: "flex",
                 alignItems: "center",
                 flexDirection: "column",
                 justifyContent: "center",
-                boxShadow: "0 16px 32px rgba(40, 52, 95, 0.1)",
+                // boxShadow: "0 16px 32px rgba(40, 52, 95, 0.1)",
               }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               transition={{ type: "spring", stiffness: 200 }}
@@ -556,7 +688,11 @@ export function LetterPosition({ onLogout }: LetterPositionProps) {
                 <motion.button
                   key={option.id}
                   onClick={() => {
-                    if (isTeacher || isFinished || finishedRef.current === letterId)
+                    if (
+                      isTeacher ||
+                      isFinished ||
+                      finishedRef.current === letterId
+                    )
                       return;
                     setSelectedOption(option.id);
                     handleAnswer(option.id);
@@ -666,7 +802,7 @@ export function LetterPosition({ onLogout }: LetterPositionProps) {
                     fontWeight: "500",
                   }}
                 >
-                  {score} - 4
+                  {score} - {questions.length}
                 </span>
               </p>
               {/* الأزرار */}

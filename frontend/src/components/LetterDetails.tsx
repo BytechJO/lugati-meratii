@@ -137,7 +137,7 @@ export function LetterDetails({ onLogout }: LetterDetailsProps) {
       <div className="relative z-10 flex flex-col">
         {/* العنوان والحرف */}
         <motion.div
-          className="text-center mb-1"
+          className="text-center mb-4"
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.2 }}
