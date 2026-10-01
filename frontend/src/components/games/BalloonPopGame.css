@@ -1,0 +1,11 @@
+.lives-balloon{
+    display: flex;
+}
+
+
+@media (max-width: 800px) {
+    .lives-balloon{
+    display: none;
+}
+
+}

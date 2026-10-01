@@ -1,0 +1,47 @@
+.tiger-join-success {
+  display: flex;
+}
+
+.container-div-login {
+  margin-top: 90px;
+}
+@media (max-width: 700px) {
+  .tiger-join-success {
+    display: none;
+  }
+  .container-div-login {
+    margin-top: 0px;
+  }
+}
+
+.login-btn {
+  position: relative;
+  overflow: hidden; /* عشان الطبقة ما تطلع برا الكبسة */
+  isolation: isolate;
+  background: linear-gradient(135deg,  #652b82, #7d3ba0);
+  color: #fff;
+
+  transition: color 0.4s ease;
+}
+
+/* الطبقة الصفراء اللي بتسلايد */
+.login-btn::before {
+  content: "";
+  position: absolute;
+
+  inset: 0;
+  background: #EFDDFF;
+  transform: translateX(101%); /* مخبية برا الكبسة من جهة اليمين */
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: -1; /* تحت النص */
+}
+
+.login-btn:hover::before {
+  transform: translateX(0); /* بتسلايد لتغطي الكبسة */
+}
+
+.login-btn:hover {
+  color: #652b82;
+
+  /* لون النص يصير بنفسجي ليبين على الأصفر */
+}

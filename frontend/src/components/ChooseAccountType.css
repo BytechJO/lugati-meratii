@@ -1,0 +1,16 @@
+.title-text-choose-page{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    font-size: 30px;
+    font-weight: 500;
+    color: #3E3E3E;
+}
+
+@media screen and (max-width: 760px) {
+    .tiger-choose-page{
+        display: none;
+    }
+}
