@@ -524,7 +524,7 @@ export function GamesSection({ onLogout }: GamesSectionProps) {
 
             {/* نقاط الصفحات */}
             {totalPages > 1 && (
-              <div className="flex items-center justify-center gap-2 mt-5">
+              <div className="flex items-center justify-center gap-2 mt-4">
                 {Array.from({ length: totalPages }).map((_, idx) => (
                   <button
                     key={idx}
