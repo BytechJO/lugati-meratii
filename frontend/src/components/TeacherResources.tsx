@@ -127,12 +127,12 @@ export function TeacherResources() {
   };
 
   return (
-    <div
+    <div data-page="teacher-resources"
       className="min-h-screen w-full bg-white flex flex-col items-center"
       dir="rtl"
     >
       {/* ================= الهيدر (صورة الخلفية + النافبار) ================= */}
-      <div
+      <div data-responsive="teacher-hero"
         className="relative w-full overflow-hidden"
         style={{
           backgroundImage: `url("${headerBackground}")`,
@@ -153,7 +153,7 @@ export function TeacherResources() {
         </div>
 
         {/* النص بنص الهيدر: عنوان غامق بين نقطتين + سطر ثاني خفيف */}
-        <div
+        <div data-responsive="teacher-hero-title"
           className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
           style={{ top: "44%" }}
         >
@@ -200,7 +200,7 @@ export function TeacherResources() {
         </div>
 
         {/* التبويب السفلي */}
-        <div
+        <div data-responsive="teacher-hero-tab"
           className="absolute bottom-0 left-1/2 -translate-x-1/2 bg-white px-8 md:px-12 pt-4 pb-3 text-center"
           style={{
             borderTopLeftRadius: 32,
@@ -241,7 +241,7 @@ export function TeacherResources() {
                 whileHover={{ y: -6 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <span
+                <span data-responsive="teacher-hero-title"
                   className="absolute top-0 left-1/2 -translate-x-1/2 py-2 whitespace-nowrap"
                   style={{
                     backgroundColor: lib.tab,

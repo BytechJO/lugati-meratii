@@ -91,7 +91,7 @@ export function ClassroomManagement({
   };
 
   return (
-    <div dir="rtl">
+    <div data-page="classroom-management" dir="rtl">
       {/* ================= المحتوى ================= */}
       <div>
         {classrooms.length === 0 ? (
@@ -119,9 +119,9 @@ export function ClassroomManagement({
           </div>
         ) : (
           /* ---------- جدول الصفوف ---------- */
-          <div>
+          <div data-responsive="responsive-table-scroll">
             {/* رأس الجدول */}
-            <div
+            <div data-responsive="responsive-table-row"
               className="grid items-center text-center"
               style={{
                 gridTemplateColumns: GRID_COLUMNS,
@@ -143,7 +143,7 @@ export function ClassroomManagement({
 
             {/* الصفوف */}
             {classrooms.map((classroom, index) => (
-              <motion.div
+              <motion.div data-responsive="responsive-table-row"
                 key={classroom.id}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -251,7 +251,7 @@ export function ClassroomManagement({
       {/* ================= مودال إنشاء صف ================= */}
       <AnimatePresence>
         {showCreateModal && (
-          <motion.div
+          <motion.div data-responsive="responsive-modal-backdrop"
             className="fixed inset-0 flex items-center justify-center z-50"
             style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
             initial={{ opacity: 0 }}
@@ -259,7 +259,7 @@ export function ClassroomManagement({
             exit={{ opacity: 0 }}
             onClick={closeCreateModal}
           >
-            <motion.div
+            <motion.div data-responsive="responsive-modal"
               className="w-full max-w-lg mx-4 overflow-hidden flex justify-center"
               initial={{ scale: 0.8, y: 50 }}
               animate={{ scale: 1, y: 0 }}
@@ -267,7 +267,7 @@ export function ClassroomManagement({
               transition={{ type: "spring", stiffness: 200 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <div
+              <div data-responsive="classroom-create-form"
                 className="bg-gray-100 py-10 text-center flex flex-col gap-10"
                 style={{ width: "55%", minWidth: 300 }}
               >
@@ -350,7 +350,7 @@ export function ClassroomManagement({
       {/* ================= مودال تأكيد الحذف ================= */}
       <AnimatePresence>
         {showDeleteModal && classToDelete && (
-          <motion.div
+          <motion.div data-responsive="responsive-modal-backdrop"
             className="fixed inset-0 flex items-center justify-center z-50"
             style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
             initial={{ opacity: 0 }}
@@ -358,7 +358,7 @@ export function ClassroomManagement({
             exit={{ opacity: 0 }}
             onClick={handleCancelDelete}
           >
-            <motion.div
+            <motion.div data-responsive="responsive-modal"
               className="bg-white rounded-[28px] p-8 md:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.25)] text-center max-w-md w-full mx-4 relative overflow-hidden"
               initial={{ scale: 0.7, y: 80 }}
               animate={{ scale: 1, y: 0 }}

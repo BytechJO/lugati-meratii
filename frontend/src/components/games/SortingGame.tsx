@@ -4,6 +4,7 @@ import { Star, X } from "lucide-react";
 import { useParams, useNavigate } from "react-router-dom";
 import api from "../../API/axios";
 import { saveGameResult } from "../../API/gameResult";
+import { GameAccess } from "./GameAccess";
 import { RootState } from "../../redux/store";
 import { fetchLetters } from "../../redux/reducers/lettersSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -299,6 +300,10 @@ function PlacedCard({ word }: { word: string }) {
 /* ------------------------------ Main Component ----------------------------- */
 
 export function SortingGame() {
+  return <GameAccess gameType="sorting"><PlayableSortingGame /></GameAccess>;
+}
+
+function PlayableSortingGame() {
   const [items, setItems] = useState<Item[]>([]);
   const { letter } = useParams();
   const navigate = useNavigate();
@@ -320,6 +325,7 @@ export function SortingGame() {
   const { letters } = useSelector((state: RootState) => state.letters);
   const dispatch = useDispatch<any>();
   const currentLetterFromRedux = letters.find((l) => l.symbol === letter);
+  const letterId = currentLetterFromRedux?.id;
   const letterName = currentLetterFromRedux?.name;
   const activeItem = useMemo(
     () => (activeId !== null ? items.find((i) => i.id === activeId) : null),
@@ -382,12 +388,13 @@ export function SortingGame() {
 
   // بنحفظ النتيجة مرة وحدة عند نهاية اللعبة (فوز أو 3 أخطاء)
   useEffect(() => {
-    if (!gameWon) return;
+    if (!gameWon || !letterId || !gameLessonId) return;
 
     const saveResult = async () => {
       try {
         await saveGameResult({
-          games_lessons_id: gameLessonId!,
+          letter_id: letterId,
+          games_lessons_id: gameLessonId,
           score,
           duration: getDuration(),
         });
@@ -398,7 +405,7 @@ export function SortingGame() {
 
     saveResult();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [gameWon]);
+  }, [gameWon, letterId, gameLessonId]);
 
   /* ------------------------------- DnD Setup ------------------------------ */
 
@@ -491,7 +498,7 @@ export function SortingGame() {
   if (loading || !minLoadElapsed)
     return <GameLoadingScreen game_name={"sorting"} />;
   if (!config)
-    return <div className="text-center mt-20">لا توجد بيانات للعبة</div>;
+    return <div data-page="sorting-game" className="text-center mt-20">لا توجد بيانات للعبة</div>;
 
   return (
     <DndContext
@@ -501,7 +508,7 @@ export function SortingGame() {
       onDragEnd={onDragEnd}
       onDragCancel={() => setActiveId(null)}
     >
-      <div
+      <div data-page="sorting-game" data-responsive="responsive-game"
         dir="rtl"
         style={{
           position: "relative",
@@ -530,7 +537,7 @@ export function SortingGame() {
             style={{ position: "relative", maxWidth: 1152, margin: "0 auto" }}
           >
             {/* الشريط الأبيض */}
-            <div
+            <div data-responsive="game-header-bar"
               style={{
                 height: HEADER_H,
                 borderRadius: 9999,
@@ -587,7 +594,7 @@ export function SortingGame() {
             </div>
 
             {/* كبسولة النقاط (يسار) */}
-            <div
+            <div data-responsive="game-header-bar"
               style={{
                 position: "absolute",
                 left: 0,
@@ -636,7 +643,7 @@ export function SortingGame() {
         <MistakeToast text={mistakeToast} />
 
         {/* ---------------------------- Game Area ---------------------------- */}
-        <div
+        <div data-responsive="sorting-play-area"
           style={{
             position: "absolute",
             inset: 0,
@@ -649,7 +656,7 @@ export function SortingGame() {
           }}
         >
           {/* البطاقات فوق (صف واحد) */}
-          <div
+          <div data-responsive="sorting-items"
             style={{
               width: "100%",
               boxSizing: "border-box",
@@ -671,7 +678,7 @@ export function SortingGame() {
           </div>
 
           {/* صناديق الإسقاط: حرف الألف (يمين) - حروف أخرى (يسار) */}
-          <div
+          <div data-responsive="sorting-zones"
             style={{
               marginTop: "80px",
               width: "min(820px, 92%)",
@@ -701,13 +708,13 @@ export function SortingGame() {
 
         {/* --------------------------- Game Won Modal --------------------------- */}
         {gameWon && (
-          <motion.div
+          <motion.div data-responsive="responsive-modal-backdrop"
             className="fixed inset-0 z-40 flex items-center justify-center"
             style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
           >
-            <motion.div
+            <motion.div data-responsive="responsive-modal"
               className="bg-white rounded-[28px] p-8 md:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.25)] text-center max-w-md w-full mx-4 relative overflow-hidden"
               initial={{ scale: 0.7, y: 80 }}
               animate={{ scale: 1, y: 0 }}

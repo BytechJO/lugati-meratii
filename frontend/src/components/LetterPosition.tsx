@@ -5,7 +5,8 @@ import { ActivityFooter } from "./ActivityFooter";
 import { useParams, useNavigate } from "react-router-dom";
 import { submitAnswer, calculateLessonResult } from "../API/result";
 import { getLetterPositionQuestions } from "../API/questions";
-import { upsertUserProgress } from "../API/userProgress";
+import { useLessonProgress } from "../hooks/useLessonProgress";
+import { ProgressSaveNotice } from "./ProgressSaveNotice";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import { fetchLetters } from "../redux/reducers/lettersSlice";
@@ -63,6 +64,8 @@ export function LetterPosition({ onLogout }: LetterPositionProps) {
   );
 
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const submittingRef = useRef(false);
+  const [answerError, setAnswerError] = useState<string | null>(null);
   // ✅ قفل ثابت: بيحفظ id الحرف اللي الطالب خلّص أسئلته (ما بينمسح بإعادة الرندر)
   const finishedRef = useRef<any>(null);
 
@@ -79,6 +82,7 @@ export function LetterPosition({ onLogout }: LetterPositionProps) {
   const currentLetterFromRedux = letters.find((l) => l.symbol === symbol);
   const [showSplash, setShowSplash] = useState(true);
   const letterId = currentLetterFromRedux?.id;
+  const { saveProgress, progressError, retryProgress } = useLessonProgress(letterId, "position");
   const lettername = currentLetterFromRedux?.symbol;
 
   const dispatch = useDispatch<any>();
@@ -90,7 +94,7 @@ export function LetterPosition({ onLogout }: LetterPositionProps) {
 
   // ✅ وضع الأستاذ: تنقل فقط بين الكلمات، بدون لعب أو إجابات أو حفظ تقدم
   // عدّل الشرط حسب اسم الحقل/القيمة الفعلية عندك في الـ user
-  const isTeacher = user?.roleId === 3;
+  const isTeacher = user?.type === "teacher";
 
   useEffect(() => {
     if (!letters.length) {
@@ -98,17 +102,8 @@ export function LetterPosition({ onLogout }: LetterPositionProps) {
     }
   }, [dispatch, letters.length]);
 
-  const saveLearnProgress = async () => {
-    if (!user || !symbol) return;
-    if (isTeacher) return; // الأستاذ ما بيتسجل له تقدم
-
-    await upsertUserProgress({
-      letter_id: letterId,
-      lesson_id: 12, // درس التعلم
-      lesson_type: "position",
-      score: score,
-      completed: true,
-    });
+  const saveLearnProgress = async (finalScore: number) => {
+    return saveProgress(finalScore);
   };
 
   useEffect(() => {
@@ -142,7 +137,7 @@ export function LetterPosition({ onLogout }: LetterPositionProps) {
   // (نقلت هاد الشرط لبعد كل الـ hooks عشان ما نكسر قواعد React hooks)
   if (!propLetter) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-50 via-yellow-50 to-purple-50 flex items-center justify-center p-6">
+      <div data-page="letter-position" className="min-h-screen bg-gradient-to-br from-purple-50 via-yellow-50 to-purple-50 flex items-center justify-center p-6">
         <div className="text-center">
           <p className="text-base text-gray-400">اختر حرفاً من صفحة الحروف</p>
         </div>
@@ -164,7 +159,7 @@ export function LetterPosition({ onLogout }: LetterPositionProps) {
 
   if (hasNoQuestions) {
     return (
-      <div className="h-screen relative pb-24 overflow-hidden" dir="rtl">
+      <div data-page="letter-position" className="h-screen relative pb-24 overflow-hidden" dir="rtl">
         <div
           className="fixed inset-0"
           style={{
@@ -287,7 +282,18 @@ export function LetterPosition({ onLogout }: LetterPositionProps) {
     if (isTeacher || isFinished || finishedRef.current === letterId) return;
 
     // 🔴 امنع أي ضغط إضافي
-    if (showFeedback !== null) return;
+    if (showFeedback !== null || submittingRef.current) return;
+    submittingRef.current = true;
+    setAnswerError(null);
+    try {
+      await submitAnswer(12, question.id, position);
+    } catch (error) {
+      console.error("Failed to save position answer", error);
+      setAnswerError("تعذر حفظ الإجابة على الخادم. حاول الإجابة مجدداً.");
+      return;
+    } finally {
+      submittingRef.current = false;
+    }
 
     // 🔴 نظف أي timeout قديم
     if (timeoutRef.current) {
@@ -309,8 +315,6 @@ export function LetterPosition({ onLogout }: LetterPositionProps) {
       setScore((prev) => prev + 1);
     }
 
-    submitAnswer(12, question.id, position).catch(console.error);
-
     timeoutRef.current = setTimeout(async () => {
       if (!isLastQuestion) {
         // سؤال عادي: نطفي الفيدباك وننتقل مباشرة للسؤال التالي
@@ -323,9 +327,10 @@ export function LetterPosition({ onLogout }: LetterPositionProps) {
       // عشان ما تنكشف بطاقة السؤال بالفراغ الزمني بين انتهاء الـ await
       // وظهور البوب اب.
       try {
-        const data = await calculateLessonResult(12);
-        setTotalScore(data.total_score);
-        await saveLearnProgress();
+        const finalScore = score + (isCorrect ? 1 : 0);
+        setTotalScore(finalScore);
+        await saveLearnProgress(finalScore);
+        await calculateLessonResult(12).catch(console.error);
       } finally {
         // نطفي الفيدباك ونفتح المودال النهائي بنفس اللحظة
         setShowFeedback(null);
@@ -350,7 +355,9 @@ export function LetterPosition({ onLogout }: LetterPositionProps) {
   const isLast = currentQuestion === questions.length - 1;
 
   return (
-    <div className="h-screen relative pb-24  overflow-hidden" dir="rtl">
+    <div data-page="letter-position" className="h-screen relative pb-24  overflow-hidden" dir="rtl">
+      <ProgressSaveNotice error={progressError} onRetry={retryProgress} />
+      {answerError && <p role="alert" className="fixed top-4 left-4 right-4 z-[100] bg-white p-4 text-center">{answerError}</p>}
       {/* خلفية متدرجة */}
       <div
         className="fixed inset-0"
@@ -375,7 +382,7 @@ export function LetterPosition({ onLogout }: LetterPositionProps) {
         />
       </div>
       {/*زر الرجوع للخلف العائم في الاعلى  */}
-      <motion.div
+      <motion.div data-responsive="responsive-decoration"
         className="fixed"
         style={{
           top: "17%",
@@ -424,7 +431,7 @@ export function LetterPosition({ onLogout }: LetterPositionProps) {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
             >
-              <div className="flex items-center justify-between px-2 md:px-6">
+              <div data-responsive="question-toolbar" className="flex items-center justify-between px-2 md:px-6">
                 {/* يمين: النقاط (طالب) / السابق (أستاذ) */}
                 {isTeacher ? (
                   <div className="flex flex-col items-center gap-1.5">
@@ -742,7 +749,7 @@ export function LetterPosition({ onLogout }: LetterPositionProps) {
 
       <AnimatePresence>
         {showFinishModal && !isTeacher && (
-          <motion.div
+          <motion.div data-responsive="responsive-modal-backdrop"
             className="fixed inset-0 flex items-center justify-center z-50"
             style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
             initial={{ opacity: 0 }}
@@ -750,7 +757,7 @@ export function LetterPosition({ onLogout }: LetterPositionProps) {
             exit={{ opacity: 0 }}
             // ✅ ما في إغلاق بالضغط برا البوب اب: الطالب لازم يكبس "التالي"
           >
-            <motion.div
+            <motion.div data-responsive="responsive-modal"
               className="bg-white rounded-[28px] p-8 md:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.25)] text-center max-w-md w-full mx-4 relative overflow-hidden"
               initial={{ scale: 0.7, y: 80 }}
               animate={{ scale: 1, y: 0 }}
@@ -815,6 +822,7 @@ export function LetterPosition({ onLogout }: LetterPositionProps) {
                     setShowFinishModal(false);
                     navigate(`/letter/${propLetter}/tashkeel`);
                   }}
+                  disabled={!!progressError}
                   style={{
                     ...pillBase,
                     color: "#ffffff",

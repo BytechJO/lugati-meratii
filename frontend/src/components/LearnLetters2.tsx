@@ -1,12 +1,13 @@
 import { motion } from "motion/react";
 import { useState, useEffect, useRef } from "react";
-import { ArrowRight, RotateCcw } from "lucide-react";
+import { RotateCcw } from "lucide-react";
 import { ActivityFooter } from "./ActivityFooter";
 import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import { fetchVideoLesson } from "../redux/reducers/videoLessonsSlice";
-import { upsertUserProgress } from "../API/userProgress";
+import { useLessonProgress } from "../hooks/useLessonProgress";
+import { ProgressSaveNotice } from "./ProgressSaveNotice";
 import { fetchLetters } from "../redux/reducers/lettersSlice";
 import background_video from "../assets/Vector_sidebar.png";
 import { SplashScreen } from "./SplashScreen";
@@ -49,6 +50,7 @@ export function LearnLetters2({ onLogout }: LearnLetters2Props) {
     letterCards.find((l) => l.letter === letter) || letterCards[0];
 
   const letterId = currentLetterFromRedux?.id;
+  const { saveProgress, progressError, retryProgress } = useLessonProgress(letterId, "write");
 
   useEffect(() => {
     if (!letters.length) {
@@ -57,16 +59,12 @@ export function LearnLetters2({ onLogout }: LearnLetters2Props) {
   }, [dispatch, letters.length]);
 
   const saveLearnProgress = async () => {
-    if (!user || !letter) return;
-
-    await upsertUserProgress({
-      letter_id: letterId,
-      lesson_id: 2, // درس التعلم
-      lesson_type: "write",
-      score: 1,
-      completed: true,
-    });
+    return saveProgress(1);
   };
+
+  useEffect(() => {
+    if (isComplete) void saveProgress(1);
+  }, [isComplete, saveProgress]);
 
   useEffect(() => {
     if (!letterId) return;
@@ -376,8 +374,9 @@ export function LearnLetters2({ onLogout }: LearnLetters2Props) {
   };
 
   // الانتقال للنشاط التالي (بس لما يكون الزر enabled)
-  const handleContinue = () => {
+  const handleContinue = async () => {
     if (!isComplete) return;
+    if (!await saveLearnProgress()) return;
     navigate(`/letter/${letter}/position`);
   };
 
@@ -386,7 +385,8 @@ export function LearnLetters2({ onLogout }: LearnLetters2Props) {
   }
 
   return (
-    <div className="h-screen relative" dir="rtl">
+    <div data-page="learn-letters2" className="h-screen relative" dir="rtl">
+      <ProgressSaveNotice error={progressError} onRetry={retryProgress} />
       {/* خلفية متدرجة ملونة */}
       <div
         className="fixed inset-0"
@@ -410,7 +410,7 @@ export function LearnLetters2({ onLogout }: LearnLetters2Props) {
           fontTtile={25}
         />
       </div>
-   <motion.div
+   <motion.div data-responsive="responsive-decoration"
         className="fixed"
         style={{
           top: "17%",
@@ -478,12 +478,10 @@ export function LearnLetters2({ onLogout }: LearnLetters2Props) {
                   <motion.button
                     onClick={async () => {
                       if (!videoEnded) return;
-                      await saveLearnProgress();
                       setCurrentSlide(1);
                     }}
                     onTouchEnd={async () => {
                       if (!videoEnded) return;
-                      await saveLearnProgress();
                       setCurrentSlide(1);
                     }}
                     disabled={!videoEnded}
@@ -564,7 +562,7 @@ export function LearnLetters2({ onLogout }: LearnLetters2Props) {
           </div>
 
           {/* النمر في الزاوية */}
-          <motion.div className="fixed z-0" style={{ top: "60%", left: "1%" }}>
+          <motion.div data-responsive="responsive-decoration" className="fixed z-0" style={{ top: "60%", left: "1%" }}>
             <motion.img
               src={tigerImg}
               alt="نمر"
@@ -577,7 +575,7 @@ export function LearnLetters2({ onLogout }: LearnLetters2Props) {
             />
           </motion.div>
 
-          <motion.div
+          <motion.div data-responsive="responsive-decoration"
             className="fixed"
             style={{
               top: "81%",
@@ -631,10 +629,10 @@ export function LearnLetters2({ onLogout }: LearnLetters2Props) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-                <div className="grid h-full gap-4 md:gap-6 grid-rows-[1fr_auto] md:grid-rows-1 md:grid-cols-4">
+                <div data-responsive="drawing-grid" className="grid h-full gap-4 md:gap-6 grid-rows-[1fr_auto] md:grid-rows-1 md:grid-cols-4">
                   {/* لوحة التلوين فوق على الموبايل / يمين على الديسكتوب */}
                   <div className="md:col-span-3 flex flex-col order-1 md:order-2">
-                    <div
+                    <div data-responsive="drawing-surface"
                       className="flex-1 relative rounded-3xl overflow-hidden border-2 border-gray-200"
                       style={{ backgroundColor: "#f8f9fa" }}
                     >
@@ -754,7 +752,7 @@ export function LearnLetters2({ onLogout }: LearnLetters2Props) {
 
           {/* النمر في الزاوية */}
           {/* النمر في الزاوية */}
-          <motion.div className="fixed z-0" style={{ top: "60%", left: "1%" }}>
+          <motion.div data-responsive="responsive-decoration" className="fixed z-0" style={{ top: "60%", left: "1%" }}>
             <motion.img
               src={tigerImg}
               alt="نمر"
@@ -767,7 +765,7 @@ export function LearnLetters2({ onLogout }: LearnLetters2Props) {
             />
           </motion.div>
 
-          <motion.div
+          <motion.div data-responsive="responsive-decoration"
             className="fixed"
             style={{
               top: "81%",

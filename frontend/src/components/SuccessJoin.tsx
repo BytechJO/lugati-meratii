@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { motion } from "motion/react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { fetchAllClasses, fetchMyClass } from "../redux/reducers/classSlice";
-import { RootState, AppDispatch } from "../redux/store";
+import { AppDispatch } from "../redux/store";
 import homeIcon from "../assets/Home.svg";
 import { logout } from "../redux/reducers/auth";
 import girl_img from "../assets/success_joinClass.svg";
@@ -12,7 +12,7 @@ import { clearMyClass } from "../redux/reducers/classSlice";
 import successJoinBg from "../assets/successJoinBg.svg";
 import { AppHeader } from "./AppHeader";
 import { useAppSelector } from "../redux/hooks";
-import { LogIn } from "lucide-react";
+
 import star from "../assets/star_02.svg";
 import book from "../assets/book.svg";
 import pen from "../assets/pen_02.svg";
@@ -45,7 +45,7 @@ export function SuccessJoin({ onLogout, onBack }: SuccessJoinProps) {
 
   return (
     <>
-      <div className="h-screen relative overflow-hidden" dir="rtl">
+      <div data-page="success-join" className="h-screen relative overflow-hidden" dir="rtl">
         {/* خلفية متدرجة */}
         <div
           className="fixed inset-0"
@@ -287,7 +287,7 @@ export function SuccessJoin({ onLogout, onBack }: SuccessJoinProps) {
         </div>
       </div>
       {/* النمر في الزاوية */}
-      <motion.div className="fixed bottom-0 left-2 md:-bottom-23 md:left-4 z-0">
+      <motion.div data-responsive="responsive-decoration" className="fixed bottom-0 left-2 md:-bottom-23 md:left-4 z-0">
         <motion.img
           src={tigerImg}
           alt="نمر"

@@ -1,19 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-  TrendingUp,
-  Award,
-  Clock,
-  Target,
-  BookOpen,
-  BarChart3,
-  Star,
-  Volume2,
-  Edit3,
-  Palette,
-  Users,
-  Gamepad2,
-  ArrowRight,
-} from "lucide-react";
+import { Award, Clock, Target, BookOpen, BarChart3, Star, ArrowRight } from "lucide-react";
 import { Classroom, User } from "../types";
 import {
   progressTracking,
@@ -215,7 +201,7 @@ export function StudentProgressView({
   /* ---------- عرض قائمة الطلاب (لما ما يكون في طالب محدد) ---------- */
   if (!selectedStudentId) {
     return (
-      <div className="space-y-6" dir="rtl">
+      <div data-page="student-progress-view" className="space-y-6" dir="rtl">
         <div className="flex items-center gap-3 mb-6">
           <div
             className="p-3 rounded-xl shadow-lg"
@@ -329,7 +315,7 @@ export function StudentProgressView({
   }
 
   if (!studentData) {
-    return <div>لا توجد بيانات لهذا الطالب</div>;
+    return <div data-page="student-progress-view">لا توجد بيانات لهذا الطالب</div>;
   }
 
   const averageScore = isNaN(stats.averageScore) ? 0 : stats.averageScore || 0;
@@ -348,14 +334,14 @@ export function StudentProgressView({
   const alphabet: string[] = lettersComp.map((l: any) => l.arabic);
 
   return (
-    <div
+    <div data-page="student-progress-view"
       className="w-full min-h-screen"
       dir="rtl"
       style={{ backgroundColor: PAGE_BG }}
     >
       <div className="mx-auto w-full" style={{ paddingBottom: s(24) }}>
         {/* ================= الهيدر: اسم الصف + اسم الطالب ================= */}
-        <div
+        <div data-responsive="progress-hero"
           className="relative overflow-hidden"
           style={{
        backgroundImage: `url("${backgroundHeader}")`,
@@ -388,7 +374,7 @@ export function StudentProgressView({
           )}
 
           {/* اسم الصف (يمين) */}
-          <div
+          <div data-responsive="progress-class-name"
             className="absolute flex items-center"
             style={{ right: "6%", top: s(30), gap: s(5) }}
           >
@@ -419,7 +405,7 @@ export function StudentProgressView({
           </div>
 
           {/* كبسولة اسم الطالب */}
-          <div
+          <div data-responsive="progress-student-name"
             className="absolute flex items-center rounded-full"
             style={{
               // left: s(14),
@@ -447,12 +433,12 @@ export function StudentProgressView({
           </div>
         </div>
 
-        <div
+        <div data-responsive="progress-content"
           className="flex flex-col"
           style={{ paddingInline: "100px", marginTop: s(10), gap: s(13) }}
         >
           {/* ================= كرت الإحصائيات + الأداء حسب النشاط ================= */}
-          <div
+          <div data-responsive="progress-overview"
             className="flex items-stretch"
             style={{
               backgroundColor: "#FFFFFF",
@@ -463,7 +449,7 @@ export function StudentProgressView({
             }}
           >
             {/* مربعات الإحصائيات (يمين) */}
-            <div
+            <div data-responsive="progress-stats"
               className="flex flex-col shrink-0"
               style={{ width: s(111), gap: "70px" }}
             >
@@ -638,7 +624,7 @@ export function StudentProgressView({
               </h3>
             </div>
 
-            <div
+            <div data-responsive="progress-activity-list"
               className="flex flex-col"
               style={{
                 paddingInline: s(38),
@@ -666,7 +652,7 @@ export function StudentProgressView({
                   const color = getScoreColor(percentage);
 
                   return (
-                    <div
+                    <div data-responsive="progress-activity-row"
                       key={index}
                       className="flex items-center"
                       style={{
@@ -761,7 +747,7 @@ export function StudentProgressView({
             }}
           >
             {/* الصورة (يسار) */}
-            <img
+            <img data-responsive="progress-letters-art"
               src={booksImg}
               alt=""
               className="absolute"
@@ -774,7 +760,7 @@ export function StudentProgressView({
             />
 
             {/* المحتوى (يمين) */}
-            <div style={{ width: "37%", maxWidth: "62%" }}>
+            <div data-responsive="progress-letters-content" style={{ width: "37%", maxWidth: "62%" }}>
               <h3
                 style={{
                   marginBottom: s(6),

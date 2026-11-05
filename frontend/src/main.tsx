@@ -2,6 +2,8 @@ import { createRoot } from "react-dom/client";
 import React from "react";
 import App from "./App.tsx";
 import "./index.css";
+import "./styles/responsive.css";
+import "./styles/loading-screens.css";
 import { Provider } from "react-redux";
 import { store } from "./redux/store.tsx";
 import { GoogleOAuthProvider } from "@react-oauth/google";

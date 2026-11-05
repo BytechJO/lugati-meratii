@@ -1,0 +1,7338 @@
+[
+  {
+    "symbol": "أ",
+    "exercises": [
+      {
+        "lesson_id": 3,
+        "question_type": "harakat",
+        "questions": [
+          {
+            "answer": "fatha",
+            "text": {
+              "letter": "أَ",
+              "sound": "أَ (فتحة)",
+              "word": "أَسَد",
+              "shakl": "فتحة"
+            }
+          },
+          {
+            "answer": "damma",
+            "text": {
+              "letter": "أُ",
+              "sound": "أُ (ضمة)",
+              "word": "أُذُن",
+              "shakl": "ضمة"
+            }
+          },
+          {
+            "answer": "kasra",
+            "text": {
+              "letter": "إِ",
+              "sound": "إِ (كسرة)",
+              "word": "إِبْرَة",
+              "shakl": "كسرة"
+            }
+          },
+          {
+            "answer": "sukun",
+            "text": {
+              "letter": "أْ",
+              "sound": "أْ (سكون)",
+              "word": "مَأْوَى",
+              "shakl": "سكون"
+            }
+          }
+        ]
+      },
+      {
+        "lesson_id": 12,
+        "question_type": "position",
+        "questions": [
+          {
+            "answer": "start",
+            "text": {
+              "word": "أسد",
+              "position": "البداية"
+            }
+          },
+          {
+            "answer": "middle",
+            "text": {
+              "word": "سأل",
+              "position": "الوسط"
+            }
+          },
+          {
+            "answer": "end",
+            "text": {
+              "word": "ملجأ",
+              "position": "النهاية"
+            }
+          },
+          {
+            "answer": "start",
+            "text": {
+              "word": "أرنب",
+              "position": "البداية"
+            }
+          }
+        ]
+      }
+    ],
+    "games": [
+      {
+        "game_type": "word_catch",
+        "order_index": 1,
+        "data": {
+          "correctWords": [
+            "أسد",
+            "أرنب",
+            "أذن",
+            "أنف",
+            "إصبع",
+            "أزرق"
+          ],
+          "wrongWords": [
+            "بطة",
+            "تمر",
+            "ثعلب",
+            "جمل",
+            "حصان",
+            "خبز"
+          ],
+          "maxMistakes": 3,
+          "scorePerCorrect": 10,
+          "spawnIntervalMs": 2000,
+          "minSpeed": 2,
+          "maxSpeed": 5,
+          "instruction": "اصطد الكلمات التي تبدأ بحرف الألف فقط!"
+        }
+      },
+      {
+        "game_type": "sorting",
+        "order_index": 2,
+        "data": {
+          "title": "صنف كلمات حرف الألف",
+          "instruction": "اسحب الكلمات إلى المكان الصحيح",
+          "targetLetter": "أ",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "items": [
+            {
+              "word": "أسد",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "أرنب",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "أذن",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "أنف",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            },
+            {
+              "word": "إصبع",
+              "startsWithTarget": true
+            },
+            {
+              "word": "حصان",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "memory_match",
+        "order_index": 3,
+        "data": {
+          "title": "ذاكرة حرف الألف",
+          "instruction": "اقلب البطاقات وطابق الحرف مع الكلمة التي تبدأ به",
+          "scorePerMatch": 10,
+          "pairs": [
+            {
+              "letter": "أ",
+              "word": "أسد"
+            },
+            {
+              "letter": "أ",
+              "word": "أرنب"
+            },
+            {
+              "letter": "أ",
+              "word": "أذن"
+            },
+            {
+              "letter": "أ",
+              "word": "أنف"
+            },
+            {
+              "letter": "إ",
+              "word": "إصبع"
+            },
+            {
+              "letter": "أ",
+              "word": "أزرق"
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "balloon_pop",
+        "order_index": 4,
+        "data": {
+          "title": "بالونات حرف الألف",
+          "instruction": "افرقع البالونات التي تحمل كلمات تبدأ بحرف الألف",
+          "targetLetter": "أ",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "spawn": {
+            "baseInterval": 1500,
+            "levelFactor": 100,
+            "minInterval": 800
+          },
+          "speed": {
+            "baseDuration": 6,
+            "levelIncrease": 0.3,
+            "minDuration": 2
+          },
+          "words": [
+            {
+              "word": "أسد",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "أرنب",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "أذن",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "أنف",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            },
+            {
+              "word": "إصبع",
+              "startsWithTarget": true
+            },
+            {
+              "word": "حصان",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "ب",
+    "exercises": [
+      {
+        "lesson_id": 3,
+        "question_type": "harakat",
+        "questions": [
+          {
+            "answer": "fatha",
+            "text": {
+              "letter": "بَ",
+              "sound": "بَ (فتحة)",
+              "word": "بَطَّة",
+              "shakl": "فتحة"
+            }
+          },
+          {
+            "answer": "damma",
+            "text": {
+              "letter": "بُ",
+              "sound": "بُ (ضمة)",
+              "word": "بُرْج",
+              "shakl": "ضمة"
+            }
+          },
+          {
+            "answer": "kasra",
+            "text": {
+              "letter": "بِ",
+              "sound": "بِ (كسرة)",
+              "word": "بِنْت",
+              "shakl": "كسرة"
+            }
+          },
+          {
+            "answer": "sukun",
+            "text": {
+              "letter": "بْ",
+              "sound": "بْ (سكون)",
+              "word": "حَبْل",
+              "shakl": "سكون"
+            }
+          }
+        ]
+      },
+      {
+        "lesson_id": 12,
+        "question_type": "position",
+        "questions": [
+          {
+            "answer": "start",
+            "text": {
+              "word": "بطة",
+              "position": "البداية"
+            }
+          },
+          {
+            "answer": "middle",
+            "text": {
+              "word": "جبل",
+              "position": "الوسط"
+            }
+          },
+          {
+            "answer": "end",
+            "text": {
+              "word": "عنب",
+              "position": "النهاية"
+            }
+          },
+          {
+            "answer": "start",
+            "text": {
+              "word": "بنت",
+              "position": "البداية"
+            }
+          }
+        ]
+      }
+    ],
+    "games": [
+      {
+        "game_type": "word_catch",
+        "order_index": 1,
+        "data": {
+          "correctWords": [
+            "بطة",
+            "بنت",
+            "باب",
+            "بقرة",
+            "برتقال",
+            "بالون"
+          ],
+          "wrongWords": [
+            "أسد",
+            "تمر",
+            "ثعلب",
+            "جمل",
+            "حصان",
+            "خبز"
+          ],
+          "maxMistakes": 3,
+          "scorePerCorrect": 10,
+          "spawnIntervalMs": 2000,
+          "minSpeed": 2,
+          "maxSpeed": 5,
+          "instruction": "اصطد الكلمات التي تبدأ بحرف الباء فقط!"
+        }
+      },
+      {
+        "game_type": "sorting",
+        "order_index": 2,
+        "data": {
+          "title": "صنف كلمات حرف الباء",
+          "instruction": "اسحب الكلمات إلى المكان الصحيح",
+          "targetLetter": "ب",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "items": [
+            {
+              "word": "بطة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "بنت",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "باب",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "بقرة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            },
+            {
+              "word": "برتقال",
+              "startsWithTarget": true
+            },
+            {
+              "word": "حصان",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "memory_match",
+        "order_index": 3,
+        "data": {
+          "title": "ذاكرة حرف الباء",
+          "instruction": "اقلب البطاقات وطابق الحرف مع الكلمة التي تبدأ به",
+          "scorePerMatch": 10,
+          "pairs": [
+            {
+              "letter": "ب",
+              "word": "بطة"
+            },
+            {
+              "letter": "ب",
+              "word": "بنت"
+            },
+            {
+              "letter": "ب",
+              "word": "باب"
+            },
+            {
+              "letter": "ب",
+              "word": "بقرة"
+            },
+            {
+              "letter": "ب",
+              "word": "برتقال"
+            },
+            {
+              "letter": "ب",
+              "word": "بالون"
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "balloon_pop",
+        "order_index": 4,
+        "data": {
+          "title": "بالونات حرف الباء",
+          "instruction": "افرقع البالونات التي تحمل كلمات تبدأ بحرف الباء",
+          "targetLetter": "ب",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "spawn": {
+            "baseInterval": 1500,
+            "levelFactor": 100,
+            "minInterval": 800
+          },
+          "speed": {
+            "baseDuration": 6,
+            "levelIncrease": 0.3,
+            "minDuration": 2
+          },
+          "words": [
+            {
+              "word": "بطة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "بنت",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "باب",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "بقرة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            },
+            {
+              "word": "برتقال",
+              "startsWithTarget": true
+            },
+            {
+              "word": "حصان",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "ت",
+    "exercises": [
+      {
+        "lesson_id": 3,
+        "question_type": "harakat",
+        "questions": [
+          {
+            "answer": "fatha",
+            "text": {
+              "letter": "تَ",
+              "sound": "تَ (فتحة)",
+              "word": "تَمْر",
+              "shakl": "فتحة"
+            }
+          },
+          {
+            "answer": "damma",
+            "text": {
+              "letter": "تُ",
+              "sound": "تُ (ضمة)",
+              "word": "تُفَّاح",
+              "shakl": "ضمة"
+            }
+          },
+          {
+            "answer": "kasra",
+            "text": {
+              "letter": "تِ",
+              "sound": "تِ (كسرة)",
+              "word": "تِين",
+              "shakl": "كسرة"
+            }
+          },
+          {
+            "answer": "sukun",
+            "text": {
+              "letter": "تْ",
+              "sound": "تْ (سكون)",
+              "word": "كَتْف",
+              "shakl": "سكون"
+            }
+          }
+        ]
+      },
+      {
+        "lesson_id": 12,
+        "question_type": "position",
+        "questions": [
+          {
+            "answer": "start",
+            "text": {
+              "word": "تمر",
+              "position": "البداية"
+            }
+          },
+          {
+            "answer": "middle",
+            "text": {
+              "word": "كتاب",
+              "position": "الوسط"
+            }
+          },
+          {
+            "answer": "end",
+            "text": {
+              "word": "بيت",
+              "position": "النهاية"
+            }
+          },
+          {
+            "answer": "start",
+            "text": {
+              "word": "تاج",
+              "position": "البداية"
+            }
+          }
+        ]
+      }
+    ],
+    "games": [
+      {
+        "game_type": "word_catch",
+        "order_index": 1,
+        "data": {
+          "correctWords": [
+            "تمر",
+            "تفاح",
+            "تاج",
+            "تمساح",
+            "توت",
+            "تلة"
+          ],
+          "wrongWords": [
+            "أسد",
+            "بطة",
+            "ثعلب",
+            "جمل",
+            "حصان",
+            "خبز"
+          ],
+          "maxMistakes": 3,
+          "scorePerCorrect": 10,
+          "spawnIntervalMs": 2000,
+          "minSpeed": 2,
+          "maxSpeed": 5,
+          "instruction": "اصطد الكلمات التي تبدأ بحرف التاء فقط!"
+        }
+      },
+      {
+        "game_type": "sorting",
+        "order_index": 2,
+        "data": {
+          "title": "صنف كلمات حرف التاء",
+          "instruction": "اسحب الكلمات إلى المكان الصحيح",
+          "targetLetter": "ت",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "items": [
+            {
+              "word": "تمر",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "تفاح",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "تاج",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "تمساح",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            },
+            {
+              "word": "توت",
+              "startsWithTarget": true
+            },
+            {
+              "word": "حصان",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "memory_match",
+        "order_index": 3,
+        "data": {
+          "title": "ذاكرة حرف التاء",
+          "instruction": "اقلب البطاقات وطابق الحرف مع الكلمة التي تبدأ به",
+          "scorePerMatch": 10,
+          "pairs": [
+            {
+              "letter": "ت",
+              "word": "تمر"
+            },
+            {
+              "letter": "ت",
+              "word": "تفاح"
+            },
+            {
+              "letter": "ت",
+              "word": "تاج"
+            },
+            {
+              "letter": "ت",
+              "word": "تمساح"
+            },
+            {
+              "letter": "ت",
+              "word": "توت"
+            },
+            {
+              "letter": "ت",
+              "word": "تلة"
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "balloon_pop",
+        "order_index": 4,
+        "data": {
+          "title": "بالونات حرف التاء",
+          "instruction": "افرقع البالونات التي تحمل كلمات تبدأ بحرف التاء",
+          "targetLetter": "ت",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "spawn": {
+            "baseInterval": 1500,
+            "levelFactor": 100,
+            "minInterval": 800
+          },
+          "speed": {
+            "baseDuration": 6,
+            "levelIncrease": 0.3,
+            "minDuration": 2
+          },
+          "words": [
+            {
+              "word": "تمر",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "تفاح",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "تاج",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "تمساح",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            },
+            {
+              "word": "توت",
+              "startsWithTarget": true
+            },
+            {
+              "word": "حصان",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "ث",
+    "exercises": [
+      {
+        "lesson_id": 3,
+        "question_type": "harakat",
+        "questions": [
+          {
+            "answer": "fatha",
+            "text": {
+              "letter": "ثَ",
+              "sound": "ثَ (فتحة)",
+              "word": "ثَعْلَب",
+              "shakl": "فتحة"
+            }
+          },
+          {
+            "answer": "damma",
+            "text": {
+              "letter": "ثُ",
+              "sound": "ثُ (ضمة)",
+              "word": "ثُعْبَان",
+              "shakl": "ضمة"
+            }
+          },
+          {
+            "answer": "kasra",
+            "text": {
+              "letter": "ثِ",
+              "sound": "ثِ (كسرة)",
+              "word": "ثِمَار",
+              "shakl": "كسرة"
+            }
+          },
+          {
+            "answer": "sukun",
+            "text": {
+              "letter": "ثْ",
+              "sound": "ثْ (سكون)",
+              "word": "مِثْل",
+              "shakl": "سكون"
+            }
+          }
+        ]
+      },
+      {
+        "lesson_id": 12,
+        "question_type": "position",
+        "questions": [
+          {
+            "answer": "start",
+            "text": {
+              "word": "ثعلب",
+              "position": "البداية"
+            }
+          },
+          {
+            "answer": "middle",
+            "text": {
+              "word": "أثر",
+              "position": "الوسط"
+            }
+          },
+          {
+            "answer": "end",
+            "text": {
+              "word": "بحث",
+              "position": "النهاية"
+            }
+          },
+          {
+            "answer": "start",
+            "text": {
+              "word": "ثوب",
+              "position": "البداية"
+            }
+          }
+        ]
+      }
+    ],
+    "games": [
+      {
+        "game_type": "word_catch",
+        "order_index": 1,
+        "data": {
+          "correctWords": [
+            "ثعلب",
+            "ثوب",
+            "ثور",
+            "ثلج",
+            "ثعبان",
+            "ثمار"
+          ],
+          "wrongWords": [
+            "أسد",
+            "بطة",
+            "تمر",
+            "جمل",
+            "حصان",
+            "خبز"
+          ],
+          "maxMistakes": 3,
+          "scorePerCorrect": 10,
+          "spawnIntervalMs": 2000,
+          "minSpeed": 2,
+          "maxSpeed": 5,
+          "instruction": "اصطد الكلمات التي تبدأ بحرف الثاء فقط!"
+        }
+      },
+      {
+        "game_type": "sorting",
+        "order_index": 2,
+        "data": {
+          "title": "صنف كلمات حرف الثاء",
+          "instruction": "اسحب الكلمات إلى المكان الصحيح",
+          "targetLetter": "ث",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "items": [
+            {
+              "word": "ثعلب",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ثوب",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ثور",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ثلج",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ثعبان",
+              "startsWithTarget": true
+            },
+            {
+              "word": "حصان",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "memory_match",
+        "order_index": 3,
+        "data": {
+          "title": "ذاكرة حرف الثاء",
+          "instruction": "اقلب البطاقات وطابق الحرف مع الكلمة التي تبدأ به",
+          "scorePerMatch": 10,
+          "pairs": [
+            {
+              "letter": "ث",
+              "word": "ثعلب"
+            },
+            {
+              "letter": "ث",
+              "word": "ثوب"
+            },
+            {
+              "letter": "ث",
+              "word": "ثور"
+            },
+            {
+              "letter": "ث",
+              "word": "ثلج"
+            },
+            {
+              "letter": "ث",
+              "word": "ثعبان"
+            },
+            {
+              "letter": "ث",
+              "word": "ثمار"
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "balloon_pop",
+        "order_index": 4,
+        "data": {
+          "title": "بالونات حرف الثاء",
+          "instruction": "افرقع البالونات التي تحمل كلمات تبدأ بحرف الثاء",
+          "targetLetter": "ث",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "spawn": {
+            "baseInterval": 1500,
+            "levelFactor": 100,
+            "minInterval": 800
+          },
+          "speed": {
+            "baseDuration": 6,
+            "levelIncrease": 0.3,
+            "minDuration": 2
+          },
+          "words": [
+            {
+              "word": "ثعلب",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ثوب",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ثور",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ثلج",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ثعبان",
+              "startsWithTarget": true
+            },
+            {
+              "word": "حصان",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "ج",
+    "exercises": [
+      {
+        "lesson_id": 3,
+        "question_type": "harakat",
+        "questions": [
+          {
+            "answer": "fatha",
+            "text": {
+              "letter": "جَ",
+              "sound": "جَ (فتحة)",
+              "word": "جَمَل",
+              "shakl": "فتحة"
+            }
+          },
+          {
+            "answer": "damma",
+            "text": {
+              "letter": "جُ",
+              "sound": "جُ (ضمة)",
+              "word": "جُبْن",
+              "shakl": "ضمة"
+            }
+          },
+          {
+            "answer": "kasra",
+            "text": {
+              "letter": "جِ",
+              "sound": "جِ (كسرة)",
+              "word": "جِسْر",
+              "shakl": "كسرة"
+            }
+          },
+          {
+            "answer": "sukun",
+            "text": {
+              "letter": "جْ",
+              "sound": "جْ (سكون)",
+              "word": "نَجْم",
+              "shakl": "سكون"
+            }
+          }
+        ]
+      },
+      {
+        "lesson_id": 12,
+        "question_type": "position",
+        "questions": [
+          {
+            "answer": "start",
+            "text": {
+              "word": "جمل",
+              "position": "البداية"
+            }
+          },
+          {
+            "answer": "middle",
+            "text": {
+              "word": "شجرة",
+              "position": "الوسط"
+            }
+          },
+          {
+            "answer": "end",
+            "text": {
+              "word": "تاج",
+              "position": "النهاية"
+            }
+          },
+          {
+            "answer": "start",
+            "text": {
+              "word": "جسر",
+              "position": "البداية"
+            }
+          }
+        ]
+      }
+    ],
+    "games": [
+      {
+        "game_type": "word_catch",
+        "order_index": 1,
+        "data": {
+          "correctWords": [
+            "جمل",
+            "جسر",
+            "جرس",
+            "جبل",
+            "جبن",
+            "جزر"
+          ],
+          "wrongWords": [
+            "أسد",
+            "بطة",
+            "تمر",
+            "ثعلب",
+            "حصان",
+            "خبز"
+          ],
+          "maxMistakes": 3,
+          "scorePerCorrect": 10,
+          "spawnIntervalMs": 2000,
+          "minSpeed": 2,
+          "maxSpeed": 5,
+          "instruction": "اصطد الكلمات التي تبدأ بحرف الجيم فقط!"
+        }
+      },
+      {
+        "game_type": "sorting",
+        "order_index": 2,
+        "data": {
+          "title": "صنف كلمات حرف الجيم",
+          "instruction": "اسحب الكلمات إلى المكان الصحيح",
+          "targetLetter": "ج",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "items": [
+            {
+              "word": "جمل",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "جسر",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "جرس",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "جبل",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "جبن",
+              "startsWithTarget": true
+            },
+            {
+              "word": "حصان",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "memory_match",
+        "order_index": 3,
+        "data": {
+          "title": "ذاكرة حرف الجيم",
+          "instruction": "اقلب البطاقات وطابق الحرف مع الكلمة التي تبدأ به",
+          "scorePerMatch": 10,
+          "pairs": [
+            {
+              "letter": "ج",
+              "word": "جمل"
+            },
+            {
+              "letter": "ج",
+              "word": "جسر"
+            },
+            {
+              "letter": "ج",
+              "word": "جرس"
+            },
+            {
+              "letter": "ج",
+              "word": "جبل"
+            },
+            {
+              "letter": "ج",
+              "word": "جبن"
+            },
+            {
+              "letter": "ج",
+              "word": "جزر"
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "balloon_pop",
+        "order_index": 4,
+        "data": {
+          "title": "بالونات حرف الجيم",
+          "instruction": "افرقع البالونات التي تحمل كلمات تبدأ بحرف الجيم",
+          "targetLetter": "ج",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "spawn": {
+            "baseInterval": 1500,
+            "levelFactor": 100,
+            "minInterval": 800
+          },
+          "speed": {
+            "baseDuration": 6,
+            "levelIncrease": 0.3,
+            "minDuration": 2
+          },
+          "words": [
+            {
+              "word": "جمل",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "جسر",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "جرس",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "جبل",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "جبن",
+              "startsWithTarget": true
+            },
+            {
+              "word": "حصان",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "ح",
+    "exercises": [
+      {
+        "lesson_id": 3,
+        "question_type": "harakat",
+        "questions": [
+          {
+            "answer": "fatha",
+            "text": {
+              "letter": "حَ",
+              "sound": "حَ (فتحة)",
+              "word": "حَبْل",
+              "shakl": "فتحة"
+            }
+          },
+          {
+            "answer": "damma",
+            "text": {
+              "letter": "حُ",
+              "sound": "حُ (ضمة)",
+              "word": "حُوت",
+              "shakl": "ضمة"
+            }
+          },
+          {
+            "answer": "kasra",
+            "text": {
+              "letter": "حِ",
+              "sound": "حِ (كسرة)",
+              "word": "حِصَان",
+              "shakl": "كسرة"
+            }
+          },
+          {
+            "answer": "sukun",
+            "text": {
+              "letter": "حْ",
+              "sound": "حْ (سكون)",
+              "word": "بَحْر",
+              "shakl": "سكون"
+            }
+          }
+        ]
+      },
+      {
+        "lesson_id": 12,
+        "question_type": "position",
+        "questions": [
+          {
+            "answer": "start",
+            "text": {
+              "word": "حصان",
+              "position": "البداية"
+            }
+          },
+          {
+            "answer": "middle",
+            "text": {
+              "word": "بحر",
+              "position": "الوسط"
+            }
+          },
+          {
+            "answer": "end",
+            "text": {
+              "word": "ملح",
+              "position": "النهاية"
+            }
+          },
+          {
+            "answer": "start",
+            "text": {
+              "word": "حبل",
+              "position": "البداية"
+            }
+          }
+        ]
+      }
+    ],
+    "games": [
+      {
+        "game_type": "word_catch",
+        "order_index": 1,
+        "data": {
+          "correctWords": [
+            "حصان",
+            "حوت",
+            "حبل",
+            "حديقة",
+            "حليب",
+            "حمامة"
+          ],
+          "wrongWords": [
+            "أسد",
+            "بطة",
+            "تمر",
+            "ثعلب",
+            "جمل",
+            "خبز"
+          ],
+          "maxMistakes": 3,
+          "scorePerCorrect": 10,
+          "spawnIntervalMs": 2000,
+          "minSpeed": 2,
+          "maxSpeed": 5,
+          "instruction": "اصطد الكلمات التي تبدأ بحرف الحاء فقط!"
+        }
+      },
+      {
+        "game_type": "sorting",
+        "order_index": 2,
+        "data": {
+          "title": "صنف كلمات حرف الحاء",
+          "instruction": "اسحب الكلمات إلى المكان الصحيح",
+          "targetLetter": "ح",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "items": [
+            {
+              "word": "حصان",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "حوت",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "حبل",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "حديقة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "حليب",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "memory_match",
+        "order_index": 3,
+        "data": {
+          "title": "ذاكرة حرف الحاء",
+          "instruction": "اقلب البطاقات وطابق الحرف مع الكلمة التي تبدأ به",
+          "scorePerMatch": 10,
+          "pairs": [
+            {
+              "letter": "ح",
+              "word": "حصان"
+            },
+            {
+              "letter": "ح",
+              "word": "حوت"
+            },
+            {
+              "letter": "ح",
+              "word": "حبل"
+            },
+            {
+              "letter": "ح",
+              "word": "حديقة"
+            },
+            {
+              "letter": "ح",
+              "word": "حليب"
+            },
+            {
+              "letter": "ح",
+              "word": "حمامة"
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "balloon_pop",
+        "order_index": 4,
+        "data": {
+          "title": "بالونات حرف الحاء",
+          "instruction": "افرقع البالونات التي تحمل كلمات تبدأ بحرف الحاء",
+          "targetLetter": "ح",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "spawn": {
+            "baseInterval": 1500,
+            "levelFactor": 100,
+            "minInterval": 800
+          },
+          "speed": {
+            "baseDuration": 6,
+            "levelIncrease": 0.3,
+            "minDuration": 2
+          },
+          "words": [
+            {
+              "word": "حصان",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "حوت",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "حبل",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "حديقة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "حليب",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "خ",
+    "exercises": [
+      {
+        "lesson_id": 3,
+        "question_type": "harakat",
+        "questions": [
+          {
+            "answer": "fatha",
+            "text": {
+              "letter": "خَ",
+              "sound": "خَ (فتحة)",
+              "word": "خَشَب",
+              "shakl": "فتحة"
+            }
+          },
+          {
+            "answer": "damma",
+            "text": {
+              "letter": "خُ",
+              "sound": "خُ (ضمة)",
+              "word": "خُبْز",
+              "shakl": "ضمة"
+            }
+          },
+          {
+            "answer": "kasra",
+            "text": {
+              "letter": "خِ",
+              "sound": "خِ (كسرة)",
+              "word": "خِرَاف",
+              "shakl": "كسرة"
+            }
+          },
+          {
+            "answer": "sukun",
+            "text": {
+              "letter": "خْ",
+              "sound": "خْ (سكون)",
+              "word": "نَخْل",
+              "shakl": "سكون"
+            }
+          }
+        ]
+      },
+      {
+        "lesson_id": 12,
+        "question_type": "position",
+        "questions": [
+          {
+            "answer": "start",
+            "text": {
+              "word": "خبز",
+              "position": "البداية"
+            }
+          },
+          {
+            "answer": "middle",
+            "text": {
+              "word": "نخلة",
+              "position": "الوسط"
+            }
+          },
+          {
+            "answer": "end",
+            "text": {
+              "word": "بطيخ",
+              "position": "النهاية"
+            }
+          },
+          {
+            "answer": "start",
+            "text": {
+              "word": "خروف",
+              "position": "البداية"
+            }
+          }
+        ]
+      }
+    ],
+    "games": [
+      {
+        "game_type": "word_catch",
+        "order_index": 1,
+        "data": {
+          "correctWords": [
+            "خبز",
+            "خروف",
+            "خيار",
+            "خشب",
+            "خاتم",
+            "خيمة"
+          ],
+          "wrongWords": [
+            "أسد",
+            "بطة",
+            "تمر",
+            "ثعلب",
+            "جمل",
+            "حصان"
+          ],
+          "maxMistakes": 3,
+          "scorePerCorrect": 10,
+          "spawnIntervalMs": 2000,
+          "minSpeed": 2,
+          "maxSpeed": 5,
+          "instruction": "اصطد الكلمات التي تبدأ بحرف الخاء فقط!"
+        }
+      },
+      {
+        "game_type": "sorting",
+        "order_index": 2,
+        "data": {
+          "title": "صنف كلمات حرف الخاء",
+          "instruction": "اسحب الكلمات إلى المكان الصحيح",
+          "targetLetter": "خ",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "items": [
+            {
+              "word": "خبز",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "خروف",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "خيار",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "خشب",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "خاتم",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "memory_match",
+        "order_index": 3,
+        "data": {
+          "title": "ذاكرة حرف الخاء",
+          "instruction": "اقلب البطاقات وطابق الحرف مع الكلمة التي تبدأ به",
+          "scorePerMatch": 10,
+          "pairs": [
+            {
+              "letter": "خ",
+              "word": "خبز"
+            },
+            {
+              "letter": "خ",
+              "word": "خروف"
+            },
+            {
+              "letter": "خ",
+              "word": "خيار"
+            },
+            {
+              "letter": "خ",
+              "word": "خشب"
+            },
+            {
+              "letter": "خ",
+              "word": "خاتم"
+            },
+            {
+              "letter": "خ",
+              "word": "خيمة"
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "balloon_pop",
+        "order_index": 4,
+        "data": {
+          "title": "بالونات حرف الخاء",
+          "instruction": "افرقع البالونات التي تحمل كلمات تبدأ بحرف الخاء",
+          "targetLetter": "خ",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "spawn": {
+            "baseInterval": 1500,
+            "levelFactor": 100,
+            "minInterval": 800
+          },
+          "speed": {
+            "baseDuration": 6,
+            "levelIncrease": 0.3,
+            "minDuration": 2
+          },
+          "words": [
+            {
+              "word": "خبز",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "خروف",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "خيار",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "خشب",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "خاتم",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "د",
+    "exercises": [
+      {
+        "lesson_id": 3,
+        "question_type": "harakat",
+        "questions": [
+          {
+            "answer": "fatha",
+            "text": {
+              "letter": "دَ",
+              "sound": "دَ (فتحة)",
+              "word": "دَجَاج",
+              "shakl": "فتحة"
+            }
+          },
+          {
+            "answer": "damma",
+            "text": {
+              "letter": "دُ",
+              "sound": "دُ (ضمة)",
+              "word": "دُبّ",
+              "shakl": "ضمة"
+            }
+          },
+          {
+            "answer": "kasra",
+            "text": {
+              "letter": "دِ",
+              "sound": "دِ (كسرة)",
+              "word": "دِيك",
+              "shakl": "كسرة"
+            }
+          },
+          {
+            "answer": "sukun",
+            "text": {
+              "letter": "دْ",
+              "sound": "دْ (سكون)",
+              "word": "بَدْر",
+              "shakl": "سكون"
+            }
+          }
+        ]
+      },
+      {
+        "lesson_id": 12,
+        "question_type": "position",
+        "questions": [
+          {
+            "answer": "start",
+            "text": {
+              "word": "دب",
+              "position": "البداية"
+            }
+          },
+          {
+            "answer": "middle",
+            "text": {
+              "word": "مدرسة",
+              "position": "الوسط"
+            }
+          },
+          {
+            "answer": "end",
+            "text": {
+              "word": "ورد",
+              "position": "النهاية"
+            }
+          },
+          {
+            "answer": "start",
+            "text": {
+              "word": "دجاج",
+              "position": "البداية"
+            }
+          }
+        ]
+      }
+    ],
+    "games": [
+      {
+        "game_type": "word_catch",
+        "order_index": 1,
+        "data": {
+          "correctWords": [
+            "دب",
+            "دجاج",
+            "دلو",
+            "دفتر",
+            "دراجة",
+            "دودة"
+          ],
+          "wrongWords": [
+            "أسد",
+            "بطة",
+            "تمر",
+            "ثعلب",
+            "جمل",
+            "حصان"
+          ],
+          "maxMistakes": 3,
+          "scorePerCorrect": 10,
+          "spawnIntervalMs": 2000,
+          "minSpeed": 2,
+          "maxSpeed": 5,
+          "instruction": "اصطد الكلمات التي تبدأ بحرف الدال فقط!"
+        }
+      },
+      {
+        "game_type": "sorting",
+        "order_index": 2,
+        "data": {
+          "title": "صنف كلمات حرف الدال",
+          "instruction": "اسحب الكلمات إلى المكان الصحيح",
+          "targetLetter": "د",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "items": [
+            {
+              "word": "دب",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "دجاج",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "دلو",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "دفتر",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "دراجة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "memory_match",
+        "order_index": 3,
+        "data": {
+          "title": "ذاكرة حرف الدال",
+          "instruction": "اقلب البطاقات وطابق الحرف مع الكلمة التي تبدأ به",
+          "scorePerMatch": 10,
+          "pairs": [
+            {
+              "letter": "د",
+              "word": "دب"
+            },
+            {
+              "letter": "د",
+              "word": "دجاج"
+            },
+            {
+              "letter": "د",
+              "word": "دلو"
+            },
+            {
+              "letter": "د",
+              "word": "دفتر"
+            },
+            {
+              "letter": "د",
+              "word": "دراجة"
+            },
+            {
+              "letter": "د",
+              "word": "دودة"
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "balloon_pop",
+        "order_index": 4,
+        "data": {
+          "title": "بالونات حرف الدال",
+          "instruction": "افرقع البالونات التي تحمل كلمات تبدأ بحرف الدال",
+          "targetLetter": "د",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "spawn": {
+            "baseInterval": 1500,
+            "levelFactor": 100,
+            "minInterval": 800
+          },
+          "speed": {
+            "baseDuration": 6,
+            "levelIncrease": 0.3,
+            "minDuration": 2
+          },
+          "words": [
+            {
+              "word": "دب",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "دجاج",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "دلو",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "دفتر",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "دراجة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "ذ",
+    "exercises": [
+      {
+        "lesson_id": 3,
+        "question_type": "harakat",
+        "questions": [
+          {
+            "answer": "fatha",
+            "text": {
+              "letter": "ذَ",
+              "sound": "ذَ (فتحة)",
+              "word": "ذَهَب",
+              "shakl": "فتحة"
+            }
+          },
+          {
+            "answer": "damma",
+            "text": {
+              "letter": "ذُ",
+              "sound": "ذُ (ضمة)",
+              "word": "ذُبَاب",
+              "shakl": "ضمة"
+            }
+          },
+          {
+            "answer": "kasra",
+            "text": {
+              "letter": "ذِ",
+              "sound": "ذِ (كسرة)",
+              "word": "ذِئْب",
+              "shakl": "كسرة"
+            }
+          },
+          {
+            "answer": "sukun",
+            "text": {
+              "letter": "ذْ",
+              "sound": "ذْ (سكون)",
+              "word": "بَذْرَة",
+              "shakl": "سكون"
+            }
+          }
+        ]
+      },
+      {
+        "lesson_id": 12,
+        "question_type": "position",
+        "questions": [
+          {
+            "answer": "start",
+            "text": {
+              "word": "ذرة",
+              "position": "البداية"
+            }
+          },
+          {
+            "answer": "middle",
+            "text": {
+              "word": "أذن",
+              "position": "الوسط"
+            }
+          },
+          {
+            "answer": "end",
+            "text": {
+              "word": "قنفذ",
+              "position": "النهاية"
+            }
+          },
+          {
+            "answer": "start",
+            "text": {
+              "word": "ذهب",
+              "position": "البداية"
+            }
+          }
+        ]
+      }
+    ],
+    "games": [
+      {
+        "game_type": "word_catch",
+        "order_index": 1,
+        "data": {
+          "correctWords": [
+            "ذرة",
+            "ذهب",
+            "ذئب",
+            "ذيل",
+            "ذراع",
+            "ذباب"
+          ],
+          "wrongWords": [
+            "أسد",
+            "بطة",
+            "تمر",
+            "ثعلب",
+            "جمل",
+            "حصان"
+          ],
+          "maxMistakes": 3,
+          "scorePerCorrect": 10,
+          "spawnIntervalMs": 2000,
+          "minSpeed": 2,
+          "maxSpeed": 5,
+          "instruction": "اصطد الكلمات التي تبدأ بحرف الذال فقط!"
+        }
+      },
+      {
+        "game_type": "sorting",
+        "order_index": 2,
+        "data": {
+          "title": "صنف كلمات حرف الذال",
+          "instruction": "اسحب الكلمات إلى المكان الصحيح",
+          "targetLetter": "ذ",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "items": [
+            {
+              "word": "ذرة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ذهب",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ذئب",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ذيل",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ذراع",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "memory_match",
+        "order_index": 3,
+        "data": {
+          "title": "ذاكرة حرف الذال",
+          "instruction": "اقلب البطاقات وطابق الحرف مع الكلمة التي تبدأ به",
+          "scorePerMatch": 10,
+          "pairs": [
+            {
+              "letter": "ذ",
+              "word": "ذرة"
+            },
+            {
+              "letter": "ذ",
+              "word": "ذهب"
+            },
+            {
+              "letter": "ذ",
+              "word": "ذئب"
+            },
+            {
+              "letter": "ذ",
+              "word": "ذيل"
+            },
+            {
+              "letter": "ذ",
+              "word": "ذراع"
+            },
+            {
+              "letter": "ذ",
+              "word": "ذباب"
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "balloon_pop",
+        "order_index": 4,
+        "data": {
+          "title": "بالونات حرف الذال",
+          "instruction": "افرقع البالونات التي تحمل كلمات تبدأ بحرف الذال",
+          "targetLetter": "ذ",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "spawn": {
+            "baseInterval": 1500,
+            "levelFactor": 100,
+            "minInterval": 800
+          },
+          "speed": {
+            "baseDuration": 6,
+            "levelIncrease": 0.3,
+            "minDuration": 2
+          },
+          "words": [
+            {
+              "word": "ذرة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ذهب",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ذئب",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ذيل",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ذراع",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "ر",
+    "exercises": [
+      {
+        "lesson_id": 3,
+        "question_type": "harakat",
+        "questions": [
+          {
+            "answer": "fatha",
+            "text": {
+              "letter": "رَ",
+              "sound": "رَ (فتحة)",
+              "word": "رَسْم",
+              "shakl": "فتحة"
+            }
+          },
+          {
+            "answer": "damma",
+            "text": {
+              "letter": "رُ",
+              "sound": "رُ (ضمة)",
+              "word": "رُمَّان",
+              "shakl": "ضمة"
+            }
+          },
+          {
+            "answer": "kasra",
+            "text": {
+              "letter": "رِ",
+              "sound": "رِ (كسرة)",
+              "word": "رِيش",
+              "shakl": "كسرة"
+            }
+          },
+          {
+            "answer": "sukun",
+            "text": {
+              "letter": "رْ",
+              "sound": "رْ (سكون)",
+              "word": "كُرْسِيّ",
+              "shakl": "سكون"
+            }
+          }
+        ]
+      },
+      {
+        "lesson_id": 12,
+        "question_type": "position",
+        "questions": [
+          {
+            "answer": "start",
+            "text": {
+              "word": "رمان",
+              "position": "البداية"
+            }
+          },
+          {
+            "answer": "middle",
+            "text": {
+              "word": "كرسي",
+              "position": "الوسط"
+            }
+          },
+          {
+            "answer": "end",
+            "text": {
+              "word": "قمر",
+              "position": "النهاية"
+            }
+          },
+          {
+            "answer": "start",
+            "text": {
+              "word": "ريش",
+              "position": "البداية"
+            }
+          }
+        ]
+      }
+    ],
+    "games": [
+      {
+        "game_type": "word_catch",
+        "order_index": 1,
+        "data": {
+          "correctWords": [
+            "رمان",
+            "ريش",
+            "رمل",
+            "رجل",
+            "رسم",
+            "رغيف"
+          ],
+          "wrongWords": [
+            "أسد",
+            "بطة",
+            "تمر",
+            "ثعلب",
+            "جمل",
+            "حصان"
+          ],
+          "maxMistakes": 3,
+          "scorePerCorrect": 10,
+          "spawnIntervalMs": 2000,
+          "minSpeed": 2,
+          "maxSpeed": 5,
+          "instruction": "اصطد الكلمات التي تبدأ بحرف الراء فقط!"
+        }
+      },
+      {
+        "game_type": "sorting",
+        "order_index": 2,
+        "data": {
+          "title": "صنف كلمات حرف الراء",
+          "instruction": "اسحب الكلمات إلى المكان الصحيح",
+          "targetLetter": "ر",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "items": [
+            {
+              "word": "رمان",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ريش",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "رمل",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "رجل",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "رسم",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "memory_match",
+        "order_index": 3,
+        "data": {
+          "title": "ذاكرة حرف الراء",
+          "instruction": "اقلب البطاقات وطابق الحرف مع الكلمة التي تبدأ به",
+          "scorePerMatch": 10,
+          "pairs": [
+            {
+              "letter": "ر",
+              "word": "رمان"
+            },
+            {
+              "letter": "ر",
+              "word": "ريش"
+            },
+            {
+              "letter": "ر",
+              "word": "رمل"
+            },
+            {
+              "letter": "ر",
+              "word": "رجل"
+            },
+            {
+              "letter": "ر",
+              "word": "رسم"
+            },
+            {
+              "letter": "ر",
+              "word": "رغيف"
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "balloon_pop",
+        "order_index": 4,
+        "data": {
+          "title": "بالونات حرف الراء",
+          "instruction": "افرقع البالونات التي تحمل كلمات تبدأ بحرف الراء",
+          "targetLetter": "ر",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "spawn": {
+            "baseInterval": 1500,
+            "levelFactor": 100,
+            "minInterval": 800
+          },
+          "speed": {
+            "baseDuration": 6,
+            "levelIncrease": 0.3,
+            "minDuration": 2
+          },
+          "words": [
+            {
+              "word": "رمان",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ريش",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "رمل",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "رجل",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "رسم",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "ز",
+    "exercises": [
+      {
+        "lesson_id": 3,
+        "question_type": "harakat",
+        "questions": [
+          {
+            "answer": "fatha",
+            "text": {
+              "letter": "زَ",
+              "sound": "زَ (فتحة)",
+              "word": "زَهْرَة",
+              "shakl": "فتحة"
+            }
+          },
+          {
+            "answer": "damma",
+            "text": {
+              "letter": "زُ",
+              "sound": "زُ (ضمة)",
+              "word": "زُجَاج",
+              "shakl": "ضمة"
+            }
+          },
+          {
+            "answer": "kasra",
+            "text": {
+              "letter": "زِ",
+              "sound": "زِ (كسرة)",
+              "word": "زِرّ",
+              "shakl": "كسرة"
+            }
+          },
+          {
+            "answer": "sukun",
+            "text": {
+              "letter": "زْ",
+              "sound": "زْ (سكون)",
+              "word": "مَزْرَعَة",
+              "shakl": "سكون"
+            }
+          }
+        ]
+      },
+      {
+        "lesson_id": 12,
+        "question_type": "position",
+        "questions": [
+          {
+            "answer": "start",
+            "text": {
+              "word": "زهرة",
+              "position": "البداية"
+            }
+          },
+          {
+            "answer": "middle",
+            "text": {
+              "word": "ميزان",
+              "position": "الوسط"
+            }
+          },
+          {
+            "answer": "end",
+            "text": {
+              "word": "موز",
+              "position": "النهاية"
+            }
+          },
+          {
+            "answer": "start",
+            "text": {
+              "word": "زرافة",
+              "position": "البداية"
+            }
+          }
+        ]
+      }
+    ],
+    "games": [
+      {
+        "game_type": "word_catch",
+        "order_index": 1,
+        "data": {
+          "correctWords": [
+            "زهرة",
+            "زرافة",
+            "زيتون",
+            "زر",
+            "زورق",
+            "زجاج"
+          ],
+          "wrongWords": [
+            "أسد",
+            "بطة",
+            "تمر",
+            "ثعلب",
+            "جمل",
+            "حصان"
+          ],
+          "maxMistakes": 3,
+          "scorePerCorrect": 10,
+          "spawnIntervalMs": 2000,
+          "minSpeed": 2,
+          "maxSpeed": 5,
+          "instruction": "اصطد الكلمات التي تبدأ بحرف الزاي فقط!"
+        }
+      },
+      {
+        "game_type": "sorting",
+        "order_index": 2,
+        "data": {
+          "title": "صنف كلمات حرف الزاي",
+          "instruction": "اسحب الكلمات إلى المكان الصحيح",
+          "targetLetter": "ز",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "items": [
+            {
+              "word": "زهرة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "زرافة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "زيتون",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "زر",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "زورق",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "memory_match",
+        "order_index": 3,
+        "data": {
+          "title": "ذاكرة حرف الزاي",
+          "instruction": "اقلب البطاقات وطابق الحرف مع الكلمة التي تبدأ به",
+          "scorePerMatch": 10,
+          "pairs": [
+            {
+              "letter": "ز",
+              "word": "زهرة"
+            },
+            {
+              "letter": "ز",
+              "word": "زرافة"
+            },
+            {
+              "letter": "ز",
+              "word": "زيتون"
+            },
+            {
+              "letter": "ز",
+              "word": "زر"
+            },
+            {
+              "letter": "ز",
+              "word": "زورق"
+            },
+            {
+              "letter": "ز",
+              "word": "زجاج"
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "balloon_pop",
+        "order_index": 4,
+        "data": {
+          "title": "بالونات حرف الزاي",
+          "instruction": "افرقع البالونات التي تحمل كلمات تبدأ بحرف الزاي",
+          "targetLetter": "ز",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "spawn": {
+            "baseInterval": 1500,
+            "levelFactor": 100,
+            "minInterval": 800
+          },
+          "speed": {
+            "baseDuration": 6,
+            "levelIncrease": 0.3,
+            "minDuration": 2
+          },
+          "words": [
+            {
+              "word": "زهرة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "زرافة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "زيتون",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "زر",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "زورق",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "س",
+    "exercises": [
+      {
+        "lesson_id": 3,
+        "question_type": "harakat",
+        "questions": [
+          {
+            "answer": "fatha",
+            "text": {
+              "letter": "سَ",
+              "sound": "سَ (فتحة)",
+              "word": "سَمَك",
+              "shakl": "فتحة"
+            }
+          },
+          {
+            "answer": "damma",
+            "text": {
+              "letter": "سُ",
+              "sound": "سُ (ضمة)",
+              "word": "سُكَّر",
+              "shakl": "ضمة"
+            }
+          },
+          {
+            "answer": "kasra",
+            "text": {
+              "letter": "سِ",
+              "sound": "سِ (كسرة)",
+              "word": "سِتَار",
+              "shakl": "كسرة"
+            }
+          },
+          {
+            "answer": "sukun",
+            "text": {
+              "letter": "سْ",
+              "sound": "سْ (سكون)",
+              "word": "مَسْجِد",
+              "shakl": "سكون"
+            }
+          }
+        ]
+      },
+      {
+        "lesson_id": 12,
+        "question_type": "position",
+        "questions": [
+          {
+            "answer": "start",
+            "text": {
+              "word": "سمك",
+              "position": "البداية"
+            }
+          },
+          {
+            "answer": "middle",
+            "text": {
+              "word": "مسجد",
+              "position": "الوسط"
+            }
+          },
+          {
+            "answer": "end",
+            "text": {
+              "word": "جرس",
+              "position": "النهاية"
+            }
+          },
+          {
+            "answer": "start",
+            "text": {
+              "word": "سفينة",
+              "position": "البداية"
+            }
+          }
+        ]
+      }
+    ],
+    "games": [
+      {
+        "game_type": "word_catch",
+        "order_index": 1,
+        "data": {
+          "correctWords": [
+            "سمك",
+            "سفينة",
+            "ساعة",
+            "سيارة",
+            "سلم",
+            "سلة"
+          ],
+          "wrongWords": [
+            "أسد",
+            "بطة",
+            "تمر",
+            "ثعلب",
+            "جمل",
+            "حصان"
+          ],
+          "maxMistakes": 3,
+          "scorePerCorrect": 10,
+          "spawnIntervalMs": 2000,
+          "minSpeed": 2,
+          "maxSpeed": 5,
+          "instruction": "اصطد الكلمات التي تبدأ بحرف السين فقط!"
+        }
+      },
+      {
+        "game_type": "sorting",
+        "order_index": 2,
+        "data": {
+          "title": "صنف كلمات حرف السين",
+          "instruction": "اسحب الكلمات إلى المكان الصحيح",
+          "targetLetter": "س",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "items": [
+            {
+              "word": "سمك",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "سفينة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ساعة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "سيارة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "سلم",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "memory_match",
+        "order_index": 3,
+        "data": {
+          "title": "ذاكرة حرف السين",
+          "instruction": "اقلب البطاقات وطابق الحرف مع الكلمة التي تبدأ به",
+          "scorePerMatch": 10,
+          "pairs": [
+            {
+              "letter": "س",
+              "word": "سمك"
+            },
+            {
+              "letter": "س",
+              "word": "سفينة"
+            },
+            {
+              "letter": "س",
+              "word": "ساعة"
+            },
+            {
+              "letter": "س",
+              "word": "سيارة"
+            },
+            {
+              "letter": "س",
+              "word": "سلم"
+            },
+            {
+              "letter": "س",
+              "word": "سلة"
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "balloon_pop",
+        "order_index": 4,
+        "data": {
+          "title": "بالونات حرف السين",
+          "instruction": "افرقع البالونات التي تحمل كلمات تبدأ بحرف السين",
+          "targetLetter": "س",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "spawn": {
+            "baseInterval": 1500,
+            "levelFactor": 100,
+            "minInterval": 800
+          },
+          "speed": {
+            "baseDuration": 6,
+            "levelIncrease": 0.3,
+            "minDuration": 2
+          },
+          "words": [
+            {
+              "word": "سمك",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "سفينة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ساعة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "سيارة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "سلم",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "ش",
+    "exercises": [
+      {
+        "lesson_id": 3,
+        "question_type": "harakat",
+        "questions": [
+          {
+            "answer": "fatha",
+            "text": {
+              "letter": "شَ",
+              "sound": "شَ (فتحة)",
+              "word": "شَمْس",
+              "shakl": "فتحة"
+            }
+          },
+          {
+            "answer": "damma",
+            "text": {
+              "letter": "شُ",
+              "sound": "شُ (ضمة)",
+              "word": "شُرْطِيّ",
+              "shakl": "ضمة"
+            }
+          },
+          {
+            "answer": "kasra",
+            "text": {
+              "letter": "شِ",
+              "sound": "شِ (كسرة)",
+              "word": "شِرَاع",
+              "shakl": "كسرة"
+            }
+          },
+          {
+            "answer": "sukun",
+            "text": {
+              "letter": "شْ",
+              "sound": "شْ (سكون)",
+              "word": "عُشْب",
+              "shakl": "سكون"
+            }
+          }
+        ]
+      },
+      {
+        "lesson_id": 12,
+        "question_type": "position",
+        "questions": [
+          {
+            "answer": "start",
+            "text": {
+              "word": "شمس",
+              "position": "البداية"
+            }
+          },
+          {
+            "answer": "middle",
+            "text": {
+              "word": "عشب",
+              "position": "الوسط"
+            }
+          },
+          {
+            "answer": "end",
+            "text": {
+              "word": "ريش",
+              "position": "النهاية"
+            }
+          },
+          {
+            "answer": "start",
+            "text": {
+              "word": "شجرة",
+              "position": "البداية"
+            }
+          }
+        ]
+      }
+    ],
+    "games": [
+      {
+        "game_type": "word_catch",
+        "order_index": 1,
+        "data": {
+          "correctWords": [
+            "شمس",
+            "شجرة",
+            "شباك",
+            "شمعة",
+            "شراع",
+            "شرطي"
+          ],
+          "wrongWords": [
+            "أسد",
+            "بطة",
+            "تمر",
+            "ثعلب",
+            "جمل",
+            "حصان"
+          ],
+          "maxMistakes": 3,
+          "scorePerCorrect": 10,
+          "spawnIntervalMs": 2000,
+          "minSpeed": 2,
+          "maxSpeed": 5,
+          "instruction": "اصطد الكلمات التي تبدأ بحرف الشين فقط!"
+        }
+      },
+      {
+        "game_type": "sorting",
+        "order_index": 2,
+        "data": {
+          "title": "صنف كلمات حرف الشين",
+          "instruction": "اسحب الكلمات إلى المكان الصحيح",
+          "targetLetter": "ش",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "items": [
+            {
+              "word": "شمس",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "شجرة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "شباك",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "شمعة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "شراع",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "memory_match",
+        "order_index": 3,
+        "data": {
+          "title": "ذاكرة حرف الشين",
+          "instruction": "اقلب البطاقات وطابق الحرف مع الكلمة التي تبدأ به",
+          "scorePerMatch": 10,
+          "pairs": [
+            {
+              "letter": "ش",
+              "word": "شمس"
+            },
+            {
+              "letter": "ش",
+              "word": "شجرة"
+            },
+            {
+              "letter": "ش",
+              "word": "شباك"
+            },
+            {
+              "letter": "ش",
+              "word": "شمعة"
+            },
+            {
+              "letter": "ش",
+              "word": "شراع"
+            },
+            {
+              "letter": "ش",
+              "word": "شرطي"
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "balloon_pop",
+        "order_index": 4,
+        "data": {
+          "title": "بالونات حرف الشين",
+          "instruction": "افرقع البالونات التي تحمل كلمات تبدأ بحرف الشين",
+          "targetLetter": "ش",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "spawn": {
+            "baseInterval": 1500,
+            "levelFactor": 100,
+            "minInterval": 800
+          },
+          "speed": {
+            "baseDuration": 6,
+            "levelIncrease": 0.3,
+            "minDuration": 2
+          },
+          "words": [
+            {
+              "word": "شمس",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "شجرة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "شباك",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "شمعة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "شراع",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "ص",
+    "exercises": [
+      {
+        "lesson_id": 3,
+        "question_type": "harakat",
+        "questions": [
+          {
+            "answer": "fatha",
+            "text": {
+              "letter": "صَ",
+              "sound": "صَ (فتحة)",
+              "word": "صَقْر",
+              "shakl": "فتحة"
+            }
+          },
+          {
+            "answer": "damma",
+            "text": {
+              "letter": "صُ",
+              "sound": "صُ (ضمة)",
+              "word": "صُورَة",
+              "shakl": "ضمة"
+            }
+          },
+          {
+            "answer": "kasra",
+            "text": {
+              "letter": "صِ",
+              "sound": "صِ (كسرة)",
+              "word": "صِفْر",
+              "shakl": "كسرة"
+            }
+          },
+          {
+            "answer": "sukun",
+            "text": {
+              "letter": "صْ",
+              "sound": "صْ (سكون)",
+              "word": "عَصْفُور",
+              "shakl": "سكون"
+            }
+          }
+        ]
+      },
+      {
+        "lesson_id": 12,
+        "question_type": "position",
+        "questions": [
+          {
+            "answer": "start",
+            "text": {
+              "word": "صقر",
+              "position": "البداية"
+            }
+          },
+          {
+            "answer": "middle",
+            "text": {
+              "word": "بصل",
+              "position": "الوسط"
+            }
+          },
+          {
+            "answer": "end",
+            "text": {
+              "word": "قفص",
+              "position": "النهاية"
+            }
+          },
+          {
+            "answer": "start",
+            "text": {
+              "word": "صابون",
+              "position": "البداية"
+            }
+          }
+        ]
+      }
+    ],
+    "games": [
+      {
+        "game_type": "word_catch",
+        "order_index": 1,
+        "data": {
+          "correctWords": [
+            "صقر",
+            "صابون",
+            "صندوق",
+            "صحن",
+            "صورة",
+            "صخرة"
+          ],
+          "wrongWords": [
+            "أسد",
+            "بطة",
+            "تمر",
+            "ثعلب",
+            "جمل",
+            "حصان"
+          ],
+          "maxMistakes": 3,
+          "scorePerCorrect": 10,
+          "spawnIntervalMs": 2000,
+          "minSpeed": 2,
+          "maxSpeed": 5,
+          "instruction": "اصطد الكلمات التي تبدأ بحرف الصاد فقط!"
+        }
+      },
+      {
+        "game_type": "sorting",
+        "order_index": 2,
+        "data": {
+          "title": "صنف كلمات حرف الصاد",
+          "instruction": "اسحب الكلمات إلى المكان الصحيح",
+          "targetLetter": "ص",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "items": [
+            {
+              "word": "صقر",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "صابون",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "صندوق",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "صحن",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "صورة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "memory_match",
+        "order_index": 3,
+        "data": {
+          "title": "ذاكرة حرف الصاد",
+          "instruction": "اقلب البطاقات وطابق الحرف مع الكلمة التي تبدأ به",
+          "scorePerMatch": 10,
+          "pairs": [
+            {
+              "letter": "ص",
+              "word": "صقر"
+            },
+            {
+              "letter": "ص",
+              "word": "صابون"
+            },
+            {
+              "letter": "ص",
+              "word": "صندوق"
+            },
+            {
+              "letter": "ص",
+              "word": "صحن"
+            },
+            {
+              "letter": "ص",
+              "word": "صورة"
+            },
+            {
+              "letter": "ص",
+              "word": "صخرة"
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "balloon_pop",
+        "order_index": 4,
+        "data": {
+          "title": "بالونات حرف الصاد",
+          "instruction": "افرقع البالونات التي تحمل كلمات تبدأ بحرف الصاد",
+          "targetLetter": "ص",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "spawn": {
+            "baseInterval": 1500,
+            "levelFactor": 100,
+            "minInterval": 800
+          },
+          "speed": {
+            "baseDuration": 6,
+            "levelIncrease": 0.3,
+            "minDuration": 2
+          },
+          "words": [
+            {
+              "word": "صقر",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "صابون",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "صندوق",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "صحن",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "صورة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "ض",
+    "exercises": [
+      {
+        "lesson_id": 3,
+        "question_type": "harakat",
+        "questions": [
+          {
+            "answer": "fatha",
+            "text": {
+              "letter": "ضَ",
+              "sound": "ضَ (فتحة)",
+              "word": "ضَفْدَع",
+              "shakl": "فتحة"
+            }
+          },
+          {
+            "answer": "damma",
+            "text": {
+              "letter": "ضُ",
+              "sound": "ضُ (ضمة)",
+              "word": "ضُرُوس",
+              "shakl": "ضمة"
+            }
+          },
+          {
+            "answer": "kasra",
+            "text": {
+              "letter": "ضِ",
+              "sound": "ضِ (كسرة)",
+              "word": "ضِرْس",
+              "shakl": "كسرة"
+            }
+          },
+          {
+            "answer": "sukun",
+            "text": {
+              "letter": "ضْ",
+              "sound": "ضْ (سكون)",
+              "word": "خُضْرَة",
+              "shakl": "سكون"
+            }
+          }
+        ]
+      },
+      {
+        "lesson_id": 12,
+        "question_type": "position",
+        "questions": [
+          {
+            "answer": "start",
+            "text": {
+              "word": "ضفدع",
+              "position": "البداية"
+            }
+          },
+          {
+            "answer": "middle",
+            "text": {
+              "word": "خضار",
+              "position": "الوسط"
+            }
+          },
+          {
+            "answer": "end",
+            "text": {
+              "word": "بيض",
+              "position": "النهاية"
+            }
+          },
+          {
+            "answer": "start",
+            "text": {
+              "word": "ضرس",
+              "position": "البداية"
+            }
+          }
+        ]
+      }
+    ],
+    "games": [
+      {
+        "game_type": "word_catch",
+        "order_index": 1,
+        "data": {
+          "correctWords": [
+            "ضفدع",
+            "ضرس",
+            "ضوء",
+            "ضباب",
+            "ضلع",
+            "ضبع"
+          ],
+          "wrongWords": [
+            "أسد",
+            "بطة",
+            "تمر",
+            "ثعلب",
+            "جمل",
+            "حصان"
+          ],
+          "maxMistakes": 3,
+          "scorePerCorrect": 10,
+          "spawnIntervalMs": 2000,
+          "minSpeed": 2,
+          "maxSpeed": 5,
+          "instruction": "اصطد الكلمات التي تبدأ بحرف الضاد فقط!"
+        }
+      },
+      {
+        "game_type": "sorting",
+        "order_index": 2,
+        "data": {
+          "title": "صنف كلمات حرف الضاد",
+          "instruction": "اسحب الكلمات إلى المكان الصحيح",
+          "targetLetter": "ض",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "items": [
+            {
+              "word": "ضفدع",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ضرس",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ضوء",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ضباب",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ضلع",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "memory_match",
+        "order_index": 3,
+        "data": {
+          "title": "ذاكرة حرف الضاد",
+          "instruction": "اقلب البطاقات وطابق الحرف مع الكلمة التي تبدأ به",
+          "scorePerMatch": 10,
+          "pairs": [
+            {
+              "letter": "ض",
+              "word": "ضفدع"
+            },
+            {
+              "letter": "ض",
+              "word": "ضرس"
+            },
+            {
+              "letter": "ض",
+              "word": "ضوء"
+            },
+            {
+              "letter": "ض",
+              "word": "ضباب"
+            },
+            {
+              "letter": "ض",
+              "word": "ضلع"
+            },
+            {
+              "letter": "ض",
+              "word": "ضبع"
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "balloon_pop",
+        "order_index": 4,
+        "data": {
+          "title": "بالونات حرف الضاد",
+          "instruction": "افرقع البالونات التي تحمل كلمات تبدأ بحرف الضاد",
+          "targetLetter": "ض",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "spawn": {
+            "baseInterval": 1500,
+            "levelFactor": 100,
+            "minInterval": 800
+          },
+          "speed": {
+            "baseDuration": 6,
+            "levelIncrease": 0.3,
+            "minDuration": 2
+          },
+          "words": [
+            {
+              "word": "ضفدع",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ضرس",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ضوء",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ضباب",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ضلع",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "ط",
+    "exercises": [
+      {
+        "lesson_id": 3,
+        "question_type": "harakat",
+        "questions": [
+          {
+            "answer": "fatha",
+            "text": {
+              "letter": "طَ",
+              "sound": "طَ (فتحة)",
+              "word": "طَبْل",
+              "shakl": "فتحة"
+            }
+          },
+          {
+            "answer": "damma",
+            "text": {
+              "letter": "طُ",
+              "sound": "طُ (ضمة)",
+              "word": "طُيُور",
+              "shakl": "ضمة"
+            }
+          },
+          {
+            "answer": "kasra",
+            "text": {
+              "letter": "طِ",
+              "sound": "طِ (كسرة)",
+              "word": "طِفْل",
+              "shakl": "كسرة"
+            }
+          },
+          {
+            "answer": "sukun",
+            "text": {
+              "letter": "طْ",
+              "sound": "طْ (سكون)",
+              "word": "قِطْعَة",
+              "shakl": "سكون"
+            }
+          }
+        ]
+      },
+      {
+        "lesson_id": 12,
+        "question_type": "position",
+        "questions": [
+          {
+            "answer": "start",
+            "text": {
+              "word": "طبل",
+              "position": "البداية"
+            }
+          },
+          {
+            "answer": "middle",
+            "text": {
+              "word": "مطر",
+              "position": "الوسط"
+            }
+          },
+          {
+            "answer": "end",
+            "text": {
+              "word": "خيط",
+              "position": "النهاية"
+            }
+          },
+          {
+            "answer": "start",
+            "text": {
+              "word": "طائرة",
+              "position": "البداية"
+            }
+          }
+        ]
+      }
+    ],
+    "games": [
+      {
+        "game_type": "word_catch",
+        "order_index": 1,
+        "data": {
+          "correctWords": [
+            "طبل",
+            "طائرة",
+            "طفل",
+            "طماطم",
+            "طبق",
+            "طاووس"
+          ],
+          "wrongWords": [
+            "أسد",
+            "بطة",
+            "تمر",
+            "ثعلب",
+            "جمل",
+            "حصان"
+          ],
+          "maxMistakes": 3,
+          "scorePerCorrect": 10,
+          "spawnIntervalMs": 2000,
+          "minSpeed": 2,
+          "maxSpeed": 5,
+          "instruction": "اصطد الكلمات التي تبدأ بحرف الطاء فقط!"
+        }
+      },
+      {
+        "game_type": "sorting",
+        "order_index": 2,
+        "data": {
+          "title": "صنف كلمات حرف الطاء",
+          "instruction": "اسحب الكلمات إلى المكان الصحيح",
+          "targetLetter": "ط",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "items": [
+            {
+              "word": "طبل",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "طائرة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "طفل",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "طماطم",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "طبق",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "memory_match",
+        "order_index": 3,
+        "data": {
+          "title": "ذاكرة حرف الطاء",
+          "instruction": "اقلب البطاقات وطابق الحرف مع الكلمة التي تبدأ به",
+          "scorePerMatch": 10,
+          "pairs": [
+            {
+              "letter": "ط",
+              "word": "طبل"
+            },
+            {
+              "letter": "ط",
+              "word": "طائرة"
+            },
+            {
+              "letter": "ط",
+              "word": "طفل"
+            },
+            {
+              "letter": "ط",
+              "word": "طماطم"
+            },
+            {
+              "letter": "ط",
+              "word": "طبق"
+            },
+            {
+              "letter": "ط",
+              "word": "طاووس"
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "balloon_pop",
+        "order_index": 4,
+        "data": {
+          "title": "بالونات حرف الطاء",
+          "instruction": "افرقع البالونات التي تحمل كلمات تبدأ بحرف الطاء",
+          "targetLetter": "ط",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "spawn": {
+            "baseInterval": 1500,
+            "levelFactor": 100,
+            "minInterval": 800
+          },
+          "speed": {
+            "baseDuration": 6,
+            "levelIncrease": 0.3,
+            "minDuration": 2
+          },
+          "words": [
+            {
+              "word": "طبل",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "طائرة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "طفل",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "طماطم",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "طبق",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "ظ",
+    "exercises": [
+      {
+        "lesson_id": 3,
+        "question_type": "harakat",
+        "questions": [
+          {
+            "answer": "fatha",
+            "text": {
+              "letter": "ظَ",
+              "sound": "ظَ (فتحة)",
+              "word": "ظَرْف",
+              "shakl": "فتحة"
+            }
+          },
+          {
+            "answer": "damma",
+            "text": {
+              "letter": "ظُ",
+              "sound": "ظُ (ضمة)",
+              "word": "ظُفْر",
+              "shakl": "ضمة"
+            }
+          },
+          {
+            "answer": "kasra",
+            "text": {
+              "letter": "ظِ",
+              "sound": "ظِ (كسرة)",
+              "word": "ظِلّ",
+              "shakl": "كسرة"
+            }
+          },
+          {
+            "answer": "sukun",
+            "text": {
+              "letter": "ظْ",
+              "sound": "ظْ (سكون)",
+              "word": "عَظْم",
+              "shakl": "سكون"
+            }
+          }
+        ]
+      },
+      {
+        "lesson_id": 12,
+        "question_type": "position",
+        "questions": [
+          {
+            "answer": "start",
+            "text": {
+              "word": "ظرف",
+              "position": "البداية"
+            }
+          },
+          {
+            "answer": "middle",
+            "text": {
+              "word": "عظم",
+              "position": "الوسط"
+            }
+          },
+          {
+            "answer": "end",
+            "text": {
+              "word": "حظ",
+              "position": "النهاية"
+            }
+          },
+          {
+            "answer": "start",
+            "text": {
+              "word": "ظل",
+              "position": "البداية"
+            }
+          }
+        ]
+      }
+    ],
+    "games": [
+      {
+        "game_type": "word_catch",
+        "order_index": 1,
+        "data": {
+          "correctWords": [
+            "ظرف",
+            "ظل",
+            "ظفر",
+            "ظبي",
+            "ظهر",
+            "ظلام"
+          ],
+          "wrongWords": [
+            "أسد",
+            "بطة",
+            "تمر",
+            "ثعلب",
+            "جمل",
+            "حصان"
+          ],
+          "maxMistakes": 3,
+          "scorePerCorrect": 10,
+          "spawnIntervalMs": 2000,
+          "minSpeed": 2,
+          "maxSpeed": 5,
+          "instruction": "اصطد الكلمات التي تبدأ بحرف الظاء فقط!"
+        }
+      },
+      {
+        "game_type": "sorting",
+        "order_index": 2,
+        "data": {
+          "title": "صنف كلمات حرف الظاء",
+          "instruction": "اسحب الكلمات إلى المكان الصحيح",
+          "targetLetter": "ظ",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "items": [
+            {
+              "word": "ظرف",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ظل",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ظفر",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ظبي",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ظهر",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "memory_match",
+        "order_index": 3,
+        "data": {
+          "title": "ذاكرة حرف الظاء",
+          "instruction": "اقلب البطاقات وطابق الحرف مع الكلمة التي تبدأ به",
+          "scorePerMatch": 10,
+          "pairs": [
+            {
+              "letter": "ظ",
+              "word": "ظرف"
+            },
+            {
+              "letter": "ظ",
+              "word": "ظل"
+            },
+            {
+              "letter": "ظ",
+              "word": "ظفر"
+            },
+            {
+              "letter": "ظ",
+              "word": "ظبي"
+            },
+            {
+              "letter": "ظ",
+              "word": "ظهر"
+            },
+            {
+              "letter": "ظ",
+              "word": "ظلام"
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "balloon_pop",
+        "order_index": 4,
+        "data": {
+          "title": "بالونات حرف الظاء",
+          "instruction": "افرقع البالونات التي تحمل كلمات تبدأ بحرف الظاء",
+          "targetLetter": "ظ",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "spawn": {
+            "baseInterval": 1500,
+            "levelFactor": 100,
+            "minInterval": 800
+          },
+          "speed": {
+            "baseDuration": 6,
+            "levelIncrease": 0.3,
+            "minDuration": 2
+          },
+          "words": [
+            {
+              "word": "ظرف",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ظل",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ظفر",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ظبي",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ظهر",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "ع",
+    "exercises": [
+      {
+        "lesson_id": 3,
+        "question_type": "harakat",
+        "questions": [
+          {
+            "answer": "fatha",
+            "text": {
+              "letter": "عَ",
+              "sound": "عَ (فتحة)",
+              "word": "عَسَل",
+              "shakl": "فتحة"
+            }
+          },
+          {
+            "answer": "damma",
+            "text": {
+              "letter": "عُ",
+              "sound": "عُ (ضمة)",
+              "word": "عُشْب",
+              "shakl": "ضمة"
+            }
+          },
+          {
+            "answer": "kasra",
+            "text": {
+              "letter": "عِ",
+              "sound": "عِ (كسرة)",
+              "word": "عِنَب",
+              "shakl": "كسرة"
+            }
+          },
+          {
+            "answer": "sukun",
+            "text": {
+              "letter": "عْ",
+              "sound": "عْ (سكون)",
+              "word": "مِعْطَف",
+              "shakl": "سكون"
+            }
+          }
+        ]
+      },
+      {
+        "lesson_id": 12,
+        "question_type": "position",
+        "questions": [
+          {
+            "answer": "start",
+            "text": {
+              "word": "عسل",
+              "position": "البداية"
+            }
+          },
+          {
+            "answer": "middle",
+            "text": {
+              "word": "ملعب",
+              "position": "الوسط"
+            }
+          },
+          {
+            "answer": "end",
+            "text": {
+              "word": "شمع",
+              "position": "النهاية"
+            }
+          },
+          {
+            "answer": "start",
+            "text": {
+              "word": "عنب",
+              "position": "البداية"
+            }
+          }
+        ]
+      }
+    ],
+    "games": [
+      {
+        "game_type": "word_catch",
+        "order_index": 1,
+        "data": {
+          "correctWords": [
+            "عسل",
+            "عنب",
+            "عصفور",
+            "عين",
+            "علم",
+            "عشب"
+          ],
+          "wrongWords": [
+            "أسد",
+            "بطة",
+            "تمر",
+            "ثعلب",
+            "جمل",
+            "حصان"
+          ],
+          "maxMistakes": 3,
+          "scorePerCorrect": 10,
+          "spawnIntervalMs": 2000,
+          "minSpeed": 2,
+          "maxSpeed": 5,
+          "instruction": "اصطد الكلمات التي تبدأ بحرف العين فقط!"
+        }
+      },
+      {
+        "game_type": "sorting",
+        "order_index": 2,
+        "data": {
+          "title": "صنف كلمات حرف العين",
+          "instruction": "اسحب الكلمات إلى المكان الصحيح",
+          "targetLetter": "ع",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "items": [
+            {
+              "word": "عسل",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "عنب",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "عصفور",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "عين",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "علم",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "memory_match",
+        "order_index": 3,
+        "data": {
+          "title": "ذاكرة حرف العين",
+          "instruction": "اقلب البطاقات وطابق الحرف مع الكلمة التي تبدأ به",
+          "scorePerMatch": 10,
+          "pairs": [
+            {
+              "letter": "ع",
+              "word": "عسل"
+            },
+            {
+              "letter": "ع",
+              "word": "عنب"
+            },
+            {
+              "letter": "ع",
+              "word": "عصفور"
+            },
+            {
+              "letter": "ع",
+              "word": "عين"
+            },
+            {
+              "letter": "ع",
+              "word": "علم"
+            },
+            {
+              "letter": "ع",
+              "word": "عشب"
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "balloon_pop",
+        "order_index": 4,
+        "data": {
+          "title": "بالونات حرف العين",
+          "instruction": "افرقع البالونات التي تحمل كلمات تبدأ بحرف العين",
+          "targetLetter": "ع",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "spawn": {
+            "baseInterval": 1500,
+            "levelFactor": 100,
+            "minInterval": 800
+          },
+          "speed": {
+            "baseDuration": 6,
+            "levelIncrease": 0.3,
+            "minDuration": 2
+          },
+          "words": [
+            {
+              "word": "عسل",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "عنب",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "عصفور",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "عين",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "علم",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "غ",
+    "exercises": [
+      {
+        "lesson_id": 3,
+        "question_type": "harakat",
+        "questions": [
+          {
+            "answer": "fatha",
+            "text": {
+              "letter": "غَ",
+              "sound": "غَ (فتحة)",
+              "word": "غَزَال",
+              "shakl": "فتحة"
+            }
+          },
+          {
+            "answer": "damma",
+            "text": {
+              "letter": "غُ",
+              "sound": "غُ (ضمة)",
+              "word": "غُرَاب",
+              "shakl": "ضمة"
+            }
+          },
+          {
+            "answer": "kasra",
+            "text": {
+              "letter": "غِ",
+              "sound": "غِ (كسرة)",
+              "word": "غِطَاء",
+              "shakl": "كسرة"
+            }
+          },
+          {
+            "answer": "sukun",
+            "text": {
+              "letter": "غْ",
+              "sound": "غْ (سكون)",
+              "word": "بَغْل",
+              "shakl": "سكون"
+            }
+          }
+        ]
+      },
+      {
+        "lesson_id": 12,
+        "question_type": "position",
+        "questions": [
+          {
+            "answer": "start",
+            "text": {
+              "word": "غزال",
+              "position": "البداية"
+            }
+          },
+          {
+            "answer": "middle",
+            "text": {
+              "word": "رغيف",
+              "position": "الوسط"
+            }
+          },
+          {
+            "answer": "end",
+            "text": {
+              "word": "صبغ",
+              "position": "النهاية"
+            }
+          },
+          {
+            "answer": "start",
+            "text": {
+              "word": "غراب",
+              "position": "البداية"
+            }
+          }
+        ]
+      }
+    ],
+    "games": [
+      {
+        "game_type": "word_catch",
+        "order_index": 1,
+        "data": {
+          "correctWords": [
+            "غزال",
+            "غراب",
+            "غيمة",
+            "غصن",
+            "غطاء",
+            "غرفة"
+          ],
+          "wrongWords": [
+            "أسد",
+            "بطة",
+            "تمر",
+            "ثعلب",
+            "جمل",
+            "حصان"
+          ],
+          "maxMistakes": 3,
+          "scorePerCorrect": 10,
+          "spawnIntervalMs": 2000,
+          "minSpeed": 2,
+          "maxSpeed": 5,
+          "instruction": "اصطد الكلمات التي تبدأ بحرف الغين فقط!"
+        }
+      },
+      {
+        "game_type": "sorting",
+        "order_index": 2,
+        "data": {
+          "title": "صنف كلمات حرف الغين",
+          "instruction": "اسحب الكلمات إلى المكان الصحيح",
+          "targetLetter": "غ",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "items": [
+            {
+              "word": "غزال",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "غراب",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "غيمة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "غصن",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "غطاء",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "memory_match",
+        "order_index": 3,
+        "data": {
+          "title": "ذاكرة حرف الغين",
+          "instruction": "اقلب البطاقات وطابق الحرف مع الكلمة التي تبدأ به",
+          "scorePerMatch": 10,
+          "pairs": [
+            {
+              "letter": "غ",
+              "word": "غزال"
+            },
+            {
+              "letter": "غ",
+              "word": "غراب"
+            },
+            {
+              "letter": "غ",
+              "word": "غيمة"
+            },
+            {
+              "letter": "غ",
+              "word": "غصن"
+            },
+            {
+              "letter": "غ",
+              "word": "غطاء"
+            },
+            {
+              "letter": "غ",
+              "word": "غرفة"
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "balloon_pop",
+        "order_index": 4,
+        "data": {
+          "title": "بالونات حرف الغين",
+          "instruction": "افرقع البالونات التي تحمل كلمات تبدأ بحرف الغين",
+          "targetLetter": "غ",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "spawn": {
+            "baseInterval": 1500,
+            "levelFactor": 100,
+            "minInterval": 800
+          },
+          "speed": {
+            "baseDuration": 6,
+            "levelIncrease": 0.3,
+            "minDuration": 2
+          },
+          "words": [
+            {
+              "word": "غزال",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "غراب",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "غيمة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "غصن",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "غطاء",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "ف",
+    "exercises": [
+      {
+        "lesson_id": 3,
+        "question_type": "harakat",
+        "questions": [
+          {
+            "answer": "fatha",
+            "text": {
+              "letter": "فَ",
+              "sound": "فَ (فتحة)",
+              "word": "فَرَس",
+              "shakl": "فتحة"
+            }
+          },
+          {
+            "answer": "damma",
+            "text": {
+              "letter": "فُ",
+              "sound": "فُ (ضمة)",
+              "word": "فُسْتَان",
+              "shakl": "ضمة"
+            }
+          },
+          {
+            "answer": "kasra",
+            "text": {
+              "letter": "فِ",
+              "sound": "فِ (كسرة)",
+              "word": "فِيل",
+              "shakl": "كسرة"
+            }
+          },
+          {
+            "answer": "sukun",
+            "text": {
+              "letter": "فْ",
+              "sound": "فْ (سكون)",
+              "word": "دَفْتَر",
+              "shakl": "سكون"
+            }
+          }
+        ]
+      },
+      {
+        "lesson_id": 12,
+        "question_type": "position",
+        "questions": [
+          {
+            "answer": "start",
+            "text": {
+              "word": "فيل",
+              "position": "البداية"
+            }
+          },
+          {
+            "answer": "middle",
+            "text": {
+              "word": "مفتاح",
+              "position": "الوسط"
+            }
+          },
+          {
+            "answer": "end",
+            "text": {
+              "word": "خروف",
+              "position": "النهاية"
+            }
+          },
+          {
+            "answer": "start",
+            "text": {
+              "word": "فراشة",
+              "position": "البداية"
+            }
+          }
+        ]
+      }
+    ],
+    "games": [
+      {
+        "game_type": "word_catch",
+        "order_index": 1,
+        "data": {
+          "correctWords": [
+            "فيل",
+            "فراشة",
+            "فنجان",
+            "فستان",
+            "فلفل",
+            "فاكهة"
+          ],
+          "wrongWords": [
+            "أسد",
+            "بطة",
+            "تمر",
+            "ثعلب",
+            "جمل",
+            "حصان"
+          ],
+          "maxMistakes": 3,
+          "scorePerCorrect": 10,
+          "spawnIntervalMs": 2000,
+          "minSpeed": 2,
+          "maxSpeed": 5,
+          "instruction": "اصطد الكلمات التي تبدأ بحرف الفاء فقط!"
+        }
+      },
+      {
+        "game_type": "sorting",
+        "order_index": 2,
+        "data": {
+          "title": "صنف كلمات حرف الفاء",
+          "instruction": "اسحب الكلمات إلى المكان الصحيح",
+          "targetLetter": "ف",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "items": [
+            {
+              "word": "فيل",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "فراشة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "فنجان",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "فستان",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "فلفل",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "memory_match",
+        "order_index": 3,
+        "data": {
+          "title": "ذاكرة حرف الفاء",
+          "instruction": "اقلب البطاقات وطابق الحرف مع الكلمة التي تبدأ به",
+          "scorePerMatch": 10,
+          "pairs": [
+            {
+              "letter": "ف",
+              "word": "فيل"
+            },
+            {
+              "letter": "ف",
+              "word": "فراشة"
+            },
+            {
+              "letter": "ف",
+              "word": "فنجان"
+            },
+            {
+              "letter": "ف",
+              "word": "فستان"
+            },
+            {
+              "letter": "ف",
+              "word": "فلفل"
+            },
+            {
+              "letter": "ف",
+              "word": "فاكهة"
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "balloon_pop",
+        "order_index": 4,
+        "data": {
+          "title": "بالونات حرف الفاء",
+          "instruction": "افرقع البالونات التي تحمل كلمات تبدأ بحرف الفاء",
+          "targetLetter": "ف",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "spawn": {
+            "baseInterval": 1500,
+            "levelFactor": 100,
+            "minInterval": 800
+          },
+          "speed": {
+            "baseDuration": 6,
+            "levelIncrease": 0.3,
+            "minDuration": 2
+          },
+          "words": [
+            {
+              "word": "فيل",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "فراشة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "فنجان",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "فستان",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "فلفل",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "ق",
+    "exercises": [
+      {
+        "lesson_id": 3,
+        "question_type": "harakat",
+        "questions": [
+          {
+            "answer": "fatha",
+            "text": {
+              "letter": "قَ",
+              "sound": "قَ (فتحة)",
+              "word": "قَلَم",
+              "shakl": "فتحة"
+            }
+          },
+          {
+            "answer": "damma",
+            "text": {
+              "letter": "قُ",
+              "sound": "قُ (ضمة)",
+              "word": "قُفْل",
+              "shakl": "ضمة"
+            }
+          },
+          {
+            "answer": "kasra",
+            "text": {
+              "letter": "قِ",
+              "sound": "قِ (كسرة)",
+              "word": "قِطَار",
+              "shakl": "كسرة"
+            }
+          },
+          {
+            "answer": "sukun",
+            "text": {
+              "letter": "قْ",
+              "sound": "قْ (سكون)",
+              "word": "صَقْر",
+              "shakl": "سكون"
+            }
+          }
+        ]
+      },
+      {
+        "lesson_id": 12,
+        "question_type": "position",
+        "questions": [
+          {
+            "answer": "start",
+            "text": {
+              "word": "قلم",
+              "position": "البداية"
+            }
+          },
+          {
+            "answer": "middle",
+            "text": {
+              "word": "بقرة",
+              "position": "الوسط"
+            }
+          },
+          {
+            "answer": "end",
+            "text": {
+              "word": "طبق",
+              "position": "النهاية"
+            }
+          },
+          {
+            "answer": "start",
+            "text": {
+              "word": "قمر",
+              "position": "البداية"
+            }
+          }
+        ]
+      }
+    ],
+    "games": [
+      {
+        "game_type": "word_catch",
+        "order_index": 1,
+        "data": {
+          "correctWords": [
+            "قلم",
+            "قمر",
+            "قطة",
+            "قارب",
+            "قفل",
+            "قنفذ"
+          ],
+          "wrongWords": [
+            "أسد",
+            "بطة",
+            "تمر",
+            "ثعلب",
+            "جمل",
+            "حصان"
+          ],
+          "maxMistakes": 3,
+          "scorePerCorrect": 10,
+          "spawnIntervalMs": 2000,
+          "minSpeed": 2,
+          "maxSpeed": 5,
+          "instruction": "اصطد الكلمات التي تبدأ بحرف القاف فقط!"
+        }
+      },
+      {
+        "game_type": "sorting",
+        "order_index": 2,
+        "data": {
+          "title": "صنف كلمات حرف القاف",
+          "instruction": "اسحب الكلمات إلى المكان الصحيح",
+          "targetLetter": "ق",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "items": [
+            {
+              "word": "قلم",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "قمر",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "قطة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "قارب",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "قفل",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "memory_match",
+        "order_index": 3,
+        "data": {
+          "title": "ذاكرة حرف القاف",
+          "instruction": "اقلب البطاقات وطابق الحرف مع الكلمة التي تبدأ به",
+          "scorePerMatch": 10,
+          "pairs": [
+            {
+              "letter": "ق",
+              "word": "قلم"
+            },
+            {
+              "letter": "ق",
+              "word": "قمر"
+            },
+            {
+              "letter": "ق",
+              "word": "قطة"
+            },
+            {
+              "letter": "ق",
+              "word": "قارب"
+            },
+            {
+              "letter": "ق",
+              "word": "قفل"
+            },
+            {
+              "letter": "ق",
+              "word": "قنفذ"
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "balloon_pop",
+        "order_index": 4,
+        "data": {
+          "title": "بالونات حرف القاف",
+          "instruction": "افرقع البالونات التي تحمل كلمات تبدأ بحرف القاف",
+          "targetLetter": "ق",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "spawn": {
+            "baseInterval": 1500,
+            "levelFactor": 100,
+            "minInterval": 800
+          },
+          "speed": {
+            "baseDuration": 6,
+            "levelIncrease": 0.3,
+            "minDuration": 2
+          },
+          "words": [
+            {
+              "word": "قلم",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "قمر",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "قطة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "قارب",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "قفل",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "ك",
+    "exercises": [
+      {
+        "lesson_id": 3,
+        "question_type": "harakat",
+        "questions": [
+          {
+            "answer": "fatha",
+            "text": {
+              "letter": "كَ",
+              "sound": "كَ (فتحة)",
+              "word": "كَلْب",
+              "shakl": "فتحة"
+            }
+          },
+          {
+            "answer": "damma",
+            "text": {
+              "letter": "كُ",
+              "sound": "كُ (ضمة)",
+              "word": "كُرَة",
+              "shakl": "ضمة"
+            }
+          },
+          {
+            "answer": "kasra",
+            "text": {
+              "letter": "كِ",
+              "sound": "كِ (كسرة)",
+              "word": "كِتَاب",
+              "shakl": "كسرة"
+            }
+          },
+          {
+            "answer": "sukun",
+            "text": {
+              "letter": "كْ",
+              "sound": "كْ (سكون)",
+              "word": "مَكْتَب",
+              "shakl": "سكون"
+            }
+          }
+        ]
+      },
+      {
+        "lesson_id": 12,
+        "question_type": "position",
+        "questions": [
+          {
+            "answer": "start",
+            "text": {
+              "word": "كتاب",
+              "position": "البداية"
+            }
+          },
+          {
+            "answer": "middle",
+            "text": {
+              "word": "مكتب",
+              "position": "الوسط"
+            }
+          },
+          {
+            "answer": "end",
+            "text": {
+              "word": "سمك",
+              "position": "النهاية"
+            }
+          },
+          {
+            "answer": "start",
+            "text": {
+              "word": "كلب",
+              "position": "البداية"
+            }
+          }
+        ]
+      }
+    ],
+    "games": [
+      {
+        "game_type": "word_catch",
+        "order_index": 1,
+        "data": {
+          "correctWords": [
+            "كتاب",
+            "كلب",
+            "كرة",
+            "كرسي",
+            "كوب",
+            "كعكة"
+          ],
+          "wrongWords": [
+            "أسد",
+            "بطة",
+            "تمر",
+            "ثعلب",
+            "جمل",
+            "حصان"
+          ],
+          "maxMistakes": 3,
+          "scorePerCorrect": 10,
+          "spawnIntervalMs": 2000,
+          "minSpeed": 2,
+          "maxSpeed": 5,
+          "instruction": "اصطد الكلمات التي تبدأ بحرف الكاف فقط!"
+        }
+      },
+      {
+        "game_type": "sorting",
+        "order_index": 2,
+        "data": {
+          "title": "صنف كلمات حرف الكاف",
+          "instruction": "اسحب الكلمات إلى المكان الصحيح",
+          "targetLetter": "ك",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "items": [
+            {
+              "word": "كتاب",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "كلب",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "كرة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "كرسي",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "كوب",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "memory_match",
+        "order_index": 3,
+        "data": {
+          "title": "ذاكرة حرف الكاف",
+          "instruction": "اقلب البطاقات وطابق الحرف مع الكلمة التي تبدأ به",
+          "scorePerMatch": 10,
+          "pairs": [
+            {
+              "letter": "ك",
+              "word": "كتاب"
+            },
+            {
+              "letter": "ك",
+              "word": "كلب"
+            },
+            {
+              "letter": "ك",
+              "word": "كرة"
+            },
+            {
+              "letter": "ك",
+              "word": "كرسي"
+            },
+            {
+              "letter": "ك",
+              "word": "كوب"
+            },
+            {
+              "letter": "ك",
+              "word": "كعكة"
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "balloon_pop",
+        "order_index": 4,
+        "data": {
+          "title": "بالونات حرف الكاف",
+          "instruction": "افرقع البالونات التي تحمل كلمات تبدأ بحرف الكاف",
+          "targetLetter": "ك",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "spawn": {
+            "baseInterval": 1500,
+            "levelFactor": 100,
+            "minInterval": 800
+          },
+          "speed": {
+            "baseDuration": 6,
+            "levelIncrease": 0.3,
+            "minDuration": 2
+          },
+          "words": [
+            {
+              "word": "كتاب",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "كلب",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "كرة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "كرسي",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "كوب",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "ل",
+    "exercises": [
+      {
+        "lesson_id": 3,
+        "question_type": "harakat",
+        "questions": [
+          {
+            "answer": "fatha",
+            "text": {
+              "letter": "لَ",
+              "sound": "لَ (فتحة)",
+              "word": "لَبَن",
+              "shakl": "فتحة"
+            }
+          },
+          {
+            "answer": "damma",
+            "text": {
+              "letter": "لُ",
+              "sound": "لُ (ضمة)",
+              "word": "لُعْبَة",
+              "shakl": "ضمة"
+            }
+          },
+          {
+            "answer": "kasra",
+            "text": {
+              "letter": "لِ",
+              "sound": "لِ (كسرة)",
+              "word": "لِسَان",
+              "shakl": "كسرة"
+            }
+          },
+          {
+            "answer": "sukun",
+            "text": {
+              "letter": "لْ",
+              "sound": "لْ (سكون)",
+              "word": "قَلْب",
+              "shakl": "سكون"
+            }
+          }
+        ]
+      },
+      {
+        "lesson_id": 12,
+        "question_type": "position",
+        "questions": [
+          {
+            "answer": "start",
+            "text": {
+              "word": "لبن",
+              "position": "البداية"
+            }
+          },
+          {
+            "answer": "middle",
+            "text": {
+              "word": "قلم",
+              "position": "الوسط"
+            }
+          },
+          {
+            "answer": "end",
+            "text": {
+              "word": "جمل",
+              "position": "النهاية"
+            }
+          },
+          {
+            "answer": "start",
+            "text": {
+              "word": "ليمون",
+              "position": "البداية"
+            }
+          }
+        ]
+      }
+    ],
+    "games": [
+      {
+        "game_type": "word_catch",
+        "order_index": 1,
+        "data": {
+          "correctWords": [
+            "ليمون",
+            "لبن",
+            "لسان",
+            "لعبة",
+            "لوز",
+            "لؤلؤ"
+          ],
+          "wrongWords": [
+            "أسد",
+            "بطة",
+            "تمر",
+            "ثعلب",
+            "جمل",
+            "حصان"
+          ],
+          "maxMistakes": 3,
+          "scorePerCorrect": 10,
+          "spawnIntervalMs": 2000,
+          "minSpeed": 2,
+          "maxSpeed": 5,
+          "instruction": "اصطد الكلمات التي تبدأ بحرف اللام فقط!"
+        }
+      },
+      {
+        "game_type": "sorting",
+        "order_index": 2,
+        "data": {
+          "title": "صنف كلمات حرف اللام",
+          "instruction": "اسحب الكلمات إلى المكان الصحيح",
+          "targetLetter": "ل",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "items": [
+            {
+              "word": "ليمون",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "لبن",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "لسان",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "لعبة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "لوز",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "memory_match",
+        "order_index": 3,
+        "data": {
+          "title": "ذاكرة حرف اللام",
+          "instruction": "اقلب البطاقات وطابق الحرف مع الكلمة التي تبدأ به",
+          "scorePerMatch": 10,
+          "pairs": [
+            {
+              "letter": "ل",
+              "word": "ليمون"
+            },
+            {
+              "letter": "ل",
+              "word": "لبن"
+            },
+            {
+              "letter": "ل",
+              "word": "لسان"
+            },
+            {
+              "letter": "ل",
+              "word": "لعبة"
+            },
+            {
+              "letter": "ل",
+              "word": "لوز"
+            },
+            {
+              "letter": "ل",
+              "word": "لؤلؤ"
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "balloon_pop",
+        "order_index": 4,
+        "data": {
+          "title": "بالونات حرف اللام",
+          "instruction": "افرقع البالونات التي تحمل كلمات تبدأ بحرف اللام",
+          "targetLetter": "ل",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "spawn": {
+            "baseInterval": 1500,
+            "levelFactor": 100,
+            "minInterval": 800
+          },
+          "speed": {
+            "baseDuration": 6,
+            "levelIncrease": 0.3,
+            "minDuration": 2
+          },
+          "words": [
+            {
+              "word": "ليمون",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "لبن",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "لسان",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "لعبة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "لوز",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "م",
+    "exercises": [
+      {
+        "lesson_id": 3,
+        "question_type": "harakat",
+        "questions": [
+          {
+            "answer": "fatha",
+            "text": {
+              "letter": "مَ",
+              "sound": "مَ (فتحة)",
+              "word": "مَوْز",
+              "shakl": "فتحة"
+            }
+          },
+          {
+            "answer": "damma",
+            "text": {
+              "letter": "مُ",
+              "sound": "مُ (ضمة)",
+              "word": "مُهَنْدِس",
+              "shakl": "ضمة"
+            }
+          },
+          {
+            "answer": "kasra",
+            "text": {
+              "letter": "مِ",
+              "sound": "مِ (كسرة)",
+              "word": "مِفْتَاح",
+              "shakl": "كسرة"
+            }
+          },
+          {
+            "answer": "sukun",
+            "text": {
+              "letter": "مْ",
+              "sound": "مْ (سكون)",
+              "word": "شَمْس",
+              "shakl": "سكون"
+            }
+          }
+        ]
+      },
+      {
+        "lesson_id": 12,
+        "question_type": "position",
+        "questions": [
+          {
+            "answer": "start",
+            "text": {
+              "word": "موز",
+              "position": "البداية"
+            }
+          },
+          {
+            "answer": "middle",
+            "text": {
+              "word": "قمر",
+              "position": "الوسط"
+            }
+          },
+          {
+            "answer": "end",
+            "text": {
+              "word": "علم",
+              "position": "النهاية"
+            }
+          },
+          {
+            "answer": "start",
+            "text": {
+              "word": "مفتاح",
+              "position": "البداية"
+            }
+          }
+        ]
+      }
+    ],
+    "games": [
+      {
+        "game_type": "word_catch",
+        "order_index": 1,
+        "data": {
+          "correctWords": [
+            "موز",
+            "مفتاح",
+            "مدرسة",
+            "مسجد",
+            "ملعب",
+            "ملعقة"
+          ],
+          "wrongWords": [
+            "أسد",
+            "بطة",
+            "تمر",
+            "ثعلب",
+            "جمل",
+            "حصان"
+          ],
+          "maxMistakes": 3,
+          "scorePerCorrect": 10,
+          "spawnIntervalMs": 2000,
+          "minSpeed": 2,
+          "maxSpeed": 5,
+          "instruction": "اصطد الكلمات التي تبدأ بحرف الميم فقط!"
+        }
+      },
+      {
+        "game_type": "sorting",
+        "order_index": 2,
+        "data": {
+          "title": "صنف كلمات حرف الميم",
+          "instruction": "اسحب الكلمات إلى المكان الصحيح",
+          "targetLetter": "م",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "items": [
+            {
+              "word": "موز",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "مفتاح",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "مدرسة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "مسجد",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ملعب",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "memory_match",
+        "order_index": 3,
+        "data": {
+          "title": "ذاكرة حرف الميم",
+          "instruction": "اقلب البطاقات وطابق الحرف مع الكلمة التي تبدأ به",
+          "scorePerMatch": 10,
+          "pairs": [
+            {
+              "letter": "م",
+              "word": "موز"
+            },
+            {
+              "letter": "م",
+              "word": "مفتاح"
+            },
+            {
+              "letter": "م",
+              "word": "مدرسة"
+            },
+            {
+              "letter": "م",
+              "word": "مسجد"
+            },
+            {
+              "letter": "م",
+              "word": "ملعب"
+            },
+            {
+              "letter": "م",
+              "word": "ملعقة"
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "balloon_pop",
+        "order_index": 4,
+        "data": {
+          "title": "بالونات حرف الميم",
+          "instruction": "افرقع البالونات التي تحمل كلمات تبدأ بحرف الميم",
+          "targetLetter": "م",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "spawn": {
+            "baseInterval": 1500,
+            "levelFactor": 100,
+            "minInterval": 800
+          },
+          "speed": {
+            "baseDuration": 6,
+            "levelIncrease": 0.3,
+            "minDuration": 2
+          },
+          "words": [
+            {
+              "word": "موز",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "مفتاح",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "مدرسة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "مسجد",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ملعب",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "ن",
+    "exercises": [
+      {
+        "lesson_id": 3,
+        "question_type": "harakat",
+        "questions": [
+          {
+            "answer": "fatha",
+            "text": {
+              "letter": "نَ",
+              "sound": "نَ (فتحة)",
+              "word": "نَحْل",
+              "shakl": "فتحة"
+            }
+          },
+          {
+            "answer": "damma",
+            "text": {
+              "letter": "نُ",
+              "sound": "نُ (ضمة)",
+              "word": "نُور",
+              "shakl": "ضمة"
+            }
+          },
+          {
+            "answer": "kasra",
+            "text": {
+              "letter": "نِ",
+              "sound": "نِ (كسرة)",
+              "word": "نِعْمَة",
+              "shakl": "كسرة"
+            }
+          },
+          {
+            "answer": "sukun",
+            "text": {
+              "letter": "نْ",
+              "sound": "نْ (سكون)",
+              "word": "سِنْجَاب",
+              "shakl": "سكون"
+            }
+          }
+        ]
+      },
+      {
+        "lesson_id": 12,
+        "question_type": "position",
+        "questions": [
+          {
+            "answer": "start",
+            "text": {
+              "word": "نمر",
+              "position": "البداية"
+            }
+          },
+          {
+            "answer": "middle",
+            "text": {
+              "word": "عنب",
+              "position": "الوسط"
+            }
+          },
+          {
+            "answer": "end",
+            "text": {
+              "word": "حصان",
+              "position": "النهاية"
+            }
+          },
+          {
+            "answer": "start",
+            "text": {
+              "word": "نحلة",
+              "position": "البداية"
+            }
+          }
+        ]
+      }
+    ],
+    "games": [
+      {
+        "game_type": "word_catch",
+        "order_index": 1,
+        "data": {
+          "correctWords": [
+            "نمر",
+            "نحلة",
+            "نجمة",
+            "نافذة",
+            "نار",
+            "نخلة"
+          ],
+          "wrongWords": [
+            "أسد",
+            "بطة",
+            "تمر",
+            "ثعلب",
+            "جمل",
+            "حصان"
+          ],
+          "maxMistakes": 3,
+          "scorePerCorrect": 10,
+          "spawnIntervalMs": 2000,
+          "minSpeed": 2,
+          "maxSpeed": 5,
+          "instruction": "اصطد الكلمات التي تبدأ بحرف النون فقط!"
+        }
+      },
+      {
+        "game_type": "sorting",
+        "order_index": 2,
+        "data": {
+          "title": "صنف كلمات حرف النون",
+          "instruction": "اسحب الكلمات إلى المكان الصحيح",
+          "targetLetter": "ن",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "items": [
+            {
+              "word": "نمر",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "نحلة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "نجمة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "نافذة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "نار",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "memory_match",
+        "order_index": 3,
+        "data": {
+          "title": "ذاكرة حرف النون",
+          "instruction": "اقلب البطاقات وطابق الحرف مع الكلمة التي تبدأ به",
+          "scorePerMatch": 10,
+          "pairs": [
+            {
+              "letter": "ن",
+              "word": "نمر"
+            },
+            {
+              "letter": "ن",
+              "word": "نحلة"
+            },
+            {
+              "letter": "ن",
+              "word": "نجمة"
+            },
+            {
+              "letter": "ن",
+              "word": "نافذة"
+            },
+            {
+              "letter": "ن",
+              "word": "نار"
+            },
+            {
+              "letter": "ن",
+              "word": "نخلة"
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "balloon_pop",
+        "order_index": 4,
+        "data": {
+          "title": "بالونات حرف النون",
+          "instruction": "افرقع البالونات التي تحمل كلمات تبدأ بحرف النون",
+          "targetLetter": "ن",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "spawn": {
+            "baseInterval": 1500,
+            "levelFactor": 100,
+            "minInterval": 800
+          },
+          "speed": {
+            "baseDuration": 6,
+            "levelIncrease": 0.3,
+            "minDuration": 2
+          },
+          "words": [
+            {
+              "word": "نمر",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "نحلة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "نجمة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "نافذة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "نار",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "ه",
+    "exercises": [
+      {
+        "lesson_id": 3,
+        "question_type": "harakat",
+        "questions": [
+          {
+            "answer": "fatha",
+            "text": {
+              "letter": "هَ",
+              "sound": "هَ (فتحة)",
+              "word": "هَرَم",
+              "shakl": "فتحة"
+            }
+          },
+          {
+            "answer": "damma",
+            "text": {
+              "letter": "هُ",
+              "sound": "هُ (ضمة)",
+              "word": "هُنا",
+              "shakl": "ضمة"
+            }
+          },
+          {
+            "answer": "kasra",
+            "text": {
+              "letter": "هِ",
+              "sound": "هِ (كسرة)",
+              "word": "هِلال",
+              "shakl": "كسرة"
+            }
+          },
+          {
+            "answer": "sukun",
+            "text": {
+              "letter": "هْ",
+              "sound": "هْ (سكون)",
+              "word": "نَهْر",
+              "shakl": "سكون"
+            }
+          }
+        ]
+      },
+      {
+        "lesson_id": 12,
+        "question_type": "position",
+        "questions": [
+          {
+            "answer": "start",
+            "text": {
+              "word": "هرم",
+              "position": "البداية"
+            }
+          },
+          {
+            "answer": "middle",
+            "text": {
+              "word": "نهر",
+              "position": "الوسط"
+            }
+          },
+          {
+            "answer": "end",
+            "text": {
+              "word": "وجه",
+              "position": "النهاية"
+            }
+          },
+          {
+            "answer": "start",
+            "text": {
+              "word": "هلال",
+              "position": "البداية"
+            }
+          }
+        ]
+      }
+    ],
+    "games": [
+      {
+        "game_type": "word_catch",
+        "order_index": 1,
+        "data": {
+          "correctWords": [
+            "هرم",
+            "هلال",
+            "هدية",
+            "هاتف",
+            "هواء",
+            "هدهد"
+          ],
+          "wrongWords": [
+            "أسد",
+            "بطة",
+            "تمر",
+            "ثعلب",
+            "جمل",
+            "حصان"
+          ],
+          "maxMistakes": 3,
+          "scorePerCorrect": 10,
+          "spawnIntervalMs": 2000,
+          "minSpeed": 2,
+          "maxSpeed": 5,
+          "instruction": "اصطد الكلمات التي تبدأ بحرف الهاء فقط!"
+        }
+      },
+      {
+        "game_type": "sorting",
+        "order_index": 2,
+        "data": {
+          "title": "صنف كلمات حرف الهاء",
+          "instruction": "اسحب الكلمات إلى المكان الصحيح",
+          "targetLetter": "ه",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "items": [
+            {
+              "word": "هرم",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "هلال",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "هدية",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "هاتف",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "هواء",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "memory_match",
+        "order_index": 3,
+        "data": {
+          "title": "ذاكرة حرف الهاء",
+          "instruction": "اقلب البطاقات وطابق الحرف مع الكلمة التي تبدأ به",
+          "scorePerMatch": 10,
+          "pairs": [
+            {
+              "letter": "ه",
+              "word": "هرم"
+            },
+            {
+              "letter": "ه",
+              "word": "هلال"
+            },
+            {
+              "letter": "ه",
+              "word": "هدية"
+            },
+            {
+              "letter": "ه",
+              "word": "هاتف"
+            },
+            {
+              "letter": "ه",
+              "word": "هواء"
+            },
+            {
+              "letter": "ه",
+              "word": "هدهد"
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "balloon_pop",
+        "order_index": 4,
+        "data": {
+          "title": "بالونات حرف الهاء",
+          "instruction": "افرقع البالونات التي تحمل كلمات تبدأ بحرف الهاء",
+          "targetLetter": "ه",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "spawn": {
+            "baseInterval": 1500,
+            "levelFactor": 100,
+            "minInterval": 800
+          },
+          "speed": {
+            "baseDuration": 6,
+            "levelIncrease": 0.3,
+            "minDuration": 2
+          },
+          "words": [
+            {
+              "word": "هرم",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "هلال",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "هدية",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "هاتف",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "هواء",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "و",
+    "exercises": [
+      {
+        "lesson_id": 3,
+        "question_type": "harakat",
+        "questions": [
+          {
+            "answer": "fatha",
+            "text": {
+              "letter": "وَ",
+              "sound": "وَ (فتحة)",
+              "word": "وَرْد",
+              "shakl": "فتحة"
+            }
+          },
+          {
+            "answer": "damma",
+            "text": {
+              "letter": "وُ",
+              "sound": "وُ (ضمة)",
+              "word": "وُضِعَ",
+              "shakl": "ضمة"
+            }
+          },
+          {
+            "answer": "kasra",
+            "text": {
+              "letter": "وِ",
+              "sound": "وِ (كسرة)",
+              "word": "وِسَادَة",
+              "shakl": "كسرة"
+            }
+          },
+          {
+            "answer": "sukun",
+            "text": {
+              "letter": "وْ",
+              "sound": "وْ (سكون)",
+              "word": "لَوْن",
+              "shakl": "سكون"
+            }
+          }
+        ]
+      },
+      {
+        "lesson_id": 12,
+        "question_type": "position",
+        "questions": [
+          {
+            "answer": "start",
+            "text": {
+              "word": "ورد",
+              "position": "البداية"
+            }
+          },
+          {
+            "answer": "middle",
+            "text": {
+              "word": "موز",
+              "position": "الوسط"
+            }
+          },
+          {
+            "answer": "end",
+            "text": {
+              "word": "دلو",
+              "position": "النهاية"
+            }
+          },
+          {
+            "answer": "start",
+            "text": {
+              "word": "وسادة",
+              "position": "البداية"
+            }
+          }
+        ]
+      }
+    ],
+    "games": [
+      {
+        "game_type": "word_catch",
+        "order_index": 1,
+        "data": {
+          "correctWords": [
+            "ورد",
+            "وسادة",
+            "ورقة",
+            "وجه",
+            "وعاء",
+            "ولد"
+          ],
+          "wrongWords": [
+            "أسد",
+            "بطة",
+            "تمر",
+            "ثعلب",
+            "جمل",
+            "حصان"
+          ],
+          "maxMistakes": 3,
+          "scorePerCorrect": 10,
+          "spawnIntervalMs": 2000,
+          "minSpeed": 2,
+          "maxSpeed": 5,
+          "instruction": "اصطد الكلمات التي تبدأ بحرف الواو فقط!"
+        }
+      },
+      {
+        "game_type": "sorting",
+        "order_index": 2,
+        "data": {
+          "title": "صنف كلمات حرف الواو",
+          "instruction": "اسحب الكلمات إلى المكان الصحيح",
+          "targetLetter": "و",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "items": [
+            {
+              "word": "ورد",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "وسادة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ورقة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "وجه",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "وعاء",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "memory_match",
+        "order_index": 3,
+        "data": {
+          "title": "ذاكرة حرف الواو",
+          "instruction": "اقلب البطاقات وطابق الحرف مع الكلمة التي تبدأ به",
+          "scorePerMatch": 10,
+          "pairs": [
+            {
+              "letter": "و",
+              "word": "ورد"
+            },
+            {
+              "letter": "و",
+              "word": "وسادة"
+            },
+            {
+              "letter": "و",
+              "word": "ورقة"
+            },
+            {
+              "letter": "و",
+              "word": "وجه"
+            },
+            {
+              "letter": "و",
+              "word": "وعاء"
+            },
+            {
+              "letter": "و",
+              "word": "ولد"
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "balloon_pop",
+        "order_index": 4,
+        "data": {
+          "title": "بالونات حرف الواو",
+          "instruction": "افرقع البالونات التي تحمل كلمات تبدأ بحرف الواو",
+          "targetLetter": "و",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "spawn": {
+            "baseInterval": 1500,
+            "levelFactor": 100,
+            "minInterval": 800
+          },
+          "speed": {
+            "baseDuration": 6,
+            "levelIncrease": 0.3,
+            "minDuration": 2
+          },
+          "words": [
+            {
+              "word": "ورد",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "وسادة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ورقة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "وجه",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "وعاء",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "ي",
+    "exercises": [
+      {
+        "lesson_id": 3,
+        "question_type": "harakat",
+        "questions": [
+          {
+            "answer": "fatha",
+            "text": {
+              "letter": "يَ",
+              "sound": "يَ (فتحة)",
+              "word": "يَد",
+              "shakl": "فتحة"
+            }
+          },
+          {
+            "answer": "damma",
+            "text": {
+              "letter": "يُ",
+              "sound": "يُ (ضمة)",
+              "word": "يُسْر",
+              "shakl": "ضمة"
+            }
+          },
+          {
+            "answer": "kasra",
+            "text": {
+              "letter": "يِ",
+              "sound": "يِ (كسرة)",
+              "word": "طَيِّب",
+              "shakl": "كسرة"
+            }
+          },
+          {
+            "answer": "sukun",
+            "text": {
+              "letter": "يْ",
+              "sound": "يْ (سكون)",
+              "word": "بَيْت",
+              "shakl": "سكون"
+            }
+          }
+        ]
+      },
+      {
+        "lesson_id": 12,
+        "question_type": "position",
+        "questions": [
+          {
+            "answer": "start",
+            "text": {
+              "word": "يد",
+              "position": "البداية"
+            }
+          },
+          {
+            "answer": "middle",
+            "text": {
+              "word": "خيار",
+              "position": "الوسط"
+            }
+          },
+          {
+            "answer": "end",
+            "text": {
+              "word": "كرسي",
+              "position": "النهاية"
+            }
+          },
+          {
+            "answer": "start",
+            "text": {
+              "word": "يمامة",
+              "position": "البداية"
+            }
+          }
+        ]
+      }
+    ],
+    "games": [
+      {
+        "game_type": "word_catch",
+        "order_index": 1,
+        "data": {
+          "correctWords": [
+            "يد",
+            "يمامة",
+            "ياسمين",
+            "يقطين",
+            "يمين",
+            "ياقوت"
+          ],
+          "wrongWords": [
+            "أسد",
+            "بطة",
+            "تمر",
+            "ثعلب",
+            "جمل",
+            "حصان"
+          ],
+          "maxMistakes": 3,
+          "scorePerCorrect": 10,
+          "spawnIntervalMs": 2000,
+          "minSpeed": 2,
+          "maxSpeed": 5,
+          "instruction": "اصطد الكلمات التي تبدأ بحرف الياء فقط!"
+        }
+      },
+      {
+        "game_type": "sorting",
+        "order_index": 2,
+        "data": {
+          "title": "صنف كلمات حرف الياء",
+          "instruction": "اسحب الكلمات إلى المكان الصحيح",
+          "targetLetter": "ي",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "items": [
+            {
+              "word": "يد",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "يمامة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ياسمين",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "يقطين",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "يمين",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "memory_match",
+        "order_index": 3,
+        "data": {
+          "title": "ذاكرة حرف الياء",
+          "instruction": "اقلب البطاقات وطابق الحرف مع الكلمة التي تبدأ به",
+          "scorePerMatch": 10,
+          "pairs": [
+            {
+              "letter": "ي",
+              "word": "يد"
+            },
+            {
+              "letter": "ي",
+              "word": "يمامة"
+            },
+            {
+              "letter": "ي",
+              "word": "ياسمين"
+            },
+            {
+              "letter": "ي",
+              "word": "يقطين"
+            },
+            {
+              "letter": "ي",
+              "word": "يمين"
+            },
+            {
+              "letter": "ي",
+              "word": "ياقوت"
+            }
+          ]
+        }
+      },
+      {
+        "game_type": "balloon_pop",
+        "order_index": 4,
+        "data": {
+          "title": "بالونات حرف الياء",
+          "instruction": "افرقع البالونات التي تحمل كلمات تبدأ بحرف الياء",
+          "targetLetter": "ي",
+          "scorePerCorrect": 10,
+          "maxMistakes": 3,
+          "spawn": {
+            "baseInterval": 1500,
+            "levelFactor": 100,
+            "minInterval": 800
+          },
+          "speed": {
+            "baseDuration": 6,
+            "levelIncrease": 0.3,
+            "minDuration": 2
+          },
+          "words": [
+            {
+              "word": "يد",
+              "startsWithTarget": true
+            },
+            {
+              "word": "أسد",
+              "startsWithTarget": false
+            },
+            {
+              "word": "يمامة",
+              "startsWithTarget": true
+            },
+            {
+              "word": "بطة",
+              "startsWithTarget": false
+            },
+            {
+              "word": "ياسمين",
+              "startsWithTarget": true
+            },
+            {
+              "word": "تمر",
+              "startsWithTarget": false
+            },
+            {
+              "word": "يقطين",
+              "startsWithTarget": true
+            },
+            {
+              "word": "ثعلب",
+              "startsWithTarget": false
+            },
+            {
+              "word": "يمين",
+              "startsWithTarget": true
+            },
+            {
+              "word": "جمل",
+              "startsWithTarget": false
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

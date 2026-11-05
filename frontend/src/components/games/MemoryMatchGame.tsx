@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import api from "../../API/axios";
 import { saveGameResult } from "../../API/gameResult";
+import { GameAccess } from "./GameAccess";
 import { RootState } from "../../redux/store";
 import { fetchLetters } from "../../redux/reducers/lettersSlice";
 import backImg from "../../assets/background_imgMatch.svg";
@@ -89,7 +90,7 @@ function GameCard({
         }}
       >
         {/* ظهر البطاقة (علامة الاستفهام) */}
-        <div
+        <div data-responsive="memory-card"
           style={{
             position: "absolute",
             inset: 0,
@@ -100,7 +101,7 @@ function GameCard({
             transform: "rotateY(0deg)",
           }}
         >
-          <img
+          <img data-responsive="memory-card"
             src={backImg}
             alt=""
             draggable={false}
@@ -116,7 +117,7 @@ function GameCard({
         </div>
 
         {/* واجهة البطاقة (المحتوى) */}
-        <div
+        <div data-responsive="memory-card"
           style={{
             position: "absolute",
             inset: 0,
@@ -202,6 +203,10 @@ const pillBase: React.CSSProperties = {
   boxShadow: "0 6px 14px rgba(0,0,0,0.18)",
 };
 export function MemoryMatchGame() {
+  return <GameAccess gameType="memory_match"><PlayableMemoryMatchGame /></GameAccess>;
+}
+
+function PlayableMemoryMatchGame() {
   /* ---------- State ---------- */
   const [cards, setCards] = useState<Card[]>([]);
   const [flippedCards, setFlippedCards] = useState<number[]>([]);
@@ -281,6 +286,7 @@ export function MemoryMatchGame() {
     if ((!gameWon && !gameLost) || !gameLessonId) return;
 
     saveGameResult({
+      letter_id: letterId!,
       games_lessons_id: gameLessonId,
       score,
       duration: getDuration(),
@@ -411,7 +417,7 @@ export function MemoryMatchGame() {
   /* ---------- Render ---------- */
 
   return (
-    <div
+    <div data-page="memory-match-game" data-responsive="responsive-game"
       dir="rtl"
       style={{
         position: "relative",
@@ -438,7 +444,7 @@ export function MemoryMatchGame() {
       >
         <div style={{ position: "relative", maxWidth: 1152, margin: "0 auto" }}>
           {/* الشريط الأبيض */}
-          <div
+          <div data-responsive="game-header-bar"
             style={{
               height: HEADER_H,
               borderRadius: 9999,
@@ -492,7 +498,7 @@ export function MemoryMatchGame() {
           </div>
 
           {/* كبسولة النقاط (يسار) */}
-          <div
+          <div data-responsive="game-header-bar"
             style={{
               position: "absolute",
               left: 0,
@@ -539,7 +545,7 @@ export function MemoryMatchGame() {
       </div>
 
       {/* ---------------------------- Game Area ---------------------------- */}
-      <div
+      <div data-responsive="memory-play-area"
         style={{
           position: "absolute",
           inset: 0,
@@ -551,7 +557,7 @@ export function MemoryMatchGame() {
           alignItems: "flex-start",
         }}
       >
-        <div
+        <div data-responsive="memory-board"
           style={{
             display: "grid",
             gridTemplateColumns: `repeat(4, ${CARD_SIZE})`,
@@ -577,13 +583,13 @@ export function MemoryMatchGame() {
 
       {/* Game Won */}
       {gameWon && !gameLost && (
-        <motion.div
+        <motion.div data-responsive="responsive-modal-backdrop"
           className="fixed inset-0 z-40 flex items-center justify-center"
           style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
-          <motion.div
+          <motion.div data-responsive="responsive-modal"
             className="bg-white rounded-[28px] p-8 md:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.25)] text-center max-w-md w-full mx-4 relative overflow-hidden"
             initial={{ scale: 0.7, y: 80 }}
             animate={{ scale: 1, y: 0 }}
@@ -685,13 +691,13 @@ export function MemoryMatchGame() {
 
       {/* Game Lost */}
       {gameLost && (
-        <motion.div
+        <motion.div data-responsive="responsive-modal-backdrop"
           className="fixed inset-0 z-40 flex items-center justify-center"
           style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
-          <motion.div
+          <motion.div data-responsive="responsive-modal"
             className="bg-white rounded-[28px] p-8 md:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.25)] text-center max-w-md w-full mx-4 relative overflow-hidden"
             initial={{ scale: 0.7, y: 80 }}
             animate={{ scale: 1, y: 0 }}

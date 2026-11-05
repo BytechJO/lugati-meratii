@@ -18,12 +18,12 @@ export function StudentsManagement() {
   const [showCreateModal, setShowCreateModal] = useState(false);
 
   return (
-    <div
+    <div data-page="students-management"
       className="min-h-screen w-full bg-white flex flex-col items-center"
       dir="rtl"
     >
       {/* ================= الهيدر (صورة الخلفية + النافبار) ================= */}
-      <div
+      <div data-responsive="teacher-hero"
         className="relative w-full overflow-hidden"
         style={{
           backgroundImage: `url("${headerBackground}")`,
@@ -45,7 +45,7 @@ export function StudentsManagement() {
         </div>
 
         {/* العنوان بنص الهيدر */}
-        <div
+        <div data-responsive="teacher-hero-title"
           className="absolute left-1/2 -translate-x-1/2"
           style={{ top: "44%" }}
         >
@@ -78,7 +78,7 @@ export function StudentsManagement() {
         </div>
 
         {/* زر إنشاء صف جديد (أسفل يمين الهيدر) */}
-        <motion.button
+        <motion.button data-responsive="teacher-hero-action"
           onClick={() => setShowCreateModal(true)}
           className="absolute flex items-center gap-2 rounded-full px-6 py-2.5"
           style={{

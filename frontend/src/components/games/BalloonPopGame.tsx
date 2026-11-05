@@ -13,6 +13,7 @@ import vectorEnd from "../../assets/vector_end.svg";
 import badegEnd from "../../assets/badeg_end.svg";
 import restart from "../../assets/Repeat.svg";
 import { saveGameResult } from "../../API/gameResult";
+import { GameAccess } from "./GameAccess";
 import { RootState } from "../../redux/store";
 import { fetchLetters } from "../../redux/reducers/lettersSlice";
 import { GameLoadingScreen } from "./WordCatchWelcom";
@@ -123,6 +124,10 @@ function MistakeToast({ text }: { text: string | null }) {
 /* ===================== Game ===================== */
 
 export function BalloonPopGame() {
+  return <GameAccess gameType="balloon_pop"><PlayableBalloonPopGame /></GameAccess>;
+}
+
+function PlayableBalloonPopGame() {
   /* ---------- State ---------- */
   const [score, setScore] = useState(0);
   const [lives, setLives] = useState(3);
@@ -255,6 +260,7 @@ export function BalloonPopGame() {
     if (!gameOver || !gameLessonId) return;
 
     saveGameResult({
+      letter_id: letterId!,
       games_lessons_id: gameLessonId,
       score,
       duration: getDuration(),
@@ -334,13 +340,13 @@ export function BalloonPopGame() {
   }
 
   if (!config) {
-    return <div className="text-center mt-20">لا توجد بيانات للعبة</div>;
+    return <div data-page="balloon-pop-game" className="text-center mt-20">لا توجد بيانات للعبة</div>;
   }
 
   /* ---------- Render ---------- */
 
   return (
-    <div
+    <div data-page="balloon-pop-game" data-responsive="responsive-game"
       dir="rtl"
       style={{
         position: "relative",
@@ -367,7 +373,7 @@ export function BalloonPopGame() {
       >
         <div style={{ position: "relative", maxWidth: 1152, margin: "0 auto" }}>
           {/* الشريط الأبيض */}
-          <div
+          <div data-responsive="game-header-bar"
             style={{
               height: HEADER_H,
               borderRadius: 9999,
@@ -421,7 +427,7 @@ export function BalloonPopGame() {
           </div>
 
           {/* كبسولة النقاط (يسار) */}
-          <div
+          <div data-responsive="game-header-bar"
             style={{
               position: "absolute",
               left: 0,
@@ -503,7 +509,7 @@ export function BalloonPopGame() {
           overflow: "hidden",
         }}
       >
-        <div style={{ position: "relative", width: "100%", height: "100%" }}>
+        <div data-responsive="balloon-playfield" style={{ position: "relative", width: "100%", height: "100%" }}>
           <AnimatePresence>
             {balloons.map((balloon) => (
               <motion.button
@@ -637,11 +643,11 @@ export function BalloonPopGame() {
 
       {/* Game Over */}
       {gameOver && (
-        <motion.div
+        <motion.div data-responsive="responsive-modal-backdrop"
           className="fixed inset-0 z-40 flex items-center justify-center"
           style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
         >
-          <motion.div
+          <motion.div data-responsive="responsive-modal"
             className="bg-white rounded-[28px] p-8 md:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.25)] text-center max-w-md w-full mx-4 relative overflow-hidden"
             initial={{ scale: 0.7, y: 80 }}
             animate={{ scale: 1, y: 0 }}

@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
-import { Users, LogIn, ArrowRight, GraduationCap, LogOut } from "lucide-react";
+import { LogIn } from "lucide-react";
 import { motion } from "motion/react";
 import { storage } from "../utils/storage";
-import { User } from "../types";
+
 import { AppHeader } from "./AppHeader";
 import { useNavigate } from "react-router-dom";
 import { joinClassroomByCode } from "../API/classrooms";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { fetchAllClasses, fetchMyClass } from "../redux/reducers/classSlice";
-import { RootState, AppDispatch } from "../redux/store";
+import { AppDispatch } from "../redux/store";
 import tiger from "../assets/my-class-tiger.svg";
 import notification from "../assets/notifications_icon.svg";
 import homeIcon from "../assets/Home.svg";

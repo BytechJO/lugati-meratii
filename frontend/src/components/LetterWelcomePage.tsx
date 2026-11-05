@@ -1,16 +1,16 @@
-import { useState, useEffect, use } from "react";
+import { useEffect } from "react";
 import { motion } from "motion/react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { fetchAllClasses, fetchMyClass } from "../redux/reducers/classSlice";
-import { RootState, AppDispatch } from "../redux/store";
+import { AppDispatch } from "../redux/store";
 import homeIcon from "../assets/Home.svg";
 import { logout } from "../redux/reducers/auth";
 import girl_img from "../assets/success_joinClass.svg";
 import { clearMyClass } from "../redux/reducers/classSlice";
 import { AppHeader } from "./AppHeader";
 import { useAppSelector } from "../redux/hooks";
-import { LogIn } from "lucide-react";
+
 import tiger from "../assets/welcom-tiger.svg";
 import welcome from "../assets/welocme-header.svg";
 import backGroundImg from "../assets/img-welcome-header.svg";
@@ -37,7 +37,7 @@ export function LetterWelcomePage() {
 
   return (
     <>
-      <div className="min-h-screen relative overflow-hidden flex flex-col" dir="rtl">
+      <div data-page="letter-welcome-page" className="min-h-screen relative overflow-hidden flex flex-col" dir="rtl">
         {/* خلفية متدرجة */}
         <div
           className="fixed inset-0"
@@ -135,7 +135,7 @@ export function LetterWelcomePage() {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <motion.img
+            <motion.img data-responsive="responsive-decoration"
               src={tiger}
               alt="نمر"
               className="tiger-choose-page w-48 md:w-48 lg:w-48 object-contain drop-shadow-2xl"

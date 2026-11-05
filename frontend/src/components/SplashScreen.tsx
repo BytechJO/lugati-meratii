@@ -22,7 +22,7 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
   }, [onComplete]);
 
   return (
-    <div
+    <div data-page="splash-screen"
       className="min-h-screen relative flex flex-col item-center justify-center overflow-hidden"
       dir="rtl"
     >
@@ -189,13 +189,13 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
         >
           {/* العنوان */}
           <motion.div
-            className="flex flex-col items-center justify-center gap-4"
+            className="splash-copy flex flex-col items-center justify-center gap-4"
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
             style={{ marginRight: "100px" }}
           >
-            <div className="flex justify-center items-center gap-3">
+            <div className="splash-title-row flex justify-center items-center gap-3">
               <div
                 style={{
                   height: "25px",
@@ -266,7 +266,7 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
             </div>
           </motion.div> */}
         </div>
-        <div>
+        <div className="splash-illustration">
           {/* النمر المتحرك */}
           {/* <motion.div
             initial={{ scale: 0, y: 50, opacity: 0 }}
@@ -280,6 +280,7 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
             className="mb-6 md:mb-8 flex items-left justify-center"
           > */}
           <motion.img
+            className="splash-tiger"
             src={tigerImg}
             alt="نمر"
             style={{ height: "70%", width: "75%" }}
@@ -298,7 +299,7 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
       </div>
       {/* مؤشر التحميل */}
       <motion.div
-        className="relative z-10"
+        className="splash-indicator relative z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}

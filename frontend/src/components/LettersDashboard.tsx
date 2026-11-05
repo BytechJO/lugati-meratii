@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { AppHeader } from "./AppHeader";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useAppSelector, useAppDispatch } from "../redux/hooks";
 import { fetchLetters } from "../redux/reducers/lettersSlice";
 import api from "../API/axios";
@@ -68,26 +68,27 @@ export function LettersDashboard({ onLogout, onBack }: LettersDashboardProps) {
   }, [dispatch, letters.length]);
 
   useEffect(() => {
+    if (user?.type !== "student") { setLettersStatus([]); return; }
+    const controller = new AbortController();
     const fetchLettersStatus = async () => {
       try {
-        const res = await api.get("/progress/user-status");
-        console.log(res.data);
-
-        setLettersStatus(res.data.letters);
+        const res = await api.get("/progress/user-status", { signal: controller.signal });
+        if (!controller.signal.aborted) setLettersStatus(res.data.letters);
       } catch (err) {
-        console.error("Failed to fetch letters status", err);
+        if (!controller.signal.aborted) console.error("Failed to fetch letters status", err);
       }
     };
 
     fetchLettersStatus();
-  }, []);
+    return () => controller.abort();
+  }, [user?.id, user?.type]);
 
   if (loading) {
     return <SplashScreen onComplete={() => setShowSplash(false)} />;
   }
 
   return (
-    <div className="min-h-screen relative overflow-hidden" dir="rtl">
+    <div data-page="letters-dashboard" className="min-h-screen relative overflow-hidden" dir="rtl">
       {/* خلفية متدرجة */}
       <div
         className="fixed inset-0"
@@ -114,7 +115,7 @@ export function LettersDashboard({ onLogout, onBack }: LettersDashboardProps) {
         </div>
         <img className="w-full" src={drops} />
       </div>
-      <motion.div
+      <motion.div data-responsive="responsive-decoration"
         className="fixed"
         style={{
           top: "75%",
@@ -278,14 +279,14 @@ export function LettersDashboard({ onLogout, onBack }: LettersDashboardProps) {
         </div>
       </div>
       {showLockedMessage && (
-        <motion.div
+        <motion.div data-responsive="responsive-modal-backdrop"
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/40"
           style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
-          <motion.div
+          <motion.div data-responsive="responsive-modal"
             className="bg-white rounded-[28px] p-8 md:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.25)] text-center max-w-md w-full mx-4 relative overflow-hidden"
             initial={{ scale: 0.7, y: 80 }}
             animate={{ scale: 1, y: 0 }}
@@ -361,7 +362,7 @@ export function LettersDashboard({ onLogout, onBack }: LettersDashboardProps) {
           </motion.div>
         </motion.div>
       )}
-      <motion.div className="fixed z-0" style={{ top: "46%", left: "1%" }}>
+      <motion.div data-responsive="responsive-decoration" className="fixed z-0" style={{ top: "46%", left: "1%" }}>
         <motion.img
           src={tigerImg}
           alt="نمر"

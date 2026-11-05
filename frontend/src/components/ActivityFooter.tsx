@@ -1,6 +1,8 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { motion } from "motion/react";
 import * as React from "react";
+import { createPortal } from "react-dom";
+import { Menu, X } from "lucide-react";
 
 import learn from "../assets/learn_alphabet.svg";
 import write from "../assets/write_alphabet.svg";
@@ -32,11 +34,104 @@ export function ActivityFooter({
   const navigate = useNavigate();
   const routerLocation = useLocation();
   const currentActivity = routerLocation.pathname.split("/").pop();
+  const [menuOpen, setMenuOpen] = React.useState(false);
+  const menuId = React.useId();
+  const triggerRef = React.useRef<HTMLButtonElement>(null);
+  const drawerRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => { setMenuOpen(false); }, [routerLocation.pathname]);
+
+  React.useEffect(() => {
+    const media = window.matchMedia("(min-width: 1200px)");
+    const closeOnDesktop = () => { if (media.matches) setMenuOpen(false); };
+    media.addEventListener("change", closeOnDesktop);
+    return () => media.removeEventListener("change", closeOnDesktop);
+  }, []);
+
+  React.useEffect(() => {
+    if (!menuOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    drawerRef.current?.querySelector<HTMLButtonElement>("button")?.focus();
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") setMenuOpen(false);
+      if (event.key !== "Tab") return;
+      const buttons = drawerRef.current?.querySelectorAll<HTMLButtonElement>("button");
+      if (!buttons?.length) return;
+      const first = buttons[0];
+      const last = buttons[buttons.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault(); last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault(); first.focus();
+      }
+    }
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", onKeyDown);
+      triggerRef.current?.focus();
+    };
+  }, [menuOpen]);
+
+  const selectActivity = (id: string) => {
+    setMenuOpen(false);
+    navigate(`/letter/${currentLetter}/${id}`);
+  };
 
   return (
+    <>
+    <button
+      ref={triggerRef}
+      type="button"
+      dir="rtl"
+      className="activity-menu-trigger"
+      aria-label="فتح قائمة الأنشطة"
+      aria-expanded={menuOpen}
+      aria-controls={menuOpen ? menuId : undefined}
+      aria-haspopup="dialog"
+      onClick={() => setMenuOpen(true)}
+    >
+      <Menu size={23} aria-hidden="true" />
+      <span>الأنشطة</span>
+    </button>
+    {menuOpen && createPortal(
+      <div className="activity-drawer-overlay" onClick={() => setMenuOpen(false)}>
+        <div
+          id={menuId}
+          ref={drawerRef}
+          className="activity-drawer"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`أنشطة حرف ${letterName ?? currentLetter ?? ""}`}
+          dir="rtl"
+          onClick={(event) => event.stopPropagation()}
+        >
+          <div className="activity-drawer-heading">
+            <h2>أنشطة حرف {letterName ?? currentLetter}</h2>
+            <button type="button" aria-label="إغلاق قائمة الأنشطة" onClick={() => setMenuOpen(false)}>
+              <X size={24} aria-hidden="true" />
+            </button>
+          </div>
+          <nav aria-label="أنشطة الحرف" className="activity-drawer-links">
+            {activities.map((activity) => (
+              <button
+                key={activity.id}
+                type="button"
+                aria-current={currentActivity === activity.id ? "page" : undefined}
+                onClick={() => selectActivity(activity.id)}
+              >
+                <img src={activity.icon} alt="" />
+                <span>{activity.label}</span>
+              </button>
+            ))}
+          </nav>
+        </div>
+      </div>, document.body,
+    )}
     <footer
       dir="rtl"
-      className="fixed left-0 right-0 bottom-0 z-50"
+      className="activity-desktop-footer fixed left-0 right-0 bottom-0 z-50"
       style={{ padding: "10px 12px 18px" }}
     >
       <nav
@@ -97,6 +192,7 @@ export function ActivityFooter({
                     width: "45px",
                     height: `${CARD_SIZE}px`,
                     position: "relative",
+                    zIndex: -9,
                   }}
                 >
                   <div
@@ -128,5 +224,6 @@ export function ActivityFooter({
         })}
       </nav>
     </footer>
+    </>
   );
 }

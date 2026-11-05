@@ -47,12 +47,12 @@ export function AppHeader({
     navigate("/");
   };
   return (
-    <header className="sticky top-0 w-full">
+    <header data-responsive="responsive-header" className="sticky top-0 w-full">
       <div className="px-4 md:px-6 py-2 md:py-2.5" style={{ marginTop: "5px" }}>
         {/* ✅ 3 أعمدة: [بداية 1fr] [العنوان auto] [نهاية 1fr]
             العمودين الجانبيين دايماً موجودين (حتى لو فاضيين)
             فبيضل العنوان بالنص بغض النظر عن الكبسات */}
-        <div
+        <div data-responsive="responsive-header-grid"
           className="grid items-center"
           dir="rtl"
           style={{ gridTemplateColumns: "1fr auto 1fr" }}
@@ -111,7 +111,7 @@ export function AppHeader({
                         </div>
                       </motion.button>
                     )}
-                    <p
+                    <p data-responsive="responsive-header-user"
                       className="text-base md:text-lg lg:text-3xl"
                       style={{
                         color: "#652b82",
@@ -207,7 +207,7 @@ export function AppHeader({
                     borderRadius: "50%",
                   }}
                 />
-                <span
+                <span data-responsive="responsive-header-title"
                   className="text-base md:text-2xl lg:text-3xl text-center"
                   style={{
                     fontFamily: "tajawal",

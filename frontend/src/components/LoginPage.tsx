@@ -1,17 +1,6 @@
 import { useState, useEffect } from "react";
-import {
-  ArrowRight,
-  Mail,
-  Lock,
-  User as UserIcon,
-  BookOpen,
-  Users,
-  Sparkles,
-  Home,
-  Eye,
-  EyeOff,
-} from "lucide-react";
-import { hex, motion } from "motion/react";
+import { Eye, EyeOff } from "lucide-react";
+import { motion } from "motion/react";
 import { useNavigate } from "react-router-dom";
 import tigerImg from "../assets/tiger_login.svg";
 import backGroundImg from "../assets/background_img_login_page.jpg";
@@ -138,6 +127,7 @@ export function LoginPage({ userType, onBack, onLogout }: LoginPageProps) {
 
     try {
       const data = await loginApi(formData.email, formData.password);
+      if (!data.userId) throw new Error("استجابة تسجيل الدخول لا تحتوي على معرّف المستخدم.");
       const mappedRole = mapRoleNumberToType(data.role);
 
       if (mappedRole !== userType) {
@@ -148,7 +138,7 @@ export function LoginPage({ userType, onBack, onLogout }: LoginPageProps) {
       }
 
       const user = {
-        id: data.id,
+        id: String(data.userId),
         username: data.username,
         email: data.email,
         roleId: data.role,
@@ -254,7 +244,7 @@ export function LoginPage({ userType, onBack, onLogout }: LoginPageProps) {
   // };
 
   return (
-    <div className="min-h-screen relative overflow-hidden" dir="rtl">
+    <div data-page="login-page" className="min-h-screen relative overflow-hidden" dir="rtl">
       {/* خلفية متدرجة */}
       {userType === "student" ? (
         <div
@@ -304,11 +294,11 @@ export function LoginPage({ userType, onBack, onLogout }: LoginPageProps) {
         <img className="w-full" src={drops} />
       </div>
 
-      <div
+      <div data-responsive="login-content"
         className="relative z-10 min-h-screen flex justify-center p-4 md:p-6"
         style={{ alignItems: "center" }}
       >
-        <motion.div
+        <motion.div data-responsive="login-panel"
           className="container-div-login mt-0 md:mt-20"
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -316,7 +306,7 @@ export function LoginPage({ userType, onBack, onLogout }: LoginPageProps) {
           style={{ height: "70vh" }}
         >
           {/* بطاقة تسجيل الدخول/التسجيل */}
-          <div
+          <div data-responsive="login-panel-layout"
             className="w-96 h-full rounded-3xl shadow-2xl overflow-hidden flex flex-row md:flex-col relative"
             style={{ backgroundColor: "#FDC333", width: "100%" }}
           >
@@ -350,7 +340,7 @@ export function LoginPage({ userType, onBack, onLogout }: LoginPageProps) {
                 </motion.div>
               </div>
               {/* النموذج */}
-              <div
+              <div data-responsive="login-form"
                 className="p-5 md:p-6 bg-white rounded-3xl"
                 style={{
                   height: "300px",
@@ -473,7 +463,7 @@ export function LoginPage({ userType, onBack, onLogout }: LoginPageProps) {
                 )}
               </div>
             </div>
-            <div className="flex flex-col items-center justify-center p-6" style={{gap:"100px"}}>
+            <div data-responsive="login-illustration" className="flex flex-col items-center justify-center p-6" style={{gap:"100px"}}>
               <h1
                 style={{
                   fontFamily: "tajawal",

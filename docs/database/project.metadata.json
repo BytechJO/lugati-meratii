@@ -1,0 +1,2273 @@
+{
+  "source": "live PostgreSQL system catalogs; read-only snapshot; no table rows",
+  "scope": "Table structure, columns, constraints, indexes, sequences and enums. Not a full pg_dump: excludes grants, owners, functions, policies, view/trigger definitions and data.",
+  "captured_at": "2026-11-04T08:27:12.085Z",
+  "tables": [
+    {
+      "schema": "public",
+      "name": "class",
+      "kind": "r",
+      "is_partition": false,
+      "row_security": false,
+      "partition_key": null
+    },
+    {
+      "schema": "public",
+      "name": "class_student",
+      "kind": "r",
+      "is_partition": false,
+      "row_security": false,
+      "partition_key": null
+    },
+    {
+      "schema": "public",
+      "name": "game_configs",
+      "kind": "r",
+      "is_partition": false,
+      "row_security": false,
+      "partition_key": null
+    },
+    {
+      "schema": "public",
+      "name": "games_lessons",
+      "kind": "r",
+      "is_partition": false,
+      "row_security": false,
+      "partition_key": null
+    },
+    {
+      "schema": "public",
+      "name": "letter_lessons",
+      "kind": "r",
+      "is_partition": false,
+      "row_security": false,
+      "partition_key": null
+    },
+    {
+      "schema": "public",
+      "name": "letters",
+      "kind": "r",
+      "is_partition": false,
+      "row_security": false,
+      "partition_key": null
+    },
+    {
+      "schema": "public",
+      "name": "permission",
+      "kind": "r",
+      "is_partition": false,
+      "row_security": false,
+      "partition_key": null
+    },
+    {
+      "schema": "public",
+      "name": "questions_lessons",
+      "kind": "r",
+      "is_partition": false,
+      "row_security": false,
+      "partition_key": null
+    },
+    {
+      "schema": "public",
+      "name": "role",
+      "kind": "r",
+      "is_partition": false,
+      "row_security": false,
+      "partition_key": null
+    },
+    {
+      "schema": "public",
+      "name": "role_permissions",
+      "kind": "r",
+      "is_partition": false,
+      "row_security": false,
+      "partition_key": null
+    },
+    {
+      "schema": "public",
+      "name": "student_answers",
+      "kind": "r",
+      "is_partition": false,
+      "row_security": false,
+      "partition_key": null
+    },
+    {
+      "schema": "public",
+      "name": "student_game_results",
+      "kind": "r",
+      "is_partition": false,
+      "row_security": false,
+      "partition_key": null
+    },
+    {
+      "schema": "public",
+      "name": "student_lesson_result",
+      "kind": "r",
+      "is_partition": false,
+      "row_security": false,
+      "partition_key": null
+    },
+    {
+      "schema": "public",
+      "name": "user_progress",
+      "kind": "r",
+      "is_partition": false,
+      "row_security": false,
+      "partition_key": null
+    },
+    {
+      "schema": "public",
+      "name": "users",
+      "kind": "r",
+      "is_partition": false,
+      "row_security": false,
+      "partition_key": null
+    },
+    {
+      "schema": "public",
+      "name": "video_lessons",
+      "kind": "r",
+      "is_partition": false,
+      "row_security": false,
+      "partition_key": null
+    }
+  ],
+  "columns": [
+    {
+      "schema": "public",
+      "table_name": "class",
+      "name": "id",
+      "position": 1,
+      "type": "integer",
+      "not_null": true,
+      "identity": "",
+      "generated": "",
+      "default_expression": "nextval('class_id_seq'::regclass)"
+    },
+    {
+      "schema": "public",
+      "table_name": "class",
+      "name": "name",
+      "position": 2,
+      "type": "character varying",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "class",
+      "name": "code",
+      "position": 3,
+      "type": "character varying",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "class",
+      "name": "teacher_id",
+      "position": 4,
+      "type": "integer",
+      "not_null": true,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "class",
+      "name": "status",
+      "position": 5,
+      "type": "character varying",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "class",
+      "name": "is_deleted",
+      "position": 7,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": "0"
+    },
+    {
+      "schema": "public",
+      "table_name": "class",
+      "name": "created_at",
+      "position": 8,
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": "now()"
+    },
+    {
+      "schema": "public",
+      "table_name": "class_student",
+      "name": "id",
+      "position": 1,
+      "type": "integer",
+      "not_null": true,
+      "identity": "",
+      "generated": "",
+      "default_expression": "nextval('class_student_id_seq'::regclass)"
+    },
+    {
+      "schema": "public",
+      "table_name": "class_student",
+      "name": "class_id",
+      "position": 2,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "class_student",
+      "name": "student_id",
+      "position": 3,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "class_student",
+      "name": "jouind_at",
+      "position": 4,
+      "type": "timestamp without time zone",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": "now()"
+    },
+    {
+      "schema": "public",
+      "table_name": "class_student",
+      "name": "is_deleted",
+      "position": 5,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": "0"
+    },
+    {
+      "schema": "public",
+      "table_name": "game_configs",
+      "name": "id",
+      "position": 1,
+      "type": "integer",
+      "not_null": true,
+      "identity": "",
+      "generated": "",
+      "default_expression": "nextval('game_configs_id_seq'::regclass)"
+    },
+    {
+      "schema": "public",
+      "table_name": "game_configs",
+      "name": "letter_id",
+      "position": 2,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "game_configs",
+      "name": "lesson_id",
+      "position": 3,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "game_configs",
+      "name": "game_type",
+      "position": 4,
+      "type": "character varying",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "game_configs",
+      "name": "data",
+      "position": 5,
+      "type": "jsonb",
+      "not_null": true,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "games_lessons",
+      "name": "id",
+      "position": 1,
+      "type": "integer",
+      "not_null": true,
+      "identity": "",
+      "generated": "",
+      "default_expression": "nextval('games_lessons_id_seq'::regclass)"
+    },
+    {
+      "schema": "public",
+      "table_name": "games_lessons",
+      "name": "letter_id",
+      "position": 2,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "games_lessons",
+      "name": "lesson_id",
+      "position": 3,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "games_lessons",
+      "name": "game_type",
+      "position": 4,
+      "type": "character varying",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "games_lessons",
+      "name": "is_deleted",
+      "position": 7,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": "0"
+    },
+    {
+      "schema": "public",
+      "table_name": "games_lessons",
+      "name": "order_index",
+      "position": 8,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "letter_lessons",
+      "name": "id",
+      "position": 1,
+      "type": "integer",
+      "not_null": true,
+      "identity": "",
+      "generated": "",
+      "default_expression": "nextval('letter_lessons_id_seq'::regclass)"
+    },
+    {
+      "schema": "public",
+      "table_name": "letter_lessons",
+      "name": "type",
+      "position": 3,
+      "type": "character varying",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "letter_lessons",
+      "name": "title",
+      "position": 4,
+      "type": "character varying",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "letter_lessons",
+      "name": "order_index",
+      "position": 5,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "letter_lessons",
+      "name": "is_lastlesson",
+      "position": 6,
+      "type": "boolean",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": "false"
+    },
+    {
+      "schema": "public",
+      "table_name": "letter_lessons",
+      "name": "is_deleted",
+      "position": 7,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": "0"
+    },
+    {
+      "schema": "public",
+      "table_name": "letters",
+      "name": "id",
+      "position": 1,
+      "type": "integer",
+      "not_null": true,
+      "identity": "",
+      "generated": "",
+      "default_expression": "nextval('letters_id_seq'::regclass)"
+    },
+    {
+      "schema": "public",
+      "table_name": "letters",
+      "name": "symbol",
+      "position": 2,
+      "type": "character varying",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "letters",
+      "name": "name",
+      "position": 3,
+      "type": "character varying",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "letters",
+      "name": "emoji",
+      "position": 4,
+      "type": "character varying",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "letters",
+      "name": "order_index",
+      "position": 5,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "letters",
+      "name": "is_deleted",
+      "position": 6,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": "0"
+    },
+    {
+      "schema": "public",
+      "table_name": "letters",
+      "name": "example",
+      "position": 7,
+      "type": "character varying",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "permission",
+      "name": "id",
+      "position": 1,
+      "type": "integer",
+      "not_null": true,
+      "identity": "",
+      "generated": "",
+      "default_expression": "nextval('permission_id_seq'::regclass)"
+    },
+    {
+      "schema": "public",
+      "table_name": "permission",
+      "name": "permission",
+      "position": 2,
+      "type": "character varying",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "permission",
+      "name": "is_deleted",
+      "position": 4,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": "0"
+    },
+    {
+      "schema": "public",
+      "table_name": "questions_lessons",
+      "name": "id",
+      "position": 1,
+      "type": "integer",
+      "not_null": true,
+      "identity": "",
+      "generated": "",
+      "default_expression": "nextval('questions_lessons_id_seq'::regclass)"
+    },
+    {
+      "schema": "public",
+      "table_name": "questions_lessons",
+      "name": "letter_id",
+      "position": 2,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "questions_lessons",
+      "name": "lesson_id",
+      "position": 3,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "questions_lessons",
+      "name": "question_text",
+      "position": 4,
+      "type": "character varying",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "questions_lessons",
+      "name": "correct_answer",
+      "position": 5,
+      "type": "character varying",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "questions_lessons",
+      "name": "question_type",
+      "position": 6,
+      "type": "character varying",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "questions_lessons",
+      "name": "is_deleted",
+      "position": 7,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": "0"
+    },
+    {
+      "schema": "public",
+      "table_name": "role",
+      "name": "id",
+      "position": 1,
+      "type": "integer",
+      "not_null": true,
+      "identity": "",
+      "generated": "",
+      "default_expression": "nextval('role_id_seq'::regclass)"
+    },
+    {
+      "schema": "public",
+      "table_name": "role",
+      "name": "role",
+      "position": 2,
+      "type": "character varying",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "role",
+      "name": "is_deleted",
+      "position": 4,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": "0"
+    },
+    {
+      "schema": "public",
+      "table_name": "role_permissions",
+      "name": "id",
+      "position": 1,
+      "type": "integer",
+      "not_null": true,
+      "identity": "",
+      "generated": "",
+      "default_expression": "nextval('role_permissions_id_seq'::regclass)"
+    },
+    {
+      "schema": "public",
+      "table_name": "role_permissions",
+      "name": "role_id",
+      "position": 2,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "role_permissions",
+      "name": "permission_id",
+      "position": 3,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "role_permissions",
+      "name": "is_deleted",
+      "position": 4,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": "0"
+    },
+    {
+      "schema": "public",
+      "table_name": "student_answers",
+      "name": "id",
+      "position": 1,
+      "type": "integer",
+      "not_null": true,
+      "identity": "",
+      "generated": "",
+      "default_expression": "nextval('student_answers_id_seq'::regclass)"
+    },
+    {
+      "schema": "public",
+      "table_name": "student_answers",
+      "name": "lessons_id",
+      "position": 2,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "student_answers",
+      "name": "user_id",
+      "position": 3,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "student_answers",
+      "name": "question_id",
+      "position": 4,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "student_answers",
+      "name": "answer",
+      "position": 5,
+      "type": "character varying",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "student_answers",
+      "name": "is_correct",
+      "position": 6,
+      "type": "boolean",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "student_answers",
+      "name": "score",
+      "position": 7,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "student_answers",
+      "name": "answerd_at",
+      "position": 8,
+      "type": "timestamp without time zone",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "student_answers",
+      "name": "is_deleted",
+      "position": 9,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": "0"
+    },
+    {
+      "schema": "public",
+      "table_name": "student_game_results",
+      "name": "id",
+      "position": 1,
+      "type": "integer",
+      "not_null": true,
+      "identity": "",
+      "generated": "",
+      "default_expression": "nextval('student_game_results_id_seq'::regclass)"
+    },
+    {
+      "schema": "public",
+      "table_name": "student_game_results",
+      "name": "student_id",
+      "position": 2,
+      "type": "integer",
+      "not_null": true,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "student_game_results",
+      "name": "games_lessons_id",
+      "position": 3,
+      "type": "integer",
+      "not_null": true,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "student_game_results",
+      "name": "score",
+      "position": 4,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": "0"
+    },
+    {
+      "schema": "public",
+      "table_name": "student_game_results",
+      "name": "duration",
+      "position": 5,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "student_game_results",
+      "name": "created_at",
+      "position": 6,
+      "type": "timestamp without time zone",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": "CURRENT_TIMESTAMP"
+    },
+    {
+      "schema": "public",
+      "table_name": "student_lesson_result",
+      "name": "id",
+      "position": 1,
+      "type": "integer",
+      "not_null": true,
+      "identity": "",
+      "generated": "",
+      "default_expression": "nextval('student_lesson_result_id_seq'::regclass)"
+    },
+    {
+      "schema": "public",
+      "table_name": "student_lesson_result",
+      "name": "lessons_id",
+      "position": 2,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "student_lesson_result",
+      "name": "user_id",
+      "position": 3,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "student_lesson_result",
+      "name": "total_score",
+      "position": 4,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "student_lesson_result",
+      "name": "is_completed",
+      "position": 5,
+      "type": "boolean",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "student_lesson_result",
+      "name": "updated_at",
+      "position": 6,
+      "type": "timestamp without time zone",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "student_lesson_result",
+      "name": "is_deleted",
+      "position": 7,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": "0"
+    },
+    {
+      "schema": "public",
+      "table_name": "user_progress",
+      "name": "id",
+      "position": 1,
+      "type": "integer",
+      "not_null": true,
+      "identity": "",
+      "generated": "",
+      "default_expression": "nextval('user_progress_id_seq'::regclass)"
+    },
+    {
+      "schema": "public",
+      "table_name": "user_progress",
+      "name": "letter_id",
+      "position": 2,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "user_progress",
+      "name": "user_id",
+      "position": 3,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "user_progress",
+      "name": "lesson_type",
+      "position": 4,
+      "type": "character varying",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "user_progress",
+      "name": "lesson_id",
+      "position": 5,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "user_progress",
+      "name": "score",
+      "position": 6,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "user_progress",
+      "name": "completed",
+      "position": 7,
+      "type": "boolean",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "user_progress",
+      "name": "updated_at",
+      "position": 8,
+      "type": "timestamp without time zone",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "users",
+      "name": "id",
+      "position": 1,
+      "type": "integer",
+      "not_null": true,
+      "identity": "",
+      "generated": "",
+      "default_expression": "nextval('users_id_seq'::regclass)"
+    },
+    {
+      "schema": "public",
+      "table_name": "users",
+      "name": "username",
+      "position": 2,
+      "type": "character varying",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "users",
+      "name": "email",
+      "position": 3,
+      "type": "character varying",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "users",
+      "name": "password",
+      "position": 4,
+      "type": "character varying",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "users",
+      "name": "avatar_url",
+      "position": 5,
+      "type": "character varying",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "users",
+      "name": "role_id",
+      "position": 6,
+      "type": "integer",
+      "not_null": true,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "users",
+      "name": "created_at",
+      "position": 7,
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": "now()"
+    },
+    {
+      "schema": "public",
+      "table_name": "users",
+      "name": "is_deleted",
+      "position": 8,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": "0"
+    },
+    {
+      "schema": "public",
+      "table_name": "users",
+      "name": "activation_code",
+      "position": 9,
+      "type": "character varying(50)",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "video_lessons",
+      "name": "id",
+      "position": 1,
+      "type": "integer",
+      "not_null": true,
+      "identity": "",
+      "generated": "",
+      "default_expression": "nextval('video_lessons_id_seq'::regclass)"
+    },
+    {
+      "schema": "public",
+      "table_name": "video_lessons",
+      "name": "letter_id",
+      "position": 2,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "video_lessons",
+      "name": "lesson_id",
+      "position": 3,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "video_lessons",
+      "name": "title",
+      "position": 4,
+      "type": "character varying",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "video_lessons",
+      "name": "youtube_url",
+      "position": 5,
+      "type": "character varying",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": "'https://www.youtube.com/iframe_api'::character varying"
+    },
+    {
+      "schema": "public",
+      "table_name": "video_lessons",
+      "name": "duration",
+      "position": 6,
+      "type": "time without time zone",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    },
+    {
+      "schema": "public",
+      "table_name": "video_lessons",
+      "name": "is_deleted",
+      "position": 7,
+      "type": "integer",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": "0"
+    },
+    {
+      "schema": "public",
+      "table_name": "video_lessons",
+      "name": "description",
+      "position": 8,
+      "type": "character varying",
+      "not_null": false,
+      "identity": "",
+      "generated": "",
+      "default_expression": null
+    }
+  ],
+  "constraints": [
+    {
+      "schema": "public",
+      "table_name": "class",
+      "name": "class_pkey",
+      "type": "p",
+      "definition": "PRIMARY KEY (id)",
+      "referenced_schema": null,
+      "referenced_table": null,
+      "columns": [
+        "id"
+      ],
+      "referenced_columns": []
+    },
+    {
+      "schema": "public",
+      "table_name": "class",
+      "name": "fk_class_teacher",
+      "type": "f",
+      "definition": "FOREIGN KEY (teacher_id) REFERENCES users(id)",
+      "referenced_schema": "public",
+      "referenced_table": "users",
+      "columns": [
+        "teacher_id"
+      ],
+      "referenced_columns": [
+        "id"
+      ]
+    },
+    {
+      "schema": "public",
+      "table_name": "class_student",
+      "name": "class_student_pkey",
+      "type": "p",
+      "definition": "PRIMARY KEY (id)",
+      "referenced_schema": null,
+      "referenced_table": null,
+      "columns": [
+        "id"
+      ],
+      "referenced_columns": []
+    },
+    {
+      "schema": "public",
+      "table_name": "class_student",
+      "name": "fk_class_student_class",
+      "type": "f",
+      "definition": "FOREIGN KEY (class_id) REFERENCES class(id)",
+      "referenced_schema": "public",
+      "referenced_table": "class",
+      "columns": [
+        "class_id"
+      ],
+      "referenced_columns": [
+        "id"
+      ]
+    },
+    {
+      "schema": "public",
+      "table_name": "class_student",
+      "name": "fk_class_student_user",
+      "type": "f",
+      "definition": "FOREIGN KEY (student_id) REFERENCES users(id)",
+      "referenced_schema": "public",
+      "referenced_table": "users",
+      "columns": [
+        "student_id"
+      ],
+      "referenced_columns": [
+        "id"
+      ]
+    },
+    {
+      "schema": "public",
+      "table_name": "game_configs",
+      "name": "fk_game_configs_letter",
+      "type": "f",
+      "definition": "FOREIGN KEY (letter_id) REFERENCES letters(id)",
+      "referenced_schema": "public",
+      "referenced_table": "letters",
+      "columns": [
+        "letter_id"
+      ],
+      "referenced_columns": [
+        "id"
+      ]
+    },
+    {
+      "schema": "public",
+      "table_name": "game_configs",
+      "name": "fk_games_lessons_lesson",
+      "type": "f",
+      "definition": "FOREIGN KEY (lesson_id) REFERENCES letter_lessons(id)",
+      "referenced_schema": "public",
+      "referenced_table": "letter_lessons",
+      "columns": [
+        "lesson_id"
+      ],
+      "referenced_columns": [
+        "id"
+      ]
+    },
+    {
+      "schema": "public",
+      "table_name": "game_configs",
+      "name": "game_configs_pkey",
+      "type": "p",
+      "definition": "PRIMARY KEY (id)",
+      "referenced_schema": null,
+      "referenced_table": null,
+      "columns": [
+        "id"
+      ],
+      "referenced_columns": []
+    },
+    {
+      "schema": "public",
+      "table_name": "games_lessons",
+      "name": "fk_games_lessons_lesson",
+      "type": "f",
+      "definition": "FOREIGN KEY (lesson_id) REFERENCES letter_lessons(id)",
+      "referenced_schema": "public",
+      "referenced_table": "letter_lessons",
+      "columns": [
+        "lesson_id"
+      ],
+      "referenced_columns": [
+        "id"
+      ]
+    },
+    {
+      "schema": "public",
+      "table_name": "games_lessons",
+      "name": "fk_games_lessons_letter",
+      "type": "f",
+      "definition": "FOREIGN KEY (letter_id) REFERENCES letters(id)",
+      "referenced_schema": "public",
+      "referenced_table": "letters",
+      "columns": [
+        "letter_id"
+      ],
+      "referenced_columns": [
+        "id"
+      ]
+    },
+    {
+      "schema": "public",
+      "table_name": "games_lessons",
+      "name": "games_lessons_pkey",
+      "type": "p",
+      "definition": "PRIMARY KEY (id)",
+      "referenced_schema": null,
+      "referenced_table": null,
+      "columns": [
+        "id"
+      ],
+      "referenced_columns": []
+    },
+    {
+      "schema": "public",
+      "table_name": "games_lessons",
+      "name": "unique_letter_game",
+      "type": "u",
+      "definition": "UNIQUE (letter_id, game_type)",
+      "referenced_schema": null,
+      "referenced_table": null,
+      "columns": [
+        "letter_id",
+        "game_type"
+      ],
+      "referenced_columns": []
+    },
+    {
+      "schema": "public",
+      "table_name": "letter_lessons",
+      "name": "letter_lessons_pkey",
+      "type": "p",
+      "definition": "PRIMARY KEY (id)",
+      "referenced_schema": null,
+      "referenced_table": null,
+      "columns": [
+        "id"
+      ],
+      "referenced_columns": []
+    },
+    {
+      "schema": "public",
+      "table_name": "letters",
+      "name": "letters_pkey",
+      "type": "p",
+      "definition": "PRIMARY KEY (id)",
+      "referenced_schema": null,
+      "referenced_table": null,
+      "columns": [
+        "id"
+      ],
+      "referenced_columns": []
+    },
+    {
+      "schema": "public",
+      "table_name": "permission",
+      "name": "permission_pkey",
+      "type": "p",
+      "definition": "PRIMARY KEY (id)",
+      "referenced_schema": null,
+      "referenced_table": null,
+      "columns": [
+        "id"
+      ],
+      "referenced_columns": []
+    },
+    {
+      "schema": "public",
+      "table_name": "questions_lessons",
+      "name": "fk_questions_lessons_lesson",
+      "type": "f",
+      "definition": "FOREIGN KEY (lesson_id) REFERENCES letter_lessons(id)",
+      "referenced_schema": "public",
+      "referenced_table": "letter_lessons",
+      "columns": [
+        "lesson_id"
+      ],
+      "referenced_columns": [
+        "id"
+      ]
+    },
+    {
+      "schema": "public",
+      "table_name": "questions_lessons",
+      "name": "fk_questions_lessons_letter",
+      "type": "f",
+      "definition": "FOREIGN KEY (letter_id) REFERENCES letters(id)",
+      "referenced_schema": "public",
+      "referenced_table": "letters",
+      "columns": [
+        "letter_id"
+      ],
+      "referenced_columns": [
+        "id"
+      ]
+    },
+    {
+      "schema": "public",
+      "table_name": "questions_lessons",
+      "name": "questions_lessons_pkey",
+      "type": "p",
+      "definition": "PRIMARY KEY (id)",
+      "referenced_schema": null,
+      "referenced_table": null,
+      "columns": [
+        "id"
+      ],
+      "referenced_columns": []
+    },
+    {
+      "schema": "public",
+      "table_name": "role",
+      "name": "role_pkey",
+      "type": "p",
+      "definition": "PRIMARY KEY (id)",
+      "referenced_schema": null,
+      "referenced_table": null,
+      "columns": [
+        "id"
+      ],
+      "referenced_columns": []
+    },
+    {
+      "schema": "public",
+      "table_name": "role_permissions",
+      "name": "fk_role_permissions_permission",
+      "type": "f",
+      "definition": "FOREIGN KEY (permission_id) REFERENCES permission(id)",
+      "referenced_schema": "public",
+      "referenced_table": "permission",
+      "columns": [
+        "permission_id"
+      ],
+      "referenced_columns": [
+        "id"
+      ]
+    },
+    {
+      "schema": "public",
+      "table_name": "role_permissions",
+      "name": "fk_role_permissions_role",
+      "type": "f",
+      "definition": "FOREIGN KEY (role_id) REFERENCES role(id)",
+      "referenced_schema": "public",
+      "referenced_table": "role",
+      "columns": [
+        "role_id"
+      ],
+      "referenced_columns": [
+        "id"
+      ]
+    },
+    {
+      "schema": "public",
+      "table_name": "role_permissions",
+      "name": "role_permissions_pkey",
+      "type": "p",
+      "definition": "PRIMARY KEY (id)",
+      "referenced_schema": null,
+      "referenced_table": null,
+      "columns": [
+        "id"
+      ],
+      "referenced_columns": []
+    },
+    {
+      "schema": "public",
+      "table_name": "student_answers",
+      "name": "fk_student_answers_lesson",
+      "type": "f",
+      "definition": "FOREIGN KEY (lessons_id) REFERENCES letter_lessons(id)",
+      "referenced_schema": "public",
+      "referenced_table": "letter_lessons",
+      "columns": [
+        "lessons_id"
+      ],
+      "referenced_columns": [
+        "id"
+      ]
+    },
+    {
+      "schema": "public",
+      "table_name": "student_answers",
+      "name": "fk_student_answers_question",
+      "type": "f",
+      "definition": "FOREIGN KEY (question_id) REFERENCES questions_lessons(id)",
+      "referenced_schema": "public",
+      "referenced_table": "questions_lessons",
+      "columns": [
+        "question_id"
+      ],
+      "referenced_columns": [
+        "id"
+      ]
+    },
+    {
+      "schema": "public",
+      "table_name": "student_answers",
+      "name": "fk_student_answers_user",
+      "type": "f",
+      "definition": "FOREIGN KEY (user_id) REFERENCES users(id)",
+      "referenced_schema": "public",
+      "referenced_table": "users",
+      "columns": [
+        "user_id"
+      ],
+      "referenced_columns": [
+        "id"
+      ]
+    },
+    {
+      "schema": "public",
+      "table_name": "student_answers",
+      "name": "student_answers_pkey",
+      "type": "p",
+      "definition": "PRIMARY KEY (id)",
+      "referenced_schema": null,
+      "referenced_table": null,
+      "columns": [
+        "id"
+      ],
+      "referenced_columns": []
+    },
+    {
+      "schema": "public",
+      "table_name": "student_answers",
+      "name": "unique_student_question",
+      "type": "u",
+      "definition": "UNIQUE (lessons_id, user_id, question_id)",
+      "referenced_schema": null,
+      "referenced_table": null,
+      "columns": [
+        "lessons_id",
+        "user_id",
+        "question_id"
+      ],
+      "referenced_columns": []
+    },
+    {
+      "schema": "public",
+      "table_name": "student_game_results",
+      "name": "fk_student_game_results_lesson_game",
+      "type": "f",
+      "definition": "FOREIGN KEY (games_lessons_id) REFERENCES games_lessons(id)",
+      "referenced_schema": "public",
+      "referenced_table": "games_lessons",
+      "columns": [
+        "games_lessons_id"
+      ],
+      "referenced_columns": [
+        "id"
+      ]
+    },
+    {
+      "schema": "public",
+      "table_name": "student_game_results",
+      "name": "fk_student_game_results_student",
+      "type": "f",
+      "definition": "FOREIGN KEY (student_id) REFERENCES users(id)",
+      "referenced_schema": "public",
+      "referenced_table": "users",
+      "columns": [
+        "student_id"
+      ],
+      "referenced_columns": [
+        "id"
+      ]
+    },
+    {
+      "schema": "public",
+      "table_name": "student_game_results",
+      "name": "student_game_results_pkey",
+      "type": "p",
+      "definition": "PRIMARY KEY (id)",
+      "referenced_schema": null,
+      "referenced_table": null,
+      "columns": [
+        "id"
+      ],
+      "referenced_columns": []
+    },
+    {
+      "schema": "public",
+      "table_name": "student_game_results",
+      "name": "unique_student_game",
+      "type": "u",
+      "definition": "UNIQUE (student_id, games_lessons_id)",
+      "referenced_schema": null,
+      "referenced_table": null,
+      "columns": [
+        "student_id",
+        "games_lessons_id"
+      ],
+      "referenced_columns": []
+    },
+    {
+      "schema": "public",
+      "table_name": "student_lesson_result",
+      "name": "fk_student_lesson_result_lesson",
+      "type": "f",
+      "definition": "FOREIGN KEY (lessons_id) REFERENCES letter_lessons(id)",
+      "referenced_schema": "public",
+      "referenced_table": "letter_lessons",
+      "columns": [
+        "lessons_id"
+      ],
+      "referenced_columns": [
+        "id"
+      ]
+    },
+    {
+      "schema": "public",
+      "table_name": "student_lesson_result",
+      "name": "fk_student_lesson_result_user",
+      "type": "f",
+      "definition": "FOREIGN KEY (user_id) REFERENCES users(id)",
+      "referenced_schema": "public",
+      "referenced_table": "users",
+      "columns": [
+        "user_id"
+      ],
+      "referenced_columns": [
+        "id"
+      ]
+    },
+    {
+      "schema": "public",
+      "table_name": "student_lesson_result",
+      "name": "student_lesson_result_pkey",
+      "type": "p",
+      "definition": "PRIMARY KEY (id)",
+      "referenced_schema": null,
+      "referenced_table": null,
+      "columns": [
+        "id"
+      ],
+      "referenced_columns": []
+    },
+    {
+      "schema": "public",
+      "table_name": "student_lesson_result",
+      "name": "unique_student_lesson",
+      "type": "u",
+      "definition": "UNIQUE (lessons_id, user_id)",
+      "referenced_schema": null,
+      "referenced_table": null,
+      "columns": [
+        "lessons_id",
+        "user_id"
+      ],
+      "referenced_columns": []
+    },
+    {
+      "schema": "public",
+      "table_name": "user_progress",
+      "name": "fk_user_progress_lessons",
+      "type": "f",
+      "definition": "FOREIGN KEY (lesson_id) REFERENCES letter_lessons(id)",
+      "referenced_schema": "public",
+      "referenced_table": "letter_lessons",
+      "columns": [
+        "lesson_id"
+      ],
+      "referenced_columns": [
+        "id"
+      ]
+    },
+    {
+      "schema": "public",
+      "table_name": "user_progress",
+      "name": "fk_user_progress_letter",
+      "type": "f",
+      "definition": "FOREIGN KEY (letter_id) REFERENCES letters(id)",
+      "referenced_schema": "public",
+      "referenced_table": "letters",
+      "columns": [
+        "letter_id"
+      ],
+      "referenced_columns": [
+        "id"
+      ]
+    },
+    {
+      "schema": "public",
+      "table_name": "user_progress",
+      "name": "fk_user_progress_user",
+      "type": "f",
+      "definition": "FOREIGN KEY (user_id) REFERENCES users(id)",
+      "referenced_schema": "public",
+      "referenced_table": "users",
+      "columns": [
+        "user_id"
+      ],
+      "referenced_columns": [
+        "id"
+      ]
+    },
+    {
+      "schema": "public",
+      "table_name": "user_progress",
+      "name": "user_progress_pkey",
+      "type": "p",
+      "definition": "PRIMARY KEY (id)",
+      "referenced_schema": null,
+      "referenced_table": null,
+      "columns": [
+        "id"
+      ],
+      "referenced_columns": []
+    },
+    {
+      "schema": "public",
+      "table_name": "user_progress",
+      "name": "user_progress_user_letter_lesson_unique",
+      "type": "u",
+      "definition": "UNIQUE (user_id, letter_id, lesson_id)",
+      "referenced_schema": null,
+      "referenced_table": null,
+      "columns": [
+        "user_id",
+        "letter_id",
+        "lesson_id"
+      ],
+      "referenced_columns": []
+    },
+    {
+      "schema": "public",
+      "table_name": "users",
+      "name": "fk_users_role",
+      "type": "f",
+      "definition": "FOREIGN KEY (role_id) REFERENCES role(id)",
+      "referenced_schema": "public",
+      "referenced_table": "role",
+      "columns": [
+        "role_id"
+      ],
+      "referenced_columns": [
+        "id"
+      ]
+    },
+    {
+      "schema": "public",
+      "table_name": "users",
+      "name": "users_pkey",
+      "type": "p",
+      "definition": "PRIMARY KEY (id)",
+      "referenced_schema": null,
+      "referenced_table": null,
+      "columns": [
+        "id"
+      ],
+      "referenced_columns": []
+    },
+    {
+      "schema": "public",
+      "table_name": "video_lessons",
+      "name": "fk_video_lessons_lesson",
+      "type": "f",
+      "definition": "FOREIGN KEY (lesson_id) REFERENCES letter_lessons(id)",
+      "referenced_schema": "public",
+      "referenced_table": "letter_lessons",
+      "columns": [
+        "lesson_id"
+      ],
+      "referenced_columns": [
+        "id"
+      ]
+    },
+    {
+      "schema": "public",
+      "table_name": "video_lessons",
+      "name": "fk_video_lessons_letter",
+      "type": "f",
+      "definition": "FOREIGN KEY (letter_id) REFERENCES letters(id)",
+      "referenced_schema": "public",
+      "referenced_table": "letters",
+      "columns": [
+        "letter_id"
+      ],
+      "referenced_columns": [
+        "id"
+      ]
+    },
+    {
+      "schema": "public",
+      "table_name": "video_lessons",
+      "name": "video_lessons_pkey",
+      "type": "p",
+      "definition": "PRIMARY KEY (id)",
+      "referenced_schema": null,
+      "referenced_table": null,
+      "columns": [
+        "id"
+      ],
+      "referenced_columns": []
+    }
+  ],
+  "indexes": [
+    {
+      "schema": "public",
+      "table_name": "class",
+      "name": "class_pkey",
+      "definition": "CREATE UNIQUE INDEX class_pkey ON public.class USING btree (id)",
+      "constraint_name": "class_pkey"
+    },
+    {
+      "schema": "public",
+      "table_name": "class_student",
+      "name": "class_student_pkey",
+      "definition": "CREATE UNIQUE INDEX class_student_pkey ON public.class_student USING btree (id)",
+      "constraint_name": "class_student_pkey"
+    },
+    {
+      "schema": "public",
+      "table_name": "game_configs",
+      "name": "game_configs_pkey",
+      "definition": "CREATE UNIQUE INDEX game_configs_pkey ON public.game_configs USING btree (id)",
+      "constraint_name": "game_configs_pkey"
+    },
+    {
+      "schema": "public",
+      "table_name": "games_lessons",
+      "name": "games_lessons_pkey",
+      "definition": "CREATE UNIQUE INDEX games_lessons_pkey ON public.games_lessons USING btree (id)",
+      "constraint_name": "games_lessons_pkey"
+    },
+    {
+      "schema": "public",
+      "table_name": "games_lessons",
+      "name": "unique_letter_game",
+      "definition": "CREATE UNIQUE INDEX unique_letter_game ON public.games_lessons USING btree (letter_id, game_type)",
+      "constraint_name": "unique_letter_game"
+    },
+    {
+      "schema": "public",
+      "table_name": "letter_lessons",
+      "name": "letter_lessons_pkey",
+      "definition": "CREATE UNIQUE INDEX letter_lessons_pkey ON public.letter_lessons USING btree (id)",
+      "constraint_name": "letter_lessons_pkey"
+    },
+    {
+      "schema": "public",
+      "table_name": "letters",
+      "name": "letters_pkey",
+      "definition": "CREATE UNIQUE INDEX letters_pkey ON public.letters USING btree (id)",
+      "constraint_name": "letters_pkey"
+    },
+    {
+      "schema": "public",
+      "table_name": "permission",
+      "name": "permission_pkey",
+      "definition": "CREATE UNIQUE INDEX permission_pkey ON public.permission USING btree (id)",
+      "constraint_name": "permission_pkey"
+    },
+    {
+      "schema": "public",
+      "table_name": "questions_lessons",
+      "name": "questions_lessons_pkey",
+      "definition": "CREATE UNIQUE INDEX questions_lessons_pkey ON public.questions_lessons USING btree (id)",
+      "constraint_name": "questions_lessons_pkey"
+    },
+    {
+      "schema": "public",
+      "table_name": "role",
+      "name": "role_pkey",
+      "definition": "CREATE UNIQUE INDEX role_pkey ON public.role USING btree (id)",
+      "constraint_name": "role_pkey"
+    },
+    {
+      "schema": "public",
+      "table_name": "role_permissions",
+      "name": "role_permissions_pkey",
+      "definition": "CREATE UNIQUE INDEX role_permissions_pkey ON public.role_permissions USING btree (id)",
+      "constraint_name": "role_permissions_pkey"
+    },
+    {
+      "schema": "public",
+      "table_name": "student_answers",
+      "name": "student_answers_pkey",
+      "definition": "CREATE UNIQUE INDEX student_answers_pkey ON public.student_answers USING btree (id)",
+      "constraint_name": "student_answers_pkey"
+    },
+    {
+      "schema": "public",
+      "table_name": "student_answers",
+      "name": "unique_student_question",
+      "definition": "CREATE UNIQUE INDEX unique_student_question ON public.student_answers USING btree (lessons_id, user_id, question_id)",
+      "constraint_name": "unique_student_question"
+    },
+    {
+      "schema": "public",
+      "table_name": "student_game_results",
+      "name": "student_game_results_pkey",
+      "definition": "CREATE UNIQUE INDEX student_game_results_pkey ON public.student_game_results USING btree (id)",
+      "constraint_name": "student_game_results_pkey"
+    },
+    {
+      "schema": "public",
+      "table_name": "student_game_results",
+      "name": "unique_student_game",
+      "definition": "CREATE UNIQUE INDEX unique_student_game ON public.student_game_results USING btree (student_id, games_lessons_id)",
+      "constraint_name": "unique_student_game"
+    },
+    {
+      "schema": "public",
+      "table_name": "student_lesson_result",
+      "name": "student_lesson_result_pkey",
+      "definition": "CREATE UNIQUE INDEX student_lesson_result_pkey ON public.student_lesson_result USING btree (id)",
+      "constraint_name": "student_lesson_result_pkey"
+    },
+    {
+      "schema": "public",
+      "table_name": "student_lesson_result",
+      "name": "unique_student_lesson",
+      "definition": "CREATE UNIQUE INDEX unique_student_lesson ON public.student_lesson_result USING btree (lessons_id, user_id)",
+      "constraint_name": "unique_student_lesson"
+    },
+    {
+      "schema": "public",
+      "table_name": "user_progress",
+      "name": "user_progress_pkey",
+      "definition": "CREATE UNIQUE INDEX user_progress_pkey ON public.user_progress USING btree (id)",
+      "constraint_name": "user_progress_pkey"
+    },
+    {
+      "schema": "public",
+      "table_name": "user_progress",
+      "name": "user_progress_user_letter_lesson_unique",
+      "definition": "CREATE UNIQUE INDEX user_progress_user_letter_lesson_unique ON public.user_progress USING btree (user_id, letter_id, lesson_id)",
+      "constraint_name": "user_progress_user_letter_lesson_unique"
+    },
+    {
+      "schema": "public",
+      "table_name": "users",
+      "name": "users_pkey",
+      "definition": "CREATE UNIQUE INDEX users_pkey ON public.users USING btree (id)",
+      "constraint_name": "users_pkey"
+    },
+    {
+      "schema": "public",
+      "table_name": "video_lessons",
+      "name": "video_lessons_pkey",
+      "definition": "CREATE UNIQUE INDEX video_lessons_pkey ON public.video_lessons USING btree (id)",
+      "constraint_name": "video_lessons_pkey"
+    }
+  ],
+  "sequences": [
+    {
+      "schema": "public",
+      "name": "class_id_seq",
+      "type": "integer",
+      "start": "1",
+      "increment": "1",
+      "min": "1",
+      "max": "2147483647",
+      "cache": "1",
+      "cycle": false,
+      "owned_schema": "public",
+      "owned_table": "class",
+      "owned_column": "id",
+      "dependency_type": "a"
+    },
+    {
+      "schema": "public",
+      "name": "class_student_id_seq",
+      "type": "integer",
+      "start": "1",
+      "increment": "1",
+      "min": "1",
+      "max": "2147483647",
+      "cache": "1",
+      "cycle": false,
+      "owned_schema": "public",
+      "owned_table": "class_student",
+      "owned_column": "id",
+      "dependency_type": "a"
+    },
+    {
+      "schema": "public",
+      "name": "game_configs_id_seq",
+      "type": "integer",
+      "start": "1",
+      "increment": "1",
+      "min": "1",
+      "max": "2147483647",
+      "cache": "1",
+      "cycle": false,
+      "owned_schema": "public",
+      "owned_table": "game_configs",
+      "owned_column": "id",
+      "dependency_type": "a"
+    },
+    {
+      "schema": "public",
+      "name": "games_lessons_id_seq",
+      "type": "integer",
+      "start": "1",
+      "increment": "1",
+      "min": "1",
+      "max": "2147483647",
+      "cache": "1",
+      "cycle": false,
+      "owned_schema": "public",
+      "owned_table": "games_lessons",
+      "owned_column": "id",
+      "dependency_type": "a"
+    },
+    {
+      "schema": "public",
+      "name": "letter_lessons_id_seq",
+      "type": "integer",
+      "start": "1",
+      "increment": "1",
+      "min": "1",
+      "max": "2147483647",
+      "cache": "1",
+      "cycle": false,
+      "owned_schema": "public",
+      "owned_table": "letter_lessons",
+      "owned_column": "id",
+      "dependency_type": "a"
+    },
+    {
+      "schema": "public",
+      "name": "letters_id_seq",
+      "type": "integer",
+      "start": "1",
+      "increment": "1",
+      "min": "1",
+      "max": "2147483647",
+      "cache": "1",
+      "cycle": false,
+      "owned_schema": "public",
+      "owned_table": "letters",
+      "owned_column": "id",
+      "dependency_type": "a"
+    },
+    {
+      "schema": "public",
+      "name": "permission_id_seq",
+      "type": "integer",
+      "start": "1",
+      "increment": "1",
+      "min": "1",
+      "max": "2147483647",
+      "cache": "1",
+      "cycle": false,
+      "owned_schema": "public",
+      "owned_table": "permission",
+      "owned_column": "id",
+      "dependency_type": "a"
+    },
+    {
+      "schema": "public",
+      "name": "questions_lessons_id_seq",
+      "type": "integer",
+      "start": "1",
+      "increment": "1",
+      "min": "1",
+      "max": "2147483647",
+      "cache": "1",
+      "cycle": false,
+      "owned_schema": "public",
+      "owned_table": "questions_lessons",
+      "owned_column": "id",
+      "dependency_type": "a"
+    },
+    {
+      "schema": "public",
+      "name": "role_id_seq",
+      "type": "integer",
+      "start": "1",
+      "increment": "1",
+      "min": "1",
+      "max": "2147483647",
+      "cache": "1",
+      "cycle": false,
+      "owned_schema": "public",
+      "owned_table": "role",
+      "owned_column": "id",
+      "dependency_type": "a"
+    },
+    {
+      "schema": "public",
+      "name": "role_permissions_id_seq",
+      "type": "integer",
+      "start": "1",
+      "increment": "1",
+      "min": "1",
+      "max": "2147483647",
+      "cache": "1",
+      "cycle": false,
+      "owned_schema": "public",
+      "owned_table": "role_permissions",
+      "owned_column": "id",
+      "dependency_type": "a"
+    },
+    {
+      "schema": "public",
+      "name": "student_answers_id_seq",
+      "type": "integer",
+      "start": "1",
+      "increment": "1",
+      "min": "1",
+      "max": "2147483647",
+      "cache": "1",
+      "cycle": false,
+      "owned_schema": "public",
+      "owned_table": "student_answers",
+      "owned_column": "id",
+      "dependency_type": "a"
+    },
+    {
+      "schema": "public",
+      "name": "student_game_results_id_seq",
+      "type": "integer",
+      "start": "1",
+      "increment": "1",
+      "min": "1",
+      "max": "2147483647",
+      "cache": "1",
+      "cycle": false,
+      "owned_schema": "public",
+      "owned_table": "student_game_results",
+      "owned_column": "id",
+      "dependency_type": "a"
+    },
+    {
+      "schema": "public",
+      "name": "student_lesson_result_id_seq",
+      "type": "integer",
+      "start": "1",
+      "increment": "1",
+      "min": "1",
+      "max": "2147483647",
+      "cache": "1",
+      "cycle": false,
+      "owned_schema": "public",
+      "owned_table": "student_lesson_result",
+      "owned_column": "id",
+      "dependency_type": "a"
+    },
+    {
+      "schema": "public",
+      "name": "user_progress_id_seq",
+      "type": "integer",
+      "start": "1",
+      "increment": "1",
+      "min": "1",
+      "max": "2147483647",
+      "cache": "1",
+      "cycle": false,
+      "owned_schema": "public",
+      "owned_table": "user_progress",
+      "owned_column": "id",
+      "dependency_type": "a"
+    },
+    {
+      "schema": "public",
+      "name": "users_id_seq",
+      "type": "integer",
+      "start": "1",
+      "increment": "1",
+      "min": "1",
+      "max": "2147483647",
+      "cache": "1",
+      "cycle": false,
+      "owned_schema": "public",
+      "owned_table": "users",
+      "owned_column": "id",
+      "dependency_type": "a"
+    },
+    {
+      "schema": "public",
+      "name": "video_lessons_id_seq",
+      "type": "integer",
+      "start": "1",
+      "increment": "1",
+      "min": "1",
+      "max": "2147483647",
+      "cache": "1",
+      "cycle": false,
+      "owned_schema": "public",
+      "owned_table": "video_lessons",
+      "owned_column": "id",
+      "dependency_type": "a"
+    }
+  ],
+  "enums": [],
+  "views": [],
+  "triggers": []
+}

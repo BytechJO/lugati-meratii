@@ -1,97 +1,20 @@
 const pool = require("../models/db");
 
-//================= create lessons ======================//
-const createLesson = async (req, res) => {
-  const { lesson_id, letter_id, type, title, order_index, is_lastLesson } =
-    req.body;
-
-  try {
-    await pool.query("BEGIN");
-
-    // ✅ إذا بدنا نخليه آخر ليسون
-    if (is_lastLesson === true) {
-      await pool.query(
-        `UPDATE letter_lessons
-         SET is_lastLesson = false
-         WHERE letter_id = $1`,
-        [letter_id]
-      );
-    }
-
-    let response;
-
-    // 🔁 UPDATE
-    if (lesson_id) {
-      const updateQuery = `
-        UPDATE letter_lessons
-        SET type = $1,
-            title = $2,
-            order_index = $3,
-            is_lastLesson = $4
-        WHERE id = $5
-        RETURNING *;
-      `;
-
-      response = await pool.query(updateQuery, [
-        type,
-        title,
-        order_index,
-        is_lastLesson ?? false,
-        lesson_id,
-      ]);
-    }
-    // ➕ INSERT
-    else {
-      const insertQuery = `
-        INSERT INTO letter_lessons
-        (letter_id, type, title, order_index, is_lastLesson)
-        VALUES ($1, $2, $3, $4, $5)
-        RETURNING *;
-      `;
-
-      response = await pool.query(insertQuery, [
-        letter_id,
-        type,
-        title,
-        order_index,
-        is_lastLesson ?? false,
-      ]);
-    }
-
-    await pool.query("COMMIT");
-
-    res.status(201).json({
-      success: true,
-      message: lesson_id
-        ? "Lesson updated successfully"
-        : "Lesson created successfully",
-      data: response.rows[0],
-    });
-  } catch (error) {
-    await pool.query("ROLLBACK");
-
-    res.status(500).json({
-      success: false,
-      message: "Server Error",
-      error: error.message,
-    });
-  }
-};
+// Lessons are a fixed catalog shared by all letters; content is letter-specific.
 
 //================= get lessons by letters id ======================//
 
 const getLessonsByLetterId = async (req, res) => {
-  const letter_id = req.params.letter_id;
-
+  // Keep the existing route compatible; every letter uses the same catalog.
   const query = `
     SELECT *
     FROM letter_lessons
-    WHERE letter_id = $1 AND is_deleted=0
+    WHERE is_deleted = 0
     ORDER BY order_index ASC;
   `;
 
   try {
-    const response = await pool.query(query, [letter_id]);
+    const response = await pool.query(query);
 
     if (response.rowCount) {
       res.status(200).json({
@@ -101,7 +24,7 @@ const getLessonsByLetterId = async (req, res) => {
     } else {
       res.status(404).json({
         success: false,
-        message: "No lessons found for this letter",
+        message: "No lessons found",
       });
     }
   } catch (error) {
@@ -147,53 +70,18 @@ const getLessonById = async (req, res) => {
   }
 };
 
-//================= deleteLesson  ======================//
-const deleteLesson = async (req, res) => {
-  const lesson_id = req.params.id;
-
-  try {
-    const response = await pool.query(
-      `
-      UPDATE letter_lessons
-      SET is_deleted = 1
-      WHERE id = $1
-      RETURNING *;
-      `,
-      [lesson_id]
-    );
-
-    if (response.rowCount) {
-      res.status(200).json({
-        success: true,
-        message: "Lesson deleted successfully",
-        data: response.rows[0],
-      });
-    } else {
-      res.status(404).json({
-        success: false,
-        message: "Lesson not found",
-      });
-    }
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: "Server Error",
-      error: error.message,
-    });
-  }
-};
-
 //================= addVideoLesson  ======================//
 const addVideoLesson = async (req, res) => {
   const { letter_id, lesson_id, title, youtube_url, duration } = req.body;
 
   try {
-    // 1️⃣ تحقق إن الليسون تابع لنفس الحرف
+    // Lessons are shared; validate the lesson and letter independently.
     const lessonCheck = await pool.query(
       `
       SELECT id
       FROM letter_lessons
-      WHERE id = $1 AND letter_id = $2 AND is_deleted = 0;
+      WHERE id = $1 AND is_deleted = 0
+        AND EXISTS (SELECT 1 FROM letters WHERE id = $2 AND is_deleted = 0);
       `,
       [lesson_id, letter_id]
     );
@@ -201,7 +89,7 @@ const addVideoLesson = async (req, res) => {
     if (!lessonCheck.rowCount) {
       return res.status(400).json({
         success: false,
-        message: "Lesson does not belong to this letter",
+        message: "Lesson or letter not found",
       });
     }
 
@@ -346,6 +234,7 @@ const getGamesByLetter = async (req, res) => {
     JOIN games_lessons gl
       ON gl.lesson_id = ll.id
       AND gl.game_type = gc.game_type
+      AND gl.letter_id = gc.letter_id
     WHERE gc.letter_id = $1
       AND ll.is_lastLesson = true
   `;
@@ -462,6 +351,12 @@ const getGameById = async (req, res) => {
 
 //==================== saveGameResult ===================
 const saveGameResult = async (req, res) => {
+  if (Number(req.token?.role) !== 2) {
+    return res.status(403).json({
+      success: false,
+      message: "Only students can save game results",
+    });
+  }
   const { games_lessons_id, score, duration } = req.body;
   const student_id = req.token.userId;
   if (!student_id || !games_lessons_id) {
@@ -519,8 +414,7 @@ const getStudentGameResults = async (req, res) => {
       l.symbol AS letter
     FROM student_game_results sgr
     JOIN games_lessons gl ON gl.id = sgr.games_lessons_id
-    JOIN letter_lessons ll ON ll.id = gl.lesson_id
-    JOIN letters l ON l.id = ll.letter_id
+    JOIN letters l ON l.id = gl.letter_id
     WHERE sgr.student_id = $1
     ORDER BY sgr.created_at DESC;
   `;
@@ -553,9 +447,8 @@ const getStudentResultsByLetter = async (req, res) => {
       sgr.duration
     FROM student_game_results sgr
     JOIN games_lessons gl ON gl.id = sgr.games_lessons_id
-    JOIN letter_lessons ll ON ll.id = gl.lesson_id
     WHERE sgr.student_id = $1
-      AND ll.letter_id = $2;
+      AND gl.letter_id = $2;
   `;
 
   try {
@@ -586,8 +479,7 @@ const getStudentProgress = async (req, res) => {
       COUNT(sgr.id) AS games_played,
       SUM(sgr.score) AS total_score
     FROM letters l
-    LEFT JOIN letter_lessons ll ON ll.letter_id = l.id
-    LEFT JOIN games_lessons gl ON gl.lesson_id = ll.id
+    LEFT JOIN games_lessons gl ON gl.letter_id = l.id
     LEFT JOIN student_game_results sgr 
       ON sgr.games_lessons_id = gl.id
       AND sgr.student_id = $1
@@ -631,11 +523,12 @@ const addQuestion = async (req, res) => {
       });
     }
 
-    // 2️⃣ تحقق أن الدرس موجود ويتبع للحرف
+    // Lessons are shared; validate the lesson and letter independently.
     const lessonCheck = await pool.query(
       `
       SELECT id FROM letter_lessons
-      WHERE id = $1 AND letter_id = $2
+      WHERE id = $1 AND is_deleted = 0
+        AND EXISTS (SELECT 1 FROM letters WHERE id = $2 AND is_deleted = 0)
       `,
       [lesson_id, letter_id]
     );
@@ -643,7 +536,7 @@ const addQuestion = async (req, res) => {
     if (!lessonCheck.rowCount) {
       return res.status(400).json({
         success: false,
-        message: "Lesson not found or does not belong to this letter",
+        message: "Lesson or letter not found",
       });
     }
 
@@ -922,10 +815,8 @@ const getGameLessonByLetterAndType = async (req, res) => {
 };
 
 module.exports = {
-  createLesson,
   getLessonsByLetterId,
   getLessonById,
-  deleteLesson,
   addVideoLesson,
   getVideoLessonsByLetterAndLesson,
   addGameLesson,

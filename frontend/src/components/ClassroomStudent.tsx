@@ -78,12 +78,12 @@ export function ClassroomStudent() {
 
   /* ===================== قائمة الطلاب ===================== */
   return (
-    <div
+    <div data-page="classroom-student"
       className="min-h-screen w-full bg-white flex flex-col items-center"
       dir="rtl"
     >
       {/* ================= الهيدر (صورة الخلفية + النافبار) ================= */}
-      <div
+      <div data-responsive="teacher-hero"
         className="relative w-full overflow-hidden"
         style={{
           backgroundImage: `url("${headerBackground}")`,
@@ -104,7 +104,7 @@ export function ClassroomStudent() {
         </div>
 
         {/* العنوان بنص الهيدر */}
-        <div
+        <div data-responsive="teacher-hero-title"
           className="absolute left-1/2 -translate-x-1/2"
           style={{ top: "44%" }}
         >
@@ -203,9 +203,9 @@ export function ClassroomStudent() {
           </div>
         ) : (
           /* ---------- جدول الطلاب ---------- */
-          <div>
+          <div data-responsive="responsive-table-scroll">
             {/* رأس الجدول */}
-            <div
+            <div data-responsive="responsive-table-row"
               className="grid items-center text-center"
               style={{
                 gridTemplateColumns: GRID_COLUMNS,
@@ -236,7 +236,7 @@ export function ClassroomStudent() {
 
             {/* الصفوف */}
             {students.map((student, index) => (
-              <motion.div
+              <motion.div data-responsive="responsive-table-row"
                 key={student.id}
                 role="button"
                 initial={{ opacity: 0, y: 30 }}

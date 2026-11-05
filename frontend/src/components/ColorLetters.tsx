@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
-import { RotateCcw, Palette, Sparkles, Star, Eraser } from 'lucide-react';
+import { RotateCcw, Star, Eraser } from "lucide-react";
 import { motion } from 'motion/react';
 import { ActivityFooter } from './ActivityFooter';
 import { AppHeader } from './AppHeader';
-import { User } from '../types';
+
 import tigerImg from 'figma:asset/d844153878e904df36a1b42e94cd19505b2fa01b.png';
 
 interface Point {

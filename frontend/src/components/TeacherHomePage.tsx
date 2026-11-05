@@ -37,9 +37,9 @@ export function TeacherHomePage() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen w-full bg-white flex flex-col items-center">
+    <div data-page="teacher-home-page" className="min-h-screen w-full bg-white flex flex-col items-center">
       {/* ================= الهيدر (صورة الخلفية + النافبار) ================= */}
-      <div
+      <div data-responsive="teacher-hero"
         className="relative w-full overflow-hidden"
         style={{
           backgroundImage: `url("${headerBackground}")`,
@@ -56,7 +56,7 @@ export function TeacherHomePage() {
         </div>
 
         {/* النص بنص الهيدر */}
-        <div
+        <div data-responsive="teacher-hero-title"
           className="absolute left-1/2 -translate-x-1/2 flex items-center gap-3"
           style={{ top: "44%" }}
           dir="rtl"
@@ -84,7 +84,7 @@ export function TeacherHomePage() {
         </div>
 
         {/* تبويب "اختر القسم" */}
-        <div
+        <div data-responsive="teacher-hero-tab"
           className="absolute bottom-0 left-1/2 -translate-x-1/2 bg-white px-8 md:px-12 pt-4 pb-3 text-center"
           style={{ borderTopLeftRadius: 32, borderTopRightRadius: 32 }}
         >
@@ -113,7 +113,7 @@ export function TeacherHomePage() {
             className="relative pt-14 pb-8 px-6 transition hover:scale-105 hover:shadow-xl"
             style={{ backgroundColor: s.bg, borderRadius: 20 }}
           >
-            <span
+            <span data-responsive="teacher-hero-title"
               className="absolute top-0 left-1/2 -translate-x-1/2 py-1.5 whitespace-nowrap"
               style={{
                 backgroundColor: s.tab,

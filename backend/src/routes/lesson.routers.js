@@ -1,10 +1,8 @@
 const express = require("express");
 
 const {
-  createLesson,
   getLessonsByLetterId,
   getLessonById,
-  deleteLesson,
   addVideoLesson,
   getVideoLessonsByLetterAndLesson,
   addGameLesson,
@@ -26,14 +24,8 @@ const authentication = require("../middlewares/authentication");
 const authorization = require("../middlewares/authorization");
 const lessonRouter = express.Router();
 
-lessonRouter.post(
-  "/createLesson",
-
-  createLesson
-);
 lessonRouter.get("/lessons/:letter_id", getLessonsByLetterId);
 lessonRouter.get("/lessonsById/:id/lessonID", getLessonById);
-lessonRouter.put("/deleteLesson/:id", deleteLesson);
 lessonRouter.post("/addVideo-lessons", addVideoLesson);
 lessonRouter.get(
   "/video-lessons/:letter_id/:lesson_id",

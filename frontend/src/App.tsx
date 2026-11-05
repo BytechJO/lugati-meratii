@@ -20,30 +20,18 @@ import { ClassroomManagement } from "./components/ClassroomManagement";
 import { WordCatchGame } from "./components/games/WordCatchGame";
 import { MemoryMatchGame } from "./components/games/MemoryMatchGame";
 import { SortingGame } from "./components/games/SortingGame";
-import { useState, useEffect } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { useState } from "react";
+
 import { AppRouter } from "./app/router";
 import { motion } from "motion/react";
-import {
-  Home,
-  Video,
-  BookOpen,
-  Gamepad2,
-  Users,
-  LogOut,
-  Volume2,
-  Target,
-  Palette,
-  Edit3,
-  GraduationCap,
-} from "lucide-react";
+import { Home, Video, BookOpen, Gamepad2, Users, LogOut, Volume2, Target, Palette, Edit3 } from "lucide-react";
 import { RefreshNotice } from "./components/RefreshNotice";
 import { storage } from "./utils/storage";
 import { initializeDemoData } from "./utils/seedData";
-import { User, Classroom } from "./types";
+import { User } from "./types";
 import logoImg from "figma:asset/6520b1b60d37f88a4b683be1071a82232534fb7f.png";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { logout } from "./redux/reducers/auth";
 export default function App() {
   const [showSplash, setShowSplash] = useState(true);

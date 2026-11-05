@@ -1,4 +1,4 @@
-import { Volume2, Play, Pause, Award, Star, Music, Headphones } from 'lucide-react';
+import { Volume2, Play, Award, Star, Headphones } from "lucide-react";
 import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect } from 'react';
 import { ActivityFooter } from './ActivityFooter';

@@ -1,11 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Star, Award, RotateCcw, X } from "lucide-react";
+import { Star, X } from "lucide-react";
 import stars from "../../assets/Star.svg";
 import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import api from "../../API/axios";
 import { saveGameResult } from "../../API/gameResult";
+import { GameAccess } from "./GameAccess";
 import { RootState } from "../../redux/store";
 import { fetchLetters } from "../../redux/reducers/lettersSlice";
 import { GameLoadingScreen } from "./WordCatchWelcom";
@@ -115,6 +116,10 @@ function FallingBubble({
 /* ===================== Game ===================== */
 
 export function WordCatchGame() {
+  return <GameAccess gameType="word_catch"><PlayableWordCatchGame /></GameAccess>;
+}
+
+function PlayableWordCatchGame() {
   /* ---------- State ---------- */
   const [score, setScore] = useState(0);
   const [mistakes, setMistakes] = useState(0);
@@ -306,6 +311,7 @@ export function WordCatchGame() {
     if (!gameOver || !gameLessonId) return;
 
     saveGameResult({
+      letter_id: letterId!,
       games_lessons_id: gameLessonId,
       score,
       duration: getDuration(),
@@ -352,7 +358,7 @@ export function WordCatchGame() {
   /* ---------- Render ---------- */
 
   return (
-    <div
+    <div data-page="word-catch-game" data-responsive="responsive-game"
       className="h-screen relative overflow-hidden"
       dir="rtl"
       style={{
@@ -432,7 +438,7 @@ export function WordCatchGame() {
 
       {/* Game Area — نفس عرض الهيدر بالضبط (max-w-6xl + نفس الهوامش الجانبية) */}
       <div className="absolute inset-0 pt-24 pb-24 px-4">
-        <div className="h-full relative max-w-6xl mx-auto">
+        <div data-responsive="catch-playfield" className="h-full relative max-w-6xl mx-auto">
           <AnimatePresence>
             {words.map((word) => (
               <FallingBubble
@@ -448,13 +454,13 @@ export function WordCatchGame() {
 
       {/* Game Over */}
       {gameOver && (
-        <motion.div
+        <motion.div data-responsive="responsive-modal-backdrop"
           className="fixed inset-0 z-50 flex items-center justify-center"
           style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
-          <motion.div
+          <motion.div data-responsive="responsive-modal"
             className="bg-white rounded-[28px] p-8 md:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.25)] text-center max-w-md w-full mx-4 relative overflow-hidden"
             initial={{ scale: 0.7, y: 80 }}
             animate={{ scale: 1, y: 0 }}

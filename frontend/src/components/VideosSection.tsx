@@ -11,7 +11,8 @@ import {
 } from "../redux/reducers/videoLessonsSlice";
 import type { RootState, AppDispatch } from "../redux/store";
 import { fetchLetters } from "../redux/reducers/lettersSlice";
-import { upsertUserProgress } from "../API/userProgress";
+import { useLessonProgress } from "../hooks/useLessonProgress";
+import { ProgressSaveNotice } from "./ProgressSaveNotice";
 import videoVector from "../assets/vector_video.svg";
 import { SplashScreen } from "./SplashScreen";
 import background from "../assets/background-learnLetter.svg";
@@ -88,7 +89,7 @@ function VideoModal({ src, title, onClose }: VideoModalProps) {
   }, [onClose]);
 
   return createPortal(
-    <motion.div
+    <motion.div data-responsive="responsive-modal-backdrop"
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
       style={{ backgroundColor: "rgba(0,0,0,0.35)" }}
       initial={{ opacity: 0 }}
@@ -101,7 +102,7 @@ function VideoModal({ src, title, onClose }: VideoModalProps) {
       aria-label={title || "فيديو"}
       dir="rtl"
     >
-      <motion.div
+      <motion.div data-responsive="responsive-modal video-dialog"
         className="relative w-full max-w-4xl"
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
@@ -182,6 +183,7 @@ export function VideosSection({ onLogout }: VideosSectionProps) {
   const { letters } = useSelector((state: RootState) => state.letters);
   const currentLetterFromRedux = letters.find((l) => l.symbol === letter);
   const letterId = currentLetterFromRedux?.id;
+  const { saveProgress, progressError, retryProgress } = useLessonProgress(letterId, "video");
   const { video, loading } = useSelector(
     (state: RootState) => state.videoLessons,
   );
@@ -191,7 +193,7 @@ export function VideosSection({ onLogout }: VideosSectionProps) {
 
   // ✅ وضع الأستاذ: بدون حفظ تقدم، وبدون زر "التالي" بشاشة "ما في فيديوهات"
   // عدّل الشرط حسب اسم الحقل/القيمة الفعلية عندك في الـ user
-  const isTeacher = user?.roleId === 3;
+  const isTeacher = user?.type === "teacher";
 
   useEffect(() => {
     const handleResize = () => {
@@ -244,25 +246,18 @@ export function VideosSection({ onLogout }: VideosSectionProps) {
   }, [letterId, dispatch]);
 
   useEffect(() => {
-    const saveProgress = async () => {
-      if (isTeacher) return; // الأستاذ ما بيتسجل له تقدم
+    const saveVideoProgress = async () => {
+      if (user?.type !== "student") return;
+      if (fetchedLetterId !== letterId || loading) return;
       if (!video || video.length === 0) return;
       if (!letterId) return;
       if (progressSavedRef.current) return;
 
-      await upsertUserProgress({
-        letter_id: letterId,
-        lesson_id: 4,
-        lesson_type: "video",
-        score: 1,
-        completed: true,
-      });
-
-      progressSavedRef.current = true;
+      progressSavedRef.current = await saveProgress(1);
     };
 
-    saveProgress();
-  }, [video, letterId, isTeacher]);
+    void saveVideoProgress();
+  }, [video, letterId, user?.type, fetchedLetterId, loading, saveProgress]);
 
   const closeModal = () => setActiveVideo(null);
 
@@ -284,7 +279,7 @@ export function VideosSection({ onLogout }: VideosSectionProps) {
 
   if (hasNoVideos) {
     return (
-      <div className="h-screen relative pb-24 overflow-hidden" dir="rtl">
+      <div data-page="videos-section" className="h-screen relative pb-24 overflow-hidden" dir="rtl">
         <div
           className="fixed inset-0"
           style={{
@@ -403,7 +398,8 @@ export function VideosSection({ onLogout }: VideosSectionProps) {
   );
 
   return (
-    <div className="relative overflow-hidden pb-24" dir="rtl">
+    <div data-page="videos-section" className="relative overflow-hidden pb-24" dir="rtl">
+      <ProgressSaveNotice error={progressError} onRetry={retryProgress} />
       {/* خلفية متدرجة */}
       <div
         className="fixed inset-0"
@@ -428,7 +424,7 @@ export function VideosSection({ onLogout }: VideosSectionProps) {
         />
       </div>
       {/* صورة الحرف العائمة في الأعلى */}
-      <motion.div
+      <motion.div data-responsive="responsive-decoration"
         className="fixed"
         style={{
           top: "17%",
@@ -448,7 +444,7 @@ export function VideosSection({ onLogout }: VideosSectionProps) {
       <div className="relative z-10 flex flex-col gap-10">
         {/* المحتوى الرئيسي */}
         <div className="flex items-center justify-center ">
-          <div className="flex flex-col gap-6" style={{ width: "80%" }}>
+          <div data-responsive="video-list" className="flex flex-col gap-6" style={{ width: "80%" }}>
             <div>
               <motion.div
                 className="text-center mb-6 flex items-start"

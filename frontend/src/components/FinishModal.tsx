@@ -80,7 +80,7 @@ export function FinishModal({
       exit={{ opacity: 0 }}
       onClick={onClose}
     >
-      <motion.div
+      <motion.div data-responsive="responsive-modal"
         dir="rtl"
         style={{
           position: "relative",

@@ -56,7 +56,8 @@ const getCurrentLessonForLetter = async (req, res) => {
       LEFT JOIN user_progress up
         ON up.lesson_id = ll.id
         AND up.user_id = $1
-      WHERE ll.letter_id = $2
+        AND up.letter_id = $2
+      WHERE ll.is_deleted = 0
       ORDER BY ll.order_index ASC;
     `;
 
@@ -140,15 +141,18 @@ const getUserProgressSummary = async (req, res) => {
   try {
     const query = `
       SELECT
-        ll.letter_id,
+        l.id AS letter_id,
         COUNT(ll.id) AS total_lessons,
         COUNT(up.id) FILTER (WHERE up.completed = true) AS completed_lessons
-      FROM letter_lessons ll
+      FROM letters l
+      CROSS JOIN letter_lessons ll
       LEFT JOIN user_progress up
         ON up.lesson_id = ll.id
         AND up.user_id = $1
-      GROUP BY ll.letter_id
-      ORDER BY ll.letter_id;
+        AND up.letter_id = l.id
+      WHERE l.is_deleted = 0 AND ll.is_deleted = 0
+      GROUP BY l.id
+      ORDER BY l.id;
     `;
 
     const result = await pool.query(query, [user_id]);
@@ -478,15 +482,17 @@ const checkLetterCompletion = async (req, res) => {
     const totalLessonsQuery = `
       SELECT COUNT(*) AS total
       FROM letter_lessons
+      WHERE is_deleted = 0
     `;
 
     // 2️⃣ عدد الدروس المكتملة لهذا الحرف عند الطالب
     const completedLessonsQuery = `
-      SELECT COUNT(DISTINCT lesson_id) AS completed
-      FROM user_progress
-      WHERE user_id = $1
-        AND letter_id = $2
-        AND completed = true
+      SELECT COUNT(DISTINCT up.lesson_id) AS completed
+      FROM user_progress up
+      JOIN letter_lessons ll ON ll.id = up.lesson_id AND ll.is_deleted = 0
+      WHERE up.user_id = $1
+        AND up.letter_id = $2
+        AND up.completed = true
     `;
 
     const [{ rows: totalRows }, { rows: completedRows }] = await Promise.all([
@@ -536,22 +542,25 @@ const getUserLettersStatus = async (req, res) => {
     const lettersQuery = `
       SELECT id, symbol, name
       FROM letters
-      ORDER BY id ASC
+      WHERE is_deleted = 0
+      ORDER BY order_index ASC, id ASC
     `;
 
     // 2️⃣ عدد الدروس الكلي
     const totalLessonsQuery = `
       SELECT COUNT(*) AS total
       FROM letter_lessons
+      WHERE is_deleted = 0
     `;
 
     // 3️⃣ الدروس المكتملة لكل حرف عند الطالب
     const progressQuery = `
-      SELECT letter_id, COUNT(DISTINCT lesson_id) AS completed
-      FROM user_progress
-      WHERE user_id = $1
-        AND completed = true
-      GROUP BY letter_id
+      SELECT up.letter_id, COUNT(DISTINCT up.lesson_id) AS completed
+      FROM user_progress up
+      JOIN letter_lessons ll ON ll.id = up.lesson_id AND ll.is_deleted = 0
+      WHERE up.user_id = $1
+        AND up.completed = true
+      GROUP BY up.letter_id
     `;
 
     const [lettersRes, totalLessonsRes, progressRes] = await Promise.all([

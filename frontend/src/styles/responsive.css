@@ -1,0 +1,697 @@
+/* Desktop artwork, colors and layout remain in the original components.
+   This layer adapts only compact viewports and the activity navigation. */
+.activity-menu-trigger {
+  display: none;
+}
+.activity-drawer-overlay {
+  display: none;
+}
+
+@media (max-width: 1199px) {
+  html {
+    scroll-padding-top: 88px;
+  }
+  body {
+    margin: 0;
+    min-width: 0;
+  }
+  #root {
+    min-width: 0;
+  }
+  [data-page] {
+    min-width: 0;
+    max-width: 100%;
+  }
+  [data-page].h-screen {
+    height: auto;
+    min-height: 100vh;
+    min-height: 100svh;
+    overflow-x: clip;
+    overflow-y: visible;
+  }
+  [data-page] :is(img, video, canvas, iframe) {
+    max-width: 100%;
+  }
+  [data-page] :is(input, select, textarea) {
+    min-width: 0;
+    max-width: 100%;
+  }
+  [data-page] :is(.grid, .flex) > * {
+    min-width: 0;
+  }
+  [data-responsive~="responsive-decoration"] {
+    display: none !important;
+  }
+
+  /* Six activity destinations use the same icons and routes as the footer. */
+  .activity-desktop-footer {
+    display: none;
+  }
+  .activity-menu-trigger {
+    position: fixed;
+    inset-inline-end: max(16px, env(safe-area-inset-right));
+    bottom: max(16px, env(safe-area-inset-bottom));
+    z-index: 60;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 48px;
+    padding: 10px 18px;
+    border: 2px solid #fadc64;
+    border-radius: 999px;
+    background: #652b82;
+    color: white;
+    font-family: Tajawal, sans-serif;
+    font-weight: 700;
+    box-shadow: 0 6px 18px #652b8233;
+    cursor: pointer;
+  }
+  .activity-drawer-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: #1c123d80;
+  }
+  .activity-drawer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(340px, 88vw);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: max(20px, env(safe-area-inset-top)) 18px
+      max(20px, env(safe-area-inset-bottom));
+    background: #fffaf2;
+    color: #652b82;
+    font-family: Tajawal, sans-serif;
+    box-shadow: -12px 0 40px #20102f33;
+    animation: activity-drawer-enter 180ms ease-out;
+  }
+  .activity-drawer-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .activity-drawer-heading h2 {
+    font-size: 22px;
+    font-weight: 700;
+  }
+  .activity-drawer-heading button {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #efe6f7;
+    cursor: pointer;
+  }
+  .activity-drawer-links {
+    display: grid;
+    gap: 12px;
+  }
+  .activity-drawer-links button {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    padding: 8px 12px;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    background: white;
+    text-align: right;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .activity-drawer-links img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+  .activity-drawer-links [aria-current="page"] {
+    border-color: #f6c83d;
+    background: #fff1bb;
+  }
+  .activity-drawer :focus-visible,
+  .activity-menu-trigger:focus-visible {
+    outline: 3px solid #652b82;
+    outline-offset: 3px;
+  }
+
+  /* Shared student and teacher headers. Titles get a full row when needed. */
+  [data-responsive~="responsive-header"] {
+    isolation: isolate;
+  }
+  [data-responsive~="responsive-header-grid"] {
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) !important;
+    gap: 8px;
+  }
+  [data-responsive~="responsive-header-grid"] > * {
+    min-width: 0;
+  }
+  [data-responsive~="responsive-header-title"] {
+    font-size: clamp(22px, 3vw, 34px) !important;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+  }
+  [data-responsive~="responsive-header-user"] {
+    font-size: 16px !important;
+    overflow-wrap: anywhere;
+  }
+  [data-responsive~="responsive-header"] button {
+    flex-shrink: 0;
+  }
+
+  [data-responsive~="login-content"] {
+    padding-block: 110px 32px;
+  }
+  [data-responsive~="login-panel"] {
+    height: auto !important;
+    max-width: min(100%, 560px);
+  }
+  [data-responsive~="login-panel-layout"] {
+    height: auto !important;
+  }
+
+  /* Allow activities to scroll, rather than cutting off content below 100vh. */
+  [data-page="learn-letters2"] .h-screen,
+  [data-page="letter-tashkeel"] .h-screen {
+    height: auto;
+    min-height: 0;
+  }
+  [data-page="learn-letters"] > .relative,
+  [data-page="learn-letters2"] > .relative,
+  [data-page="letter-position"] > .relative,
+  [data-page="letter-tashkeel"] > .relative,
+  [data-page="videos-section"] > .relative,
+  [data-page="games-section"] > .relative {
+    min-width: 0;
+  }
+  [data-page="letter-position"] .overflow-y-auto,
+  [data-page="letter-tashkeel"] .overflow-y-auto {
+    overflow: visible;
+    height: auto;
+  }
+  [data-page="learn-letters"],
+  [data-page="learn-letters2"],
+  [data-page="letter-position"],
+  [data-page="letter-tashkeel"],
+  [data-page="videos-section"],
+  [data-page="games-section"],
+  [data-page="empty-games-state"] {
+    padding-bottom: 88px;
+  }
+  [data-responsive~="video-list"] {
+    width: 100% !important;
+  }
+  [data-page="games-section"] .grid button p {
+    font-size: clamp(18px, 2vw, 26px) !important;
+  }
+  [data-page="games-section"] .grid button .inline-flex {
+    flex-shrink: 0;
+  }
+  [data-page="games-section"] .grid button .inline-flex img {
+    width: clamp(64px, 8vw, 100px) !important;
+  }
+  [data-responsive~="drawing-surface"] {
+    min-height: 300px;
+    aspect-ratio: 4 / 3;
+  }
+  [data-responsive~="drawing-grid"] {
+    height: auto;
+    min-height: 0;
+  }
+
+  /* Teacher tables scroll inside their own region; the page stays readable. */
+  [data-responsive~="responsive-table-scroll"] {
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    padding-bottom: 8px;
+  }
+  [data-responsive~="responsive-table-row"] {
+    min-width: 620px;
+  }
+  [data-responsive~="teacher-hero"] {
+    min-height: 210px !important;
+  }
+  [data-responsive~="teacher-hero-title"] {
+    max-width: calc(100% - 32px);
+    text-align: center;
+  }
+  [data-responsive~="teacher-hero-title"] h1 {
+    white-space: normal;
+  }
+  [data-responsive~="teacher-hero-tab"] {
+    width: max-content;
+    max-width: calc(100% - 32px);
+    padding-inline: 20px;
+  }
+
+  /* Detailed progress keeps the same panels, with flexible internal spacing. */
+  [data-responsive~="progress-content"] {
+    padding-inline: clamp(16px, 4vw, 48px) !important;
+  }
+  [data-responsive~="progress-overview"] {
+    gap: 20px !important;
+    padding: 20px !important;
+  }
+  [data-responsive~="progress-stats"] {
+    width: 150px !important;
+    gap: 24px !important;
+  }
+  [data-responsive~="progress-activity-list"] {
+    padding-inline: 20px !important;
+  }
+  [data-responsive~="progress-activity-row"] {
+    min-height: 64px;
+    height: auto !important;
+    padding-block: 12px;
+  }
+  [data-responsive~="progress-letters-content"] {
+    width: 65% !important;
+    max-width: 100% !important;
+  }
+
+  /* Dialogs remain operable on short screens and with the keyboard open. */
+  [data-responsive~="responsive-modal-backdrop"] {
+    padding: 16px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  [data-responsive~="responsive-modal"] {
+    width: min(100%, 448px) !important;
+    max-height: calc(100dvh - 32px);
+    overflow-y: auto !important;
+    margin: auto !important;
+  }
+  [data-responsive~="responsive-modal"] .flex.gap-4 {
+    flex-wrap: wrap;
+  }
+  [data-responsive~="responsive-modal"] button {
+    max-width: 100%;
+    white-space: normal;
+  }
+  [data-responsive~="classroom-create-form"] {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+  [data-responsive~="video-dialog"] {
+    width: min(100%, 896px) !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    max-height: none;
+  }
+  [data-responsive~="video-dialog"] .aspect-video {
+    max-height: calc(100svh - 112px);
+  }
+
+  /* Games retain their timers, scoring, drag handlers and card order. */
+  [data-responsive~="responsive-game"] {
+    height: 100svh !important;
+    min-height: 360px;
+    overflow: hidden;
+  }
+  [data-responsive~="game-header-bar"] h2 {
+    font-size: clamp(13px, 1.8vw, 20px) !important;
+    line-height: 1.3;
+    white-space: normal;
+  }
+  [data-responsive~="memory-board"] {
+    --memory-card-size: min(
+      calc((100vw - 64px) / 4),
+      calc((100svh - 180px) / 3),
+      160px
+    );
+    grid-template-columns: repeat(4, var(--memory-card-size)) !important;
+    gap: 8px !important;
+  }
+  [data-responsive~="memory-board"] > div {
+    width: var(--memory-card-size) !important;
+    height: var(--memory-card-size) !important;
+  }
+  [data-responsive~="memory-play-area"] {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  [data-responsive~="memory-card"] span {
+    font-size: clamp(18px, 3.5vw, 32px) !important;
+  }
+  [data-responsive~="sorting-items"] {
+    flex-wrap: wrap !important;
+    width: calc(100% - 24px) !important;
+  }
+  [data-responsive~="sorting-zones"] {
+    margin-top: 24px !important;
+    gap: 12px !important;
+    min-height: 210px;
+  }
+  [data-responsive~="sorting-play-area"] {
+    overflow-y: auto;
+    padding-bottom: 24px !important;
+  }
+  [data-responsive~="balloon-playfield"] {
+    width: calc(100% - 112px) !important;
+    margin-inline: 56px;
+  }
+  [data-responsive~="catch-playfield"] {
+    width: calc(100% - 64px);
+  }
+}
+
+@media (max-width: 767px) {
+  [data-page] :is(input, select, textarea) {
+    font-size: 16px;
+  }
+  [data-responsive~="responsive-header-grid"] {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  }
+  [data-responsive~="responsive-header-grid"] > :nth-child(2) {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+  [data-responsive~="responsive-header-grid"] > :last-child {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  [data-responsive~="responsive-header-grid"] > :first-child {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  [data-responsive~="responsive-header"] {
+    position: relative;
+  }
+  [data-responsive~="responsive-header"] button {
+    padding: 4px !important;
+    min-width: 44px;
+    min-height: 44px;
+  }
+  [data-responsive~="responsive-header"] button img {
+    max-width: 40px;
+    max-height: 40px;
+    object-fit: contain;
+  }
+  [data-responsive~="responsive-header-user"] {
+    font-size: 10px !important;
+    gap: 6px !important;
+  }
+  [data-responsive~="responsive-header-user"] img {
+    width: 32px !important;
+    height: 32px !important;
+  }
+  [data-responsive~="responsive-header-title"] {
+    font-size: clamp(20px, 5.5vw, 28px) !important;
+  }
+
+  [data-responsive~="account-title"] {
+    font-size: 36px !important;
+  }
+  [data-responsive~="account-grid"] {
+    justify-items: center;
+    gap: 32px;
+    max-width: 400px;
+  }
+  [data-responsive~="account-grid"] > div {
+    width: min(calc(100% - 28px), 300px);
+  }
+  [data-responsive~="account-grid"] > div > :first-child {
+    height: auto !important;
+  }
+  [data-responsive~="account-grid"] > div > :last-child {
+    aspect-ratio: auto;
+    min-height: 74px;
+    bottom: 0;
+    margin-top: 40px;
+  }
+  [data-responsive~="account-grid"] img {
+    height: auto !important;
+  }
+  [data-responsive~="account-grid"] h2 {
+    font-size: 20px !important;
+  }
+  [data-page="choose-account-type"] > .relative {
+    justify-content: flex-start;
+    padding-top: 32px;
+  }
+
+  [data-responsive~="login-content"] {
+    align-items: flex-start !important;
+    padding-top: 110px;
+  }
+  [data-responsive~="login-panel"] {
+    width: 100%;
+    max-width: 420px;
+    height: auto !important;
+    margin-top: 0;
+  }
+  [data-responsive~="login-panel-layout"] {
+    flex-direction: column !important;
+    height: auto !important;
+  }
+  [data-responsive~="login-form"] {
+    height: auto !important;
+    min-height: 300px;
+    gap: 20px;
+  }
+  [data-responsive~="login-illustration"] {
+    gap: 24px !important;
+  }
+  [data-page="login-page"] .absolute.drop-shadow-2xl {
+    display: none;
+  }
+  [data-page="login-page"] > .absolute {
+    pointer-events: none;
+  }
+  [data-page="login-page"] > .absolute header {
+    pointer-events: auto;
+  }
+
+  [data-page="letters-dashboard"] .grid-cols-7 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  [data-page="letter-details"] .grid {
+    gap: 12px;
+  }
+  [data-page="letter-details"] > .relative {
+    padding-inline: 16px;
+  }
+  [data-page="games-section"] .px-6 {
+    padding-inline: 12px;
+  }
+  [data-page="games-section"] p {
+    margin-right: 0 !important;
+  }
+  [data-page="games-section"] .grid-cols-1 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  [data-page="games-section"] .grid button p {
+    font-size: clamp(18px, 4.5vw, 25px) !important;
+  }
+  [data-page="games-section"] .grid button img {
+    max-width: 100%;
+  }
+  [data-page="games-section"] .grid button .inline-flex img {
+    width: clamp(60px, 16vw, 90px) !important;
+  }
+  [data-responsive~="question-toolbar"] {
+    gap: 8px;
+    padding-inline: 4px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  [data-page="letter-position"] .inline-block h2,
+  [data-page="letter-tashkeel"] .inline-block h2 {
+    font-size: clamp(28px, 8vw, 40px);
+  }
+  [data-responsive~="drawing-surface"] {
+    min-height: 260px;
+  }
+  [data-responsive~="drawing-grid"] {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto;
+  }
+
+  [data-responsive~="teacher-hero"] {
+    aspect-ratio: auto !important;
+    min-height: 230px !important;
+  }
+  [data-responsive~="teacher-hero-title"] {
+    /* top: 42% !important; */
+    width: calc(100% - 32px);
+    justify-content: center;
+  }
+  [data-responsive~="teacher-hero-title"] h1 {
+    font-size: clamp(18px, 4.5vw, 24px) !important;
+  }
+  [data-responsive~="teacher-hero-action"] {
+    right: 16px !important;
+    bottom: 12px !important;
+    max-width: calc(100% - 32px);
+  }
+  [data-page="teacher-resources"] main,
+  [data-page="teacher-home-page"] main {
+    padding-inline: 16px;
+  }
+
+  [data-responsive~="progress-hero"] {
+    aspect-ratio: auto !important;
+    min-height: 200px !important;
+  }
+  [data-responsive~="progress-class-name"] {
+    top: 64px !important;
+    right: 20px !important;
+    max-width: calc(100% - 40px);
+  }
+  [data-responsive~="progress-class-name"] h2 {
+    font-size: 26px !important;
+    white-space: normal;
+  }
+  [data-responsive~="progress-student-name"] {
+    font-size: 20px !important;
+    height: auto !important;
+    padding: 8px 16px !important;
+    max-width: calc(100% - 32px);
+  }
+  [data-responsive~="progress-content"] {
+    padding-inline: 12px !important;
+  }
+  [data-responsive~="progress-overview"] {
+    flex-direction: column;
+    padding: 16px !important;
+  }
+  [data-responsive~="progress-stats"] {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100% !important;
+    gap: 8px !important;
+  }
+  [data-responsive~="progress-stats"] > div {
+    height: 88px !important;
+  }
+  [data-responsive~="progress-stats"] span {
+    font-size: 16px !important;
+  }
+  [data-responsive~="progress-activity-list"] {
+    padding-inline: 12px !important;
+  }
+  [data-responsive~="progress-activity-row"] {
+    flex-wrap: wrap;
+    gap: 8px !important;
+  }
+  [data-responsive~="progress-activity-row"] > .flex-1 {
+    flex-basis: 100%;
+  }
+  [data-responsive~="progress-letters-content"] {
+    width: 100% !important;
+    position: relative;
+    z-index: 1;
+  }
+  [data-responsive~="progress-letters-art"] {
+    display: none;
+  }
+  [data-responsive~="responsive-modal"] {
+    padding: 20px !important;
+  }
+  [data-responsive~="video-dialog"] {
+    padding: 0 !important;
+  }
+  [data-page="splash-screen"] .content-container-loading-page {
+    margin-top: 24px !important;
+  }
+  [data-page="splash-screen"] .content-container-loading-page img {
+    max-height: 38svh;
+    width: auto;
+  }
+  [data-page="splash-screen"] .title-container-loading-page {
+    font-size: clamp(30px, 8vw, 44px) !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  [data-page="teacher-home-page"] main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  [data-page="letters-dashboard"] .grid-cols-7 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 479px) {
+  [data-page="letters-dashboard"] .grid-cols-7 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  [data-page="success-join"] h1 {
+    font-size: 26px !important;
+    text-align: center;
+  }
+  [data-page="success-join"] .flex.justify-center.gap-6 {
+    flex-direction: column;
+    align-items: center;
+    padding-inline: 16px;
+  }
+  [data-page="success-join"] img {
+    object-fit: contain;
+  }
+  [data-page="letter-welcome-page"] .absolute.top-8 {
+    position: relative;
+    top: auto;
+    flex-direction: column;
+    gap: 16px;
+    padding-block: 16px !important;
+  }
+  [data-responsive~="responsive-game"] > .absolute.top-4 {
+    left: 8px;
+    right: 8px;
+  }
+  [data-page="word-catch-game"] .truncate {
+    white-space: normal;
+    font-size: 13px;
+    line-height: 1.3;
+  }
+  [data-page="word-catch-game"] .shrink-0.px-5 {
+    padding-inline: 10px;
+  }
+}
+
+@media (max-width: 1199px) and (max-height: 500px) {
+  [data-responsive~="responsive-game"] {
+    height: 100svh !important;
+    min-height: 280px;
+  }
+  [data-responsive~="memory-board"] {
+    --memory-card-size: min(
+      calc((100vw - 64px) / 4),
+      calc((100svh - 140px) / 3)
+    );
+  }
+  [data-responsive~="sorting-zones"] {
+    margin-top: 12px !important;
+    min-height: 150px;
+    height: 160px !important;
+  }
+  .activity-menu-trigger {
+    bottom: 8px;
+    min-height: 44px;
+    padding-block: 6px;
+  }
+}
+
+@keyframes activity-drawer-enter {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .activity-drawer {
+    animation: none;
+  }
+}

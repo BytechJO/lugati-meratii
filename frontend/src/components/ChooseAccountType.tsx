@@ -108,7 +108,7 @@ export function ChooseAccountType({ onChoose }: ChooseAccountTypeProps) {
     navigate(`/login/${type}`);
   };
   return (
-    <div className="min-h-screen relative overflow-hidden" dir="rtl">
+    <div data-page="choose-account-type" className="min-h-screen relative overflow-hidden" dir="rtl">
       {/* خلفية الصفحة كصورة */}
       <div
         className="fixed inset-0"
@@ -143,7 +143,7 @@ export function ChooseAccountType({ onChoose }: ChooseAccountTypeProps) {
                 borderRadius: "50%",
               }}
             ></div>
-            <h1
+            <h1 data-responsive="account-title"
               className="text-5xl md:text-6xl lg:text-7xl mb-3"
               style={{
                 color: "#4A1B73",
@@ -177,7 +177,7 @@ export function ChooseAccountType({ onChoose }: ChooseAccountTypeProps) {
         </motion.div>
 
         {/* بطاقات اختيار نوع المستخدم */}
-        <div className="grid md:grid-cols-2 gap-4 md:gap-6 max-w-4xl w-full">
+        <div data-responsive="account-grid" className="grid md:grid-cols-2 gap-4 md:gap-6 max-w-4xl w-full">
           {/* بطاقة المعلم */}
           <motion.div
             className="relative"
@@ -247,7 +247,7 @@ export function ChooseAccountType({ onChoose }: ChooseAccountTypeProps) {
       </div>
 
       {/* صورة النمر */}
-      <motion.div
+      <motion.div data-responsive="responsive-decoration"
         className="tiger-choose-page absolute z-20"
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1, rotate: "5deg" }}

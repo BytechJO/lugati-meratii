@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { getAllLetters } from "../../API/letters";
 
 export interface Letter {
+  id: number;
   [x: string]: any;
   symbol: string;
   letter: string;

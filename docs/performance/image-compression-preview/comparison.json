@@ -1,0 +1,167 @@
+{
+  "mode": "preview-only",
+  "generatedAt": "2026-11-04T11:36:10.322Z",
+  "scope": "Same SVG and PNG formats. No resize, cropping, SVG markup edits, color changes, metadata removal or lossy recompression. Only PNG IDAT repacking and lossless zlib compression.",
+  "sourceAssetsUnchanged": true,
+  "applicationImportsUnchanged": true,
+  "results": [
+    {
+      "file": "home_02.svg",
+      "originalBytes": 15399269,
+      "optimizedBytes": 13907481,
+      "savedBytes": 1491788,
+      "savedPercent": 9.69,
+      "originalGzipBytes": 11557542,
+      "optimizedGzipBytes": 10380501,
+      "originalSha256": "ff71abf683d84d66754da05562f4309cc0e7d1856eb05b20afbb8dc6ff52cd36",
+      "optimizedSha256": "31fb7979bf15480255c525b1ef92759a4bf9a60a40d960d06535f3fc5d3efa30",
+      "svgRoot": "<svg width=\"72\" height=\"69\" viewBox=\"0 0 72 69\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">",
+      "embeddedPngs": [
+        {
+          "width": 4096,
+          "height": 4096,
+          "originalBytes": 11549037,
+          "optimizedBytes": 10430196,
+          "scanlinesSha256": "e3385e5c67cf032437fe0483966dd9a10a2a20cdbc930a688fb2065467919105",
+          "pngMetadataSha256": "9a87b964611b883ce6c8cc768988382f58ef96e66cdfa31b73c7efab4b2b1e11",
+          "method": "rle",
+          "identicalScanlines": true,
+          "identicalMetadata": true
+        }
+      ],
+      "referencedBy": [
+        "frontend/src/components/AppHeader.tsx",
+        "frontend/src/components/LoginPage.tsx",
+        "frontend/src/components/TeacherHeader.tsx"
+      ]
+    },
+    {
+      "file": "learn_alphabet.svg",
+      "originalBytes": 7008170,
+      "optimizedBytes": 4948138,
+      "savedBytes": 2060032,
+      "savedPercent": 29.39,
+      "originalGzipBytes": 5116164,
+      "optimizedGzipBytes": 3657345,
+      "originalSha256": "c15a96a699c14d6f2032c57196e0d2dae4c522343a4cdea4a72612976b0aec0e",
+      "optimizedSha256": "a292542f0c9d2d582d2f039d120a3b72dbc40e01e9fbaeb21f63a6f132b2db41",
+      "svgRoot": "<svg width=\"151\" height=\"151\" viewBox=\"0 0 151 151\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">",
+      "embeddedPngs": [
+        {
+          "width": 4096,
+          "height": 3618,
+          "originalBytes": 5249412,
+          "optimizedBytes": 3704388,
+          "scanlinesSha256": "d57d6c0ca344459293e71069af0d979846fea4d8e8be972866d41f121bd8fb49",
+          "pngMetadataSha256": "dbbbc00bf36776070cf3a912833db63855be13632669d1c2475ac01af28c9ff8",
+          "method": "filtered",
+          "identicalScanlines": true,
+          "identicalMetadata": true
+        }
+      ],
+      "referencedBy": [
+        "frontend/src/components/ActivityFooter.tsx"
+      ]
+    },
+    {
+      "file": "learn_alphabet 2.svg",
+      "originalBytes": 7007068,
+      "optimizedBytes": 4947036,
+      "savedBytes": 2060032,
+      "savedPercent": 29.4,
+      "originalGzipBytes": 5115638,
+      "optimizedGzipBytes": 3656860,
+      "originalSha256": "6819950d6d2e9847cd345f19c24b799dbb636541d75c0a3ed73af9a114a53afe",
+      "optimizedSha256": "f4a0182bd92cca4fa7fd0663cff1980ddc1d182b7a07db0115bbad169f518da2",
+      "svgRoot": "<svg width=\"265\" height=\"264\" viewBox=\"0 0 265 264\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">",
+      "embeddedPngs": [
+        {
+          "width": 4096,
+          "height": 3618,
+          "originalBytes": 5249412,
+          "optimizedBytes": 3704388,
+          "scanlinesSha256": "d57d6c0ca344459293e71069af0d979846fea4d8e8be972866d41f121bd8fb49",
+          "pngMetadataSha256": "dbbbc00bf36776070cf3a912833db63855be13632669d1c2475ac01af28c9ff8",
+          "method": "filtered",
+          "identicalScanlines": true,
+          "identicalMetadata": true
+        }
+      ],
+      "referencedBy": [
+        "frontend/src/components/LetterDetails.tsx"
+      ]
+    },
+    {
+      "file": "Learn.svg",
+      "originalBytes": 6999768,
+      "optimizedBytes": 4939736,
+      "savedBytes": 2060032,
+      "savedPercent": 29.43,
+      "originalGzipBytes": 5112068,
+      "optimizedGzipBytes": 3653412,
+      "originalSha256": "e1cfb8b0b12063ae606d1774aac6b005701d58c31eaeda752da400c27ad21a4b",
+      "optimizedSha256": "fe55bca8ccb7e83201df132f62f3df6303170be5a0b979b65c2a045851ff936d",
+      "svgRoot": "<svg width=\"95\" height=\"102\" viewBox=\"0 0 95 102\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">",
+      "embeddedPngs": [
+        {
+          "width": 4096,
+          "height": 3618,
+          "originalBytes": 5249412,
+          "optimizedBytes": 3704388,
+          "scanlinesSha256": "d57d6c0ca344459293e71069af0d979846fea4d8e8be972866d41f121bd8fb49",
+          "pngMetadataSha256": "dbbbc00bf36776070cf3a912833db63855be13632669d1c2475ac01af28c9ff8",
+          "method": "filtered",
+          "identicalScanlines": true,
+          "identicalMetadata": true
+        }
+      ],
+      "referencedBy": [
+        "frontend/src/components/StudentProgressView.tsx"
+      ]
+    },
+    {
+      "file": "student ChooseAccountType.svg",
+      "originalBytes": 6641100,
+      "optimizedBytes": 6210716,
+      "savedBytes": 430384,
+      "savedPercent": 6.48,
+      "originalGzipBytes": 4912715,
+      "optimizedGzipBytes": 4589784,
+      "originalSha256": "6f8f5029ce8bdb18f7ab6e38629126191e006e201b0c87390f57dfd180768f30",
+      "optimizedSha256": "4eb0406649d9cfe26a713971d9efa86adaf456d16ae5304f1c001aa456401e43",
+      "svgRoot": "<svg width=\"446\" height=\"446\" viewBox=\"0 0 446 446\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">",
+      "embeddedPngs": [
+        {
+          "width": 1000,
+          "height": 667,
+          "originalBytes": 294942,
+          "optimizedBytes": 291613,
+          "scanlinesSha256": "8eae7ce03fdc63372394d523bffc2c70d187a24a78b98dfc0e762a5e603ee18c",
+          "pngMetadataSha256": "9b8e01387e7c56eb3dcb1bfdd919a04e12ec1f3d12e5e0107aa4039d4f2ddeba",
+          "method": "default",
+          "identicalScanlines": true,
+          "identicalMetadata": true
+        },
+        {
+          "width": 4000,
+          "height": 4000,
+          "originalBytes": 4684265,
+          "optimizedBytes": 4364804,
+          "scanlinesSha256": "61d5924f8456f9b20bdd2a634adcf5c783cfcc2b7a4d443a80f356dc87dfa452",
+          "pngMetadataSha256": "7742620361737cdac9b4da01330c0f86f2fc39c05edc38eed8479b44547eebc0",
+          "method": "filtered",
+          "identicalScanlines": true,
+          "identicalMetadata": true
+        }
+      ],
+      "referencedBy": []
+    }
+  ],
+  "totals": {
+    "originalBytes": 43055375,
+    "optimizedBytes": 34953107,
+    "savedBytes": 8102268,
+    "originalGzipBytes": 31814127,
+    "optimizedGzipBytes": 25937902
+  }
+}

@@ -53,13 +53,13 @@ export function TeacherHeader({
   if (!user && showUserInfo) return null;
 
   return (
-    <header
+    <header data-responsive="responsive-header"
       className="sticky top-0 w-full z-50"
       style={{ backgroundColor: transparent ? "transparent" : "white" }}
     >
       <div className="px-4 md:px-6 py-2 md:py-2.5" style={{ marginTop: 5 }}>
         {/* 3 أعمدة: [1fr] [العنوان auto] [1fr] ← العنوان دايماً بالنص */}
-        <div
+        <div data-responsive="responsive-header-grid"
           className="grid items-center"
           dir="rtl"
           style={{ gridTemplateColumns: "1fr auto 1fr" }}
@@ -93,7 +93,7 @@ export function TeacherHeader({
                   </motion.button>
                 )}
 
-                <p
+                <p data-responsive="responsive-header-user"
                   className="flex items-center gap-2.5"
                   style={{
                 
@@ -135,7 +135,7 @@ export function TeacherHeader({
                     borderRadius: "50%",
                   }}
                 />
-                <span
+                <span data-responsive="responsive-header-title"
                   className="text-center"
                   style={{
                     fontFamily: "tajawal",

@@ -28,7 +28,7 @@ export function GameLoadingScreen({ game_name }: any) {
   const backgroundimg = backgrounds[game_name] || background_catchWord;
 
   return (
-    <div
+    <div data-page="word-catch-welcom"
       className="h-screen w-full flex items-end justify-center pb-24 fixed inset-0"
       dir="rtl"
       style={{
@@ -38,6 +38,10 @@ export function GameLoadingScreen({ game_name }: any) {
         backgroundRepeat: "no-repeat",
       }}
     >
+      <div className="game-loading-panel">
+      <img className="game-loading-art" src={backgroundimg} alt="" />
+      <div className="game-loading-status" role="status" aria-live="polite">
+      <span className="game-loading-eyebrow">هيا نلعب ونتعلم</span>
       <p
         className="text-lg md:text-2xl"
         style={{
@@ -80,6 +84,8 @@ export function GameLoadingScreen({ game_name }: any) {
             ease: "easeInOut",
           }}
         />
+      </div>
+      </div>
       </div>
     </div>
   );
