@@ -321,7 +321,7 @@ export function LoginPage({ userType, onBack, onLogout }: LoginPageProps) {
                 ></div>
 
                 <motion.div
-                  className="relative flex flex-col items-center"
+                  className="relative flex flex-col items-center p-5"
                   initial={{ y: -20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                 >
