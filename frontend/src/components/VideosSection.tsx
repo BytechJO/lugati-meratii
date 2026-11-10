@@ -317,7 +317,7 @@ export function VideosSection({ onLogout }: VideosSectionProps) {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             transition={{ type: "spring", stiffness: 200 }}
           >
-            <img
+            <img data-responsive="tiger-image"
               src={tigerImg}
               alt=""
               style={{ height: 120, width: "auto", objectFit: "contain" }}

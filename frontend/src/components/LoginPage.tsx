@@ -480,7 +480,7 @@ export function LoginPage({ userType, onBack, onLogout }: LoginPageProps) {
 
               {/*النمر الموجود بالنص */}
 
-              <motion.img
+              <motion.img data-responsive="tiger-image tiger-login"
                 src={tigerImg}
                 alt="نمر"
                 className="object-contain absolute drop-shadow-2xl"

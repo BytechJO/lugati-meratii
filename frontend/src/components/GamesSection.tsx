@@ -221,7 +221,7 @@ export function GamesSection({ onLogout }: GamesSectionProps) {
 
       <ActivityFooter currentLetter={letter} letterName={letterName} />
 
-      <motion.div data-responsive="responsive-decoration" className="fixed z-0" style={{ bottom: "0%", right: "2%" }}>
+      <motion.div data-responsive="responsive-decoration tablet-art" className="fixed z-0" style={{ bottom: "0%", right: "2%" }}>
         <motion.img
           src={book}
           alt="icon"
@@ -230,7 +230,7 @@ export function GamesSection({ onLogout }: GamesSectionProps) {
         />
       </motion.div>
 
-      <motion.div data-responsive="responsive-decoration" className="fixed z-0" style={{ bottom: "0%", left: "2%" }}>
+      <motion.div data-responsive="responsive-decoration tablet-art" className="fixed z-0" style={{ bottom: "0%", left: "2%" }}>
         <motion.img
           src={game_icon}
           alt="icon"

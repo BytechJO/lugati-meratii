@@ -279,7 +279,7 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
             }}
             className="mb-6 md:mb-8 flex items-left justify-center"
           > */}
-          <motion.img
+          <motion.img data-responsive="tiger-image"
             className="splash-tiger"
             src={tigerImg}
             alt="نمر"

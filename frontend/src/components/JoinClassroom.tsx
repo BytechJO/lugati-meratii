@@ -15,7 +15,7 @@ import homeIcon from "../assets/Home.svg";
 import { logout } from "../redux/reducers/auth";
 import { clearMyClass } from "../redux/reducers/classSlice";
 import { SuccessJoin } from "./SuccessJoin";
-import "./JoinClassroom.css"
+import "./JoinClassroom.css";
 
 interface JoinClassroomProps {
   // student: User;
@@ -63,7 +63,11 @@ JoinClassroomProps) {
 
   return (
     <>
-      <div className="min-h-screen relative overflow-hidden" dir="rtl">
+      <div
+        data-page="join-classroom"
+        className="min-h-screen relative overflow-hidden"
+        dir="rtl"
+      >
         {/* خلفية متدرجة */}
         <div
           className="fixed inset-0"
@@ -89,7 +93,7 @@ JoinClassroomProps) {
         </div>
         <motion.button
           onClick={() => {
-           handleLogout()
+            handleLogout();
           }}
           className="fixed top-8 left-16 z-30 w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center transition-all hover:scale-110"
           whileHover={{ scale: 1.1, rotate: 5 }}
@@ -137,16 +141,18 @@ JoinClassroomProps) {
             </motion.button>
           </div>
         </motion.button>
-        <div className="flex">
+        <div data-responsive="classroom-join-layout" className="flex">
           {/*النمر الموجود بالهيدر */}
           <motion.div
+            data-responsive="tiger-header"
             className="tiger-join-success flex"
-            style={{ justifyContent: "flex-end" ,width:"50%" }}
+            style={{ justifyContent: "flex-end", width: "50%" }}
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
             <motion.img
+              data-responsive="tiger-image"
               src={tiger}
               alt="نمر"
               className="w-64 md:w-96 lg:w-20 object-contain drop-shadow-2xl"
@@ -160,7 +166,10 @@ JoinClassroomProps) {
             />
           </motion.div>
           {/* المحتوى الرئيسي */}
-          <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 pt-24 pb-8">
+          <div
+            data-responsive="classroom-join-form"
+            className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 pt-24 pb-8"
+          >
             {/* البطاقة الرئيسية */}
             <motion.div
               className="rounded-3xl p-6 md:p-8 max-w-md w-full relative overflow-hidden"
@@ -229,6 +238,7 @@ JoinClassroomProps) {
                           fontFamily: "poppins",
                           fontSize: "18px",
                           fontWeight: "700",
+                      
                         }}
                       >
                         <LogIn className="w-5 h-5" />

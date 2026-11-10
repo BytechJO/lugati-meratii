@@ -247,7 +247,7 @@ export function ChooseAccountType({ onChoose }: ChooseAccountTypeProps) {
       </div>
 
       {/* صورة النمر */}
-      <motion.div data-responsive="responsive-decoration"
+      <motion.div data-responsive="tiger-corner"
         className="tiger-choose-page absolute z-20"
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1, rotate: "5deg" }}
@@ -259,7 +259,7 @@ export function ChooseAccountType({ onChoose }: ChooseAccountTypeProps) {
         }}
         style={{ top: "48%", left: "3%" }}
       >
-        <img src={tigerImg} height={250} width={250} />
+        <img data-responsive="tiger-image" src={tigerImg} height={250} width={250} />
       </motion.div>
     </div>
   );

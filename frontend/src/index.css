@@ -597,6 +597,9 @@ button {
   .-top-9 {
     top: calc(var(--spacing) * -9);
   }
+  .-top-10 {
+    top: calc(var(--spacing) * -10);
+  }
   .-top-12 {
     top: calc(var(--spacing) * -12);
   }

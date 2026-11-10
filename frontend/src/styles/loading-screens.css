@@ -151,13 +151,6 @@
     justify-content: center;
     min-width: 0;
   }
-  [data-page="splash-screen"] .splash-tiger {
-    display: block;
-    width: min(100%, 340px) !important;
-    height: auto !important;
-    max-height: min(52svh, 400px) !important;
-    object-fit: contain;
-  }
   [data-page="splash-screen"] .splash-indicator { flex-shrink: 0; }
 }
 
@@ -167,7 +160,6 @@
     max-width: 560px;
   }
   [data-page="splash-screen"] .splash-illustration { grid-row: 1; }
-  [data-page="splash-screen"] .splash-tiger { max-height: 38svh !important; }
 }
 
 @media (max-width: 767px) {
@@ -186,5 +178,4 @@
   [data-page="word-catch-welcom"] .game-loading-status { gap: 10px; padding: 16px; }
   [data-page="splash-screen"] { gap: 8px; padding-block: 12px; }
   [data-page="splash-screen"] .splash-copy { gap: 6px; }
-  [data-page="splash-screen"] .splash-tiger { max-height: calc(100svh - 64px) !important; }
 }

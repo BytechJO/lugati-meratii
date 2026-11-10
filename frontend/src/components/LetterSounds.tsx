@@ -429,7 +429,7 @@ export function LetterSounds({ currentLetter, letterName, onBack, onActivityChan
         </div>
 
         {/* النمر في الزاوية */}
-        <motion.div
+        <motion.div data-responsive="tiger-corner"
           className="fixed bottom-2 left-2 md:bottom-4 md:left-4 z-20"
           initial={{ x: -200, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
@@ -440,7 +440,7 @@ export function LetterSounds({ currentLetter, letterName, onBack, onActivityChan
             delay: 0.5
           }}
         >
-          <motion.img
+          <motion.img data-responsive="tiger-image"
             src={tigerImg}
             alt="نمر"
             className="w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 object-contain drop-shadow-2xl"

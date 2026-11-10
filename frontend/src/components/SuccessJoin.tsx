@@ -45,7 +45,11 @@ export function SuccessJoin({ onLogout, onBack }: SuccessJoinProps) {
 
   return (
     <>
-      <div data-page="success-join" className="h-screen relative overflow-hidden" dir="rtl">
+      <div
+        data-page="success-join"
+        className="h-screen relative overflow-hidden"
+        dir="rtl"
+      >
         {/* خلفية متدرجة */}
         <div
           className="fixed inset-0"
@@ -69,10 +73,9 @@ export function SuccessJoin({ onLogout, onBack }: SuccessJoinProps) {
         {/* عناصر زخرفية متحركة */}
         {/* عناصر زخرفية صغيرة (نقاط ملونة متل الصورة) */}
         <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        
-
           {/* نقطة بنفسجية وسط الصفحة */}
           <motion.div
+            data-responsive="classroom-spark spark-1"
             className="absolute rounded-full"
             style={{
               top: "75%",
@@ -87,6 +90,7 @@ export function SuccessJoin({ onLogout, onBack }: SuccessJoinProps) {
 
           {/* نجمة صغيرة يسار الوسط */}
           <motion.div
+            data-responsive="classroom-spark spark-2"
             className="absolute"
             style={{
               top: "60%",
@@ -103,6 +107,7 @@ export function SuccessJoin({ onLogout, onBack }: SuccessJoinProps) {
 
           {/* نقطة بنفسجية وسط الصفحة */}
           <motion.div
+            data-responsive="classroom-spark spark-3"
             className="absolute rounded-full"
             style={{
               top: "55%",
@@ -117,6 +122,7 @@ export function SuccessJoin({ onLogout, onBack }: SuccessJoinProps) {
 
           {/* نجمة صغيرة يسار الوسط */}
           <motion.div
+            data-responsive="classroom-spark spark-4"
             className="absolute"
             style={{
               top: "44%",
@@ -128,7 +134,7 @@ export function SuccessJoin({ onLogout, onBack }: SuccessJoinProps) {
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           >
             {/* ★ */}
-            <img src={star} style={{ height: "40px", width: "auto" }}/>
+            <img src={star} style={{ height: "40px", width: "auto" }} />
           </motion.div>
 
           {/* الخلفية الدائرية الدوارة الأصلية (خفيفة، تضيف عمق فوق البلوبز) */}
@@ -140,6 +146,7 @@ export function SuccessJoin({ onLogout, onBack }: SuccessJoinProps) {
           />
         </div>
         <motion.div
+          data-responsive="classroom-art book-badge"
           className="absolute"
           style={{
             top: "38%",
@@ -157,6 +164,7 @@ export function SuccessJoin({ onLogout, onBack }: SuccessJoinProps) {
           <img src={book} style={{ height: "70px", width: "auto" }} />
         </motion.div>
         <motion.div
+          data-responsive="classroom-art book-corner"
           className="absolute"
           style={{
             top: "80%",
@@ -172,6 +180,7 @@ export function SuccessJoin({ onLogout, onBack }: SuccessJoinProps) {
         </motion.div>
 
         <motion.div
+          data-responsive="classroom-art pen"
           className="absolute"
           style={{
             top: "66%",
@@ -190,6 +199,7 @@ export function SuccessJoin({ onLogout, onBack }: SuccessJoinProps) {
         </motion.div>
 
         <motion.div
+          data-responsive="classroom-art lamb"
           className="absolute"
           style={{
             top: "65%",
@@ -209,6 +219,7 @@ export function SuccessJoin({ onLogout, onBack }: SuccessJoinProps) {
         </motion.div>
 
         <motion.div
+          data-responsive="classroom-art letter"
           className="absolute"
           style={{
             top: "45%",
@@ -227,8 +238,8 @@ export function SuccessJoin({ onLogout, onBack }: SuccessJoinProps) {
           <img src={letterAin} style={{ height: "60px", width: "auto" }} />
         </motion.div>
         <div
+          data-responsive="classroom-content"
           className="flex justify-center gap-6"
-         
         >
           {/* المحتوى الرئيسي */}
           <div className="relative z-10 flex flex-col items-center justify-center gap-4 text-base md:text-xl lg:text-2xl">
@@ -277,6 +288,8 @@ export function SuccessJoin({ onLogout, onBack }: SuccessJoinProps) {
                 fontWeight: "700",
                 boxShadow: "0 10px 25px rgba(101, 43, 130, 0.25)",
                 border: "none",
+                position: "relative",
+                top: "-35px",
               }}
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.97 }}
@@ -287,8 +300,12 @@ export function SuccessJoin({ onLogout, onBack }: SuccessJoinProps) {
         </div>
       </div>
       {/* النمر في الزاوية */}
-      <motion.div data-responsive="responsive-decoration" className="fixed bottom-0 left-2 md:-bottom-23 md:left-4 z-0">
+      <motion.div
+        data-responsive="tiger-corner classroom-tiger"
+        className="fixed bottom-0 left-2 md:-bottom-23 md:left-4 z-0"
+      >
         <motion.img
+          data-responsive="tiger-image"
           src={tigerImg}
           alt="نمر"
           className="w-20 h-48 md:w-72 md:h-48 lg:w-72 lg:h-96 object-contain drop-shadow-2xl"

@@ -50,7 +50,10 @@ export function LearnLetters2({ onLogout }: LearnLetters2Props) {
     letterCards.find((l) => l.letter === letter) || letterCards[0];
 
   const letterId = currentLetterFromRedux?.id;
-  const { saveProgress, progressError, retryProgress } = useLessonProgress(letterId, "write");
+  const { saveProgress, progressError, retryProgress } = useLessonProgress(
+    letterId,
+    "write",
+  );
 
   useEffect(() => {
     if (!letters.length) {
@@ -376,7 +379,7 @@ export function LearnLetters2({ onLogout }: LearnLetters2Props) {
   // الانتقال للنشاط التالي (بس لما يكون الزر enabled)
   const handleContinue = async () => {
     if (!isComplete) return;
-    if (!await saveLearnProgress()) return;
+    if (!(await saveLearnProgress())) return;
     navigate(`/letter/${letter}/position`);
   };
 
@@ -410,7 +413,8 @@ export function LearnLetters2({ onLogout }: LearnLetters2Props) {
           fontTtile={25}
         />
       </div>
-   <motion.div data-responsive="responsive-decoration"
+      <motion.div
+        data-responsive="responsive-decoration"
         className="fixed"
         style={{
           top: "17%",
@@ -418,13 +422,16 @@ export function LearnLetters2({ onLogout }: LearnLetters2Props) {
           color: "#FDC333",
           fontSize: "60px",
           rotate: "18deg",
-          opacity:"0.3"
+          opacity: "0.3",
         }}
         // animate={{ rotate: [0, 15, -15, 0], scale: [1, 1.1, 1] }}
         // transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
       >
         {/* ★ */}
-        <img src={currentLetterCard.image} style={{ height: "380px", width: "auto" }} />
+        <img
+          src={currentLetterCard.image}
+          style={{ height: "380px", width: "auto" }}
+        />
       </motion.div>
       {/* السلايد الأول: الفيديو فقط */}
       {currentSlide === 0 && (
@@ -562,8 +569,13 @@ export function LearnLetters2({ onLogout }: LearnLetters2Props) {
           </div>
 
           {/* النمر في الزاوية */}
-          <motion.div data-responsive="responsive-decoration" className="fixed z-0" style={{ top: "60%", left: "1%" }}>
+          <motion.div
+            data-responsive="tiger-corner"
+            className="fixed z-0"
+            style={{ top: "60%", left: "1%" }}
+          >
             <motion.img
+              data-responsive="tiger-image"
               src={tigerImg}
               alt="نمر"
               style={{
@@ -575,7 +587,8 @@ export function LearnLetters2({ onLogout }: LearnLetters2Props) {
             />
           </motion.div>
 
-          <motion.div data-responsive="responsive-decoration"
+          <motion.div
+            data-responsive="responsive-decoration tablet-art"
             className="fixed"
             style={{
               top: "81%",
@@ -603,7 +616,10 @@ export function LearnLetters2({ onLogout }: LearnLetters2Props) {
         >
           {/* المحتوى */}
           <div className="flex-1 flex flex-col px-6 pb-28">
-            <div className="max-w-5xl w-full mx-auto flex flex-col" style={{marginBottom:"50px" }}>
+            <div
+              className="max-w-5xl w-full mx-auto flex flex-col"
+              style={{ marginBottom: "50px" }}
+            >
               {/* العنوان */}
               {/* <motion.div
                 className="text-center mb-4"
@@ -624,15 +640,19 @@ export function LearnLetters2({ onLogout }: LearnLetters2Props) {
               {/* بطاقة لوحة الرسم */}
               <motion.div
                 className="bg-white rounded-3xl p-4 md:p-6 border-4 shadow-2xl z-10 flex-1 flex flex-col"
-                style={{ borderColor: "#fad656" ,marginBottom:"20px" }}
+                style={{ borderColor: "#fad656", marginBottom: "20px" }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-                <div data-responsive="drawing-grid" className="grid h-full gap-4 md:gap-6 grid-rows-[1fr_auto] md:grid-rows-1 md:grid-cols-4">
+                <div
+                  data-responsive="drawing-grid"
+                  className="grid h-full gap-4 md:gap-6 grid-rows-[1fr_auto] md:grid-rows-1 md:grid-cols-4"
+                >
                   {/* لوحة التلوين فوق على الموبايل / يمين على الديسكتوب */}
                   <div className="md:col-span-3 flex flex-col order-1 md:order-2">
-                    <div data-responsive="drawing-surface"
+                    <div
+                      data-responsive="drawing-surface"
                       className="flex-1 relative rounded-3xl overflow-hidden border-2 border-gray-200"
                       style={{ backgroundColor: "#f8f9fa" }}
                     >
@@ -752,8 +772,13 @@ export function LearnLetters2({ onLogout }: LearnLetters2Props) {
 
           {/* النمر في الزاوية */}
           {/* النمر في الزاوية */}
-          <motion.div data-responsive="responsive-decoration" className="fixed z-0" style={{ top: "60%", left: "1%" }}>
+          <motion.div
+            data-responsive="tiger-corner"
+            className="fixed z-0"
+            style={{ bottom: "4%", left: "1%" }}
+          >
             <motion.img
+              data-responsive="tiger-image"
               src={tigerImg}
               alt="نمر"
               style={{
@@ -765,10 +790,11 @@ export function LearnLetters2({ onLogout }: LearnLetters2Props) {
             />
           </motion.div>
 
-          <motion.div data-responsive="responsive-decoration"
+          <motion.div
+            data-responsive="responsive-decoration tablet-art"
             className="fixed"
             style={{
-              top: "81%",
+              bottom: "2%",
               right: "0%",
               color: "#FDC333",
               fontSize: "60px",

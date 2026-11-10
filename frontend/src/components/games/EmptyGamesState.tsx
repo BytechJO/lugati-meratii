@@ -72,7 +72,7 @@ export function EmptyGamesState({ letter, letterName, isTeacher, onLogout }: Emp
           animate={{ scale: 1, opacity: 1, y: 0 }}
           transition={{ type: "spring", stiffness: 200 }}
         >
-          <img
+          <img data-responsive="tiger-image"
             src={emptyTigerImg}
             alt=""
             style={{ height: 120, width: "auto", objectFit: "contain" }}

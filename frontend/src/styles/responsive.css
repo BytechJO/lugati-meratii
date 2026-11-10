@@ -39,7 +39,7 @@
   [data-page] :is(.grid, .flex) > * {
     min-width: 0;
   }
-  [data-responsive~="responsive-decoration"] {
+  [data-responsive~="responsive-decoration"]:not([data-responsive~="tablet-art"]) {
     display: none !important;
   }
 
@@ -429,9 +429,9 @@
     bottom: 0;
     margin-top: 40px;
   }
-   [data-page] :is(.grid, .flex) > * {
-           justify-content: center;
-  }
+[data-page] :is(.grid, .flex) > *{
+  justify-content: center;
+}
   [data-responsive~="account-grid"] img {
     height: auto !important;
   }
@@ -465,7 +465,8 @@
   [data-responsive~="login-illustration"] {
     gap: 24px !important;
   }
-  [data-page="login-page"] .absolute.drop-shadow-2xl {
+  [data-page="login-page"]
+    .absolute.drop-shadow-2xl {
     display: none;
   }
   [data-page="login-page"] > .absolute {
@@ -485,7 +486,7 @@
     padding-inline: 16px;
   }
   [data-page="games-section"] .px-6 {
-    padding-inline: 12px;
+    padding-inline: 5px;
   }
   [data-page="games-section"] p {
     margin-right: 0 !important;
@@ -506,7 +507,7 @@
     gap: 8px;
     padding-inline: 4px;
     flex-wrap: wrap;
-    justify-content: center;
+    /* justify-content: center; */
   }
   [data-page="letter-position"] .inline-block h2,
   [data-page="letter-tashkeel"] .inline-block h2 {
@@ -696,5 +697,154 @@
 @media (prefers-reduced-motion: reduce) {
   .activity-drawer {
     animation: none;
+  }
+}
+
+/* Phones hide decorative mascots; tablets reserve space for them below. */
+@media (max-width: 767px) {
+  [data-responsive~="tiger-image"],
+  [data-responsive~="tiger-corner"],
+  [data-responsive~="tiger-header"],
+  [data-responsive~="tiger-welcome"] {
+    display: none !important;
+  }
+  [data-responsive~="classroom-art"],
+  [data-responsive~="classroom-spark"],
+  [data-responsive~="tablet-art"] {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  [data-responsive~="tablet-art"] {
+    width: clamp(44px, 7vw, 84px);
+    height: auto;
+    pointer-events: none;
+  }
+  [data-responsive~="tablet-art"] img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 100px;
+    object-fit: contain;
+  }
+  [data-page="splash-screen"] .splash-tiger {
+    width: min(100%, 340px) !important;
+    height: auto !important;
+    max-height: 38svh;
+    object-fit: contain;
+  }
+  [data-responsive~="tiger-corner"] {
+    position: fixed !important;
+    /* inset: auto !important; */
+    width: clamp(110px, 17vw, 180px);
+    margin: 16px auto 16px 16px;
+    pointer-events: none;
+  }
+  [data-responsive~="tiger-corner"] [data-responsive~="tiger-image"] {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 200px;
+    object-fit: contain;
+  }
+  [data-responsive~="tiger-header"] {
+    width: clamp(140px, 28vw, 280px) !important;
+    flex: 0 0 auto;
+    align-items: center;
+    pointer-events: none;
+  }
+  [data-responsive~="tiger-header"] [data-responsive~="tiger-image"] {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain;
+  }
+  [data-responsive~="tiger-login"] {
+    position: relative !important;
+    inset: auto !important;
+    width: clamp(160px, 22vw, 240px) !important;
+    height: auto !important;
+    margin-inline: auto;
+  }
+  [data-responsive~="tiger-welcome"] {
+    position: relative !important;
+    inset: auto !important;
+    translate: none !important;
+    width: 140px !important;
+    height: auto !important;
+    margin: 12px auto !important;
+  }
+  [data-responsive~="tiger-welcome"] img {
+    width: 100% !important;
+    height: auto !important;
+  }
+  [data-responsive~="classroom-join-layout"] {
+    align-items: center;
+    justify-content: center;
+    gap: clamp(16px, 3vw, 40px);
+    min-height: 100svh;
+    padding: 80px 24px 32px;
+  }
+  [data-responsive~="classroom-join-form"] {
+    flex: 0 1 440px;
+    min-height: 0 !important;
+    padding: 0 !important;
+  }
+  [data-responsive~="classroom-content"] {
+    position: relative;
+    z-index: 1;
+    width: min(420px, calc(100% - 240px));
+    margin-inline: auto;
+    padding-block: 24px 40px;
+    text-align: center;
+  }
+  [data-responsive~="classroom-content"] > div {
+    width: 100%;
+  }
+  [data-responsive~="classroom-content"] h1 {
+    font-size: clamp(20px, 2.8vw, 30px) !important;
+    overflow-wrap: anywhere;
+  }
+  [data-responsive~="classroom-content"] img {
+    height: auto !important;
+    width: min(100%, 300px);
+    max-height: 38svh;
+    object-fit: contain;
+  }
+  [data-responsive~="classroom-art"] {
+    position: fixed !important;
+    inset: auto !important;
+    width: clamp(52px, 8vw, 88px);
+    padding: 8px !important;
+    pointer-events: none;
+    z-index: 0;
+  }
+  [data-responsive~="classroom-art"] img {
+    display: block;
+    width: 100% !important;
+    height: auto !important;
+    max-height: 100px;
+    object-fit: contain;
+  }
+  [data-responsive~="book-badge"] { top: 28% !important; left: 10% !important; }
+  [data-responsive~="book-corner"] { bottom: 8% !important; right: 3% !important; }
+  [data-responsive~="pen"] { top: 52% !important; right: 15% !important; }
+  [data-responsive~="lamb"] { top: 55% !important; left: 15% !important; }
+  [data-responsive~="letter"] { top: 27% !important; right: 11% !important; }
+  [data-responsive~="classroom-spark"] {
+    left: auto !important;
+    right: auto !important;
+    pointer-events: none;
+  }
+  [data-responsive~="spark-1"] { left: 16% !important; top: 70% !important; }
+  [data-responsive~="spark-2"] { right: 7% !important; top: 43% !important; }
+  [data-responsive~="spark-3"] { right: 15% !important; top: 20% !important; }
+  [data-responsive~="spark-4"] { left: 6% !important; top: 45% !important; }
+  [data-responsive~="classroom-spark"] img { height: 28px !important; }
+  [data-responsive~="classroom-tiger"] {
+    position: fixed !important;
+    inset: auto !important;
+    left: 16px !important;
+    bottom: 16px !important;
+    width: clamp(100px, 15vw, 170px);
+    margin: 0;
   }
 }

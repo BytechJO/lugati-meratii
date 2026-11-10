@@ -81,7 +81,11 @@ export function LetterDetails({ onLogout }: LetterDetailsProps) {
   console.log(letters);
 
   return (
-    <div data-page="letter-details" className="h-screen relative overflow-hidden" dir="rtl">
+    <div
+      data-page="letter-details"
+      className="h-screen relative overflow-hidden"
+      dir="rtl"
+    >
       {/* خلفية متدرجة */}
       <div
         className="fixed inset-0"
@@ -214,8 +218,13 @@ export function LetterDetails({ onLogout }: LetterDetailsProps) {
       </div>
 
       {/* النمر في الزاوية اليسرى العليا */}
-      <motion.div data-responsive="responsive-decoration" className="fixed z-0" style={{ top: "39%", left: "1%" }}>
+      <motion.div
+        data-responsive="tiger-corner"
+        className="fixed z-0"
+        style={{ bottom: "4%", left: "1%" }}
+      >
         <motion.img
+          data-responsive="tiger-image"
           src={tigerImg}
           alt="نمر"
           style={{ transform: "scaleX(-1)" }}
@@ -223,10 +232,11 @@ export function LetterDetails({ onLogout }: LetterDetailsProps) {
         />
       </motion.div>
 
-      <motion.div data-responsive="responsive-decoration"
+      <motion.div
+        data-responsive="responsive-decoration tablet-art"
         className="fixed"
         style={{
-          top: "75%",
+          bottom: "5%",
           right: "0%",
           color: "#FDC333",
           fontSize: "60px",
